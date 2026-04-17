@@ -176,3 +176,27 @@ streamlit run app.py
 \end{lstlisting}
 
 Ứng dụng sẽ tự động mở trình duyệt tại địa chỉ \texttt{http://localhost:8501}. Người dùng có thể kéo thanh trượt để thay đổi tham số và quan sát đồ thị biến đổi theo thời gian thực.
+
+\subsubsection{Giao diện ứng dụng tương tác}
+Dưới đây là một số ảnh chụp giao diện ứng dụng Streamlit khi vận hành:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/ss01.png}
+\caption{Giao diện tab ``Quỹ đạo'': hiển thị quỹ đạo $y(x)$ cho 5 góc ném cùng bảng số liệu chi tiết (tầm xa, độ cao cực đại, thời gian bay). Các tham số vật lý được hiển thị dưới dạng thẻ ở đầu trang.}
+\label{fig:ss01}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/ss02.png}
+\caption{Giao diện tab ``So sánh lực cản'': người dùng kéo thanh trượt để chọn góc $\alpha = 36°$ và quan sát sự chênh lệch quỹ đạo giữa trường hợp có lực cản (đường nét đứt đỏ) và không có lực cản (đường liền xanh). Các chỉ số $\Delta R$ và $\Delta H$ được tính tự động.}
+\label{fig:ss02}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/ss04.png}
+\caption{Giao diện tab ``Năng lượng'': phân tích biến thiên năng lượng tại $\alpha = 15°$ (chọn bằng thanh trượt). Đồ thị cho thấy 87\% năng lượng ban đầu bị tiêu hao do lực cản. Các chỉ số $E_0$, $KE$ chạm đất và năng lượng mất được hiển thị bên dưới.}
+\label{fig:ss04}
+\end{figure}
