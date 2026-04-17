@@ -1,0 +1,309 @@
+\documentclass[a4paper]{article}
+% \usepackage{a4wide,amssymb,epsfig,latexsym,multicol,array,hhline,fancyhdr}
+\usepackage{amssymb,epsfig,latexsym,multicol,array,hhline,fancyhdr}
+\usepackage{vntex}
+\usepackage{amsmath}
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{longtable}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage{makecell}
+\usepackage{pifont}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+% --- QUAN TRỌNG: Xóa hết các dòng hyperref cũ và chỉ giữ lại đúng 1 dòng này Ở CUỐI ---
+\usepackage[linkcolor=blue, citecolor=green, urlcolor=blue]{hyperref}
+% --------------------------------------------------------------------------------------
+
+%\usepackage{pstcol}
+
+\newtheorem{theorem}{{\bf Theorem}}
+\newtheorem{property}{{\bf Property}}
+\newtheorem{proposition}{{\bf Proposition}}
+\newtheorem{corollary}[proposition]{{\bf Corollary}}
+\newtheorem{lemma}[proposition]{{\bf Lemma}}
+
+\newcommand\tab[1][14.5pt]{\hspace*{#1}}
+
+\AtBeginDocument{\renewcommand*\contentsname{Mục Lục}}
+\AtBeginDocument{\renewcommand*\listfigurename{Danh mục bảng và hình vẽ}}
+\AtBeginDocument{\renewcommand*\refname{Tài liệu tham khảo}}
+
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} 
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{hcmut.png}}
+   \end{picture}&
+    \begin{tabular}{l}
+        \textbf{\bf \ttfamily Trường Đại học Bách khoa -- ĐHQG-HCM}\\
+        \textbf{\bf \ttfamily Khoa Khoa học ứng dụng}
+    \end{tabular}   
+ \end{tabular}
+}
+\fancyhead[R]{
+    \begin{tabular}{l}
+        \tiny \bf \\
+        \tiny \bf 
+    \end{tabular}  }
+\fancyfoot{} 
+\fancyfoot[L]{\scriptsize \ttfamily Bài tập lớn -- Vật lý đại cương A1 -- Học kỳ 252}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+\usepackage{caption}
+\captionsetup[figure]{labelsep=colon, font=small, labelfont=bf}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black, % Đổi thành blue nếu muốn link có màu xanh nhưng không có khung
+    citecolor=black,
+    urlcolor=blue,
+    pdfborder={0 0 0} % Triệt tiêu hoàn toàn khung bao quanh link
+}
+
+\usepackage[titles]{tocloft}
+
+% --- Cấu hình in đậm cho Danh mục Hình vẽ ---
+\renewcommand{\cftfigpresnum}{\bfseries Hình } % Đã bao gồm in đậm số thứ tự
+\renewcommand{\cftfigaftersnum}{\bfseries :}    % In đậm dấu ":"
+\renewcommand{\cftfigpagefont}{\bfseries}       % In đậm số trang
+
+% Cân chỉnh khoảng cách để không bị đè chữ
+\newlength{\figlabelwidth}
+\settowidth{\figlabelwidth}{\bfseries Hình 99: } 
+\addtolength{\cftfignumwidth}{\figlabelwidth}
+
+% --- Cấu hình in đậm cho Danh mục Bảng biểu ---
+\renewcommand{\cfttabpresnum}{\bfseries Bảng }
+\renewcommand{\cfttabaftersnum}{\bfseries :}
+\renewcommand{\cfttabpagefont}{\bfseries} 
+
+\newlength{\tablabelwidth}
+\settowidth{\tablabelwidth}{\bfseries Bảng 99: }
+\addtolength{\cfttabnumwidth}{\tablabelwidth}
+
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Cấu hình màu sắc cho code
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Thiết lập style cho Python
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=Python
+}
+
+
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\textbf{ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH \\
+TRƯỜNG ĐẠI HỌC BÁCH KHOA} \\
+\textbf{KHOA KHOA HỌC ỨNG DỤNG}
+\end{center}
+
+\vspace{1cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=3cm]{hcmut.png}
+\end{center}
+\end{figure}
+
+\vspace{1cm}
+
+
+\begin{center}
+\begin{tabular}{c}
+\multicolumn{1}{c}{\textbf{{\LARGE VẬT LÝ ĐẠI CƯƠNG A1 (PH1003)}}}\\
+~~\\
+\hline
+\\
+\multicolumn{1}{l}{\textbf{{\Large BÀI TẬP LỚN}}}\\
+\\
+\textbf{{\large \MakeUppercase{Mô phỏng sự phân bố năng lượng điện trường} }}
+\\
+\textbf{{\large \MakeUppercase{và mật độ năng lượng trong tụ điện phẳng}}}\\
+\\
+\\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\begin{table}[h]
+\begin{tabular}{rrl}
+\hspace{3 cm} & \textbf{Giảng viên hướng dẫn:} &TS.Trịnh Trần Hồng Duyên\\
+
+& \textbf{Sinh viên thực hiện:} & \textbf{Trần Đăng Bảo - 2210270} \\
+& & Trần Minh Khôi - 2311703 \\
+& & Mai Trần Thiên Ân - 2310181 \\ 
+& & Nguyễn Quốc Trạng  - 2213565 \\
+& & Võ Thanh Quân - 2114562\\
+& & Thịnh Trần Khánh Linh - 2211862\\
+& & Trần Nguyễn Phương Tuyền - 2213833\\
+\end{tabular}
+\end{table}
+
+\vspace{1cm}
+\begin{center}
+{TP. Hồ Chí Minh -- 2026}
+\end{center}
+\end{titlepage}
+\thispagestyle{empty}
+
+%\thispagestyle{empty}
+
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\listoffigures
+\addcontentsline{toc}{section}{\listfigurename} 
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Danh sách thành viên và phân chia công việc}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{STT} & \textbf{Họ tên} & \textbf{MSSV} & \makecell[c]{\textbf{Công việc}} & \makecell[c]{\textbf{Phần trăm} \\ \textbf{hoàn thành}}\\
+\hline 
+%%%%Student 1%%%%%%%%%%
+\multirow{3}{*}{1} & \multirow{3}{*}{Trần Đăng Bảo} & \multirow{3}{*}{2210270} &  & \multirow{3}{*}{100\%}\\
+ & &  &  &\\
+ & &  &  &\\
+\hline 
+%%%%Student 2%%%%%%%%%%%
+\multirow{3}{*}{2} & \multirow{3}{*}{Trần Minh Khôi} & \multirow{3}{*}{2311703} &  & \multirow{3}{*}{100\%}\\
+ & &  &  &\\
+ & &  &  &\\
+\hline
+%%%%Student 3%%%%%%%%%%%
+\multirow{3}{*}{3} & \multirow{3}{*}{Mai Trần Thiên Ân} & \multirow{3}{*}{2310181} &  & \multirow{3}{*}{100\%}\\
+ & &  &  &\\
+ & &  &  &\\
+\hline
+%%%%Student 4%%%%%%%%%%%
+\multirow{3}{*}{4} & \multirow{3}{*}{Nguyễn Quốc Trạng } & \multirow{3}{*}{2213565} &  & \multirow{3}{*}{100\%}\\
+ & &  &  &\\
+ & &  &  &\\
+\hline
+%%%%Student 5%%%%%%%%%%%
+\multirow{3}{*}{5} & \multirow{3}{*}{Võ Thanh Quân} & \multirow{3}{*}{2114562} &  & \multirow{3}{*}{100\%}\\
+ & &  &  &\\
+ & &  &  &\\
+\hline
+%%%%Student 6%%%%%%%%%%%
+\multirow{3}{*}{5} & \multirow{3}{*}{Thịnh Trần Khánh Linh} & \multirow{3}{*}{2211862} &  & \multirow{3}{*}{100\%}\\
+ & &  &  &\\
+ & &  &  &\\
+\hline
+%%%%Student 7%%%%%%%%%%%
+\multirow{3}{*}{5} & \multirow{3}{*}{Trần Nguyễn Phương Tuyền} & \multirow{3}{*}{2213833} &  & \multirow{3}{*}{100\%}\\
+ & &  &  &\\
+ & &  &  &\\
+\hline
+
+
+\end{tabular}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\input{section/theory}
+\newpage
+\input{section/simulation}
+\newpage
+\input{section/result_analysis}
+\newpage
+\input{section/compare_assestion}
+\newpage
+% \input{section/introduction}
+% \input{section/theory}
+% \input{section/methodology_implementation}
+% \input{section/experience_result}
+% \input{section/discussion}
+% \input{section/conclusion}
+\newpage
+
+\nocite{serway2008physics}
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\newpage
+\appendix
+\input{section/appendix}
+
+% \begin{thebibliography}{99}
+
+
+
+% \end{thebibliography}
+
+
+\end{document}
+

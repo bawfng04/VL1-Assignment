@@ -1,0 +1,226 @@
+\section{Mô phỏng}
+\subsection{Mục đích và phạm vi mô phỏng}
+\subsubsection{Mục đích mô phỏng}
+Tiến trình mô phỏng được thiết lập với mục tiêu tiên quyết là thực thi hóa các mô hình toán lý thuần túy thành các thuật toán xử lý dữ liệu động trên nền tảng máy tính. Trọng tâm của công tác này là việc tin học hóa hệ phương trình mô tả cường độ điện trường ($E$), mật độ năng lượng điện trường ($u_E$), và năng lượng tĩnh điện tổng thể ($W$) tồn tại trong hệ thống tụ điện phẳng. Thông qua các kỹ thuật tính toán vector hóa, mô phỏng cho phép chuyển đổi các công thức giải tích trừu tượng thành các miền phân bố dữ liệu cụ thể. Điều này không chỉ giúp kiểm chứng độ chính xác của các định luật vật lý trong các kịch bản thực nghiệm số, mà còn hỗ trợ việc trực quan hóa sự phân bố không gian của năng lượng — một đại lượng vốn khó quan sát bằng các phương pháp thực nghiệm truyền thống — dưới dạng các đồ thị 3D và trường vector trực quan.
+\subsubsection{Phạm vi và giới hạn khảo sát}
+Về phạm vi triển khai, nghiên cứu tập trung xây dựng một hệ thống quét tham số dựa trên kỹ thuật lưới tọa độ đa chiều (meshgrid), cho phép phân tích sự biến thiên của năng lượng dưới tác động đồng thời của nhiều biến số vật lý. Không gian mô phỏng được giới hạn trong phạm vi khảo sát ba thông số đầu vào cốt lõi với các định mức kỹ thuật cụ thể: hiệu điện thế ($V$) được thiết lập trong dải từ 0V đến 1000V, khoảng cách giữa hai bản tụ ($d$) biến thiên từ 10mm đến 50mm, và hằng số điện môi ($\kappa$) của lớp vật liệu trung gian được quét từ 1 đến 10 (tương ứng từ môi trường chân không đến các chất điện môi đặc biệt). Việc thiết lập các ngưỡng giới hạn này nhằm mục đích xây dựng một ma trận dữ liệu đủ dày để phản ánh trung thực các quy luật vật lý, đồng thời đảm bảo tính ổn định và khả năng hội tụ của mô hình trong quá trình tính toán số lượng lớn
+
+\subsection{Nền tảng công cụ và thiết kế kỹ thuật}
+\subsubsection{Ngôn ngữ lập trình}
+Toàn bộ hệ thống mô phỏng được phát triển trên ngôn ngữ lập trình Python, một lựa chọn ưu việt trong nghiên cứu khoa học nhờ tính linh hoạt và hệ sinh thái thư viện hỗ trợ tính toán mạnh mẽ. Đối với bài toán xử lý ma trận dữ liệu, chúng tôi tích hợp thư viện NumPy nhằm thay thế các vòng lặp thủ công bằng kỹ thuật vector hóa (vectorization). Phương pháp này cho phép thực hiện đồng thời các phép toán đại số tuyến tính trên lưới tọa độ gồm hàng vạn điểm dữ liệu, đảm bảo tính hội tụ về mặt thời gian thực và giảm thiểu sai số tính toán tích lũy. Việc ứng dụng cấu trúc mảng đa chiều của NumPy đóng vai trò cốt lõi trong việc ánh xạ các phương trình cường độ điện trường và mật độ năng lượng lên không gian ba chiều một cách chính xác.
+\subsubsection{Kiến trúc hiển thị đồ họa}
+Kiến trúc hiển thị của công cụ được thiết kế phân tầng nhằm phục vụ hai mục đích: phân tích tĩnh chuyên sâu và tương tác động trực quan.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{images/library.png}
+    \caption{Ngôn ngữ lập trình Python và các thư viên hỗ trợ - Matplotlib, Plotly Dash}
+    \label{fig:placeholder}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Tầng đồ họa tiêu chuẩn (Matplotlib):} Thư viện Matplotlib được sử dụng để khởi tạo các đồ thị tuyến tính 2D và bề mặt 3D tĩnh đạt chuẩn xuất bản khoa học. Đây là công cụ đắc lực để biểu diễn các quy luật biến thiên của năng lượng theo từng biến số đơn lẻ, đồng thời tích hợp hệ thống giao diện điều khiển nguyên bản để phục vụ việc tinh chỉnh thông số trong giai đoạn thử nghiệm mô hình ban đầu.
+    \item \textbf{Tầng tương tác Web (Interactive Dashboard - Dash \& Plotly):} Để nâng cao trải nghiệm phân tích, chúng tôi xây dựng một ứng dụng Dashboard trên nền tảng khung thư viện Dash kết hợp với engine đồ họa Plotly. Kiến trúc này cho phép render các khối hình học không gian phức tạp và trường vector điện trường trực tiếp trên trình duyệt web. Khả năng tương tác đa điểm (xoay, phóng to, cắt lớp) của Plotly giúp người dùng quan sát được sự phân bố năng lượng tại các tọa độ bất kỳ trong lòng tụ điện, điều mà các đồ thị tĩnh truyền thống khó có thể truyền tải trọn vẹn.
+\end{itemize}
+
+\subsection{Hiện thực hóa các kịch bản mô phỏng}
+Để chuyển đổi từ các công thức giải tích sang hệ thống trực quan hóa, quy trình mô phỏng được chia thành hai giai đoạn: phân tích xu hướng tĩnh nhằm xác lập quy luật vật lý và mô phỏng động nhằm kiểm chứng giả thuyết.
+\subsubsection{Thiết lập mô hình phân tích xu hướng tĩnh}
+Trong nghiên cứu các hệ thống đa biến, phương pháp thực nghiệm số thường áp dụng nguyên tắc cô lập biến số. Việc phân tách phương trình năng lượng giúp làm rõ vai trò của từng thông số hình học và điện học đối với khả năng tích lũy năng lượng của tụ điện.
+\paragraph{Phân tích lát cắt 2D: khảo sát đơn biến\\}
+
+Để khảo sát tầm ảnh hưởng của một thông số cụ thể (ví dụ: hiệu điện thế $V$, khoảng cách $d$, hoặc hằng số điện môi $\kappa$), chúng tôi thực hiện các "lát cắt" đồ thị bằng cách cố định hai biến số còn lại tại giá trị định mức. Phương pháp này giúp phân rã phương trình mật độ năng lượng $u_E$ và tổng năng lượng $W$ thành các hàm bậc nhất, bậc hai hoặc hyperbol tùy thuộc vào biến số khảo sát.
+
+\textbf{Cấu trúc mã nguồn triển khai với khảo sát $u_E(x)$ với $x$ là các biến $\kappa$, $d$, $V$:}
+
+\begin{lstlisting}[style=pythonstyle, caption={Đoạn code 2D tính mật độ năng lượng $u_E$}]
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ==========================================
+# 1. CONSTANTS AND FIXED PARAMETERS
+# ==========================================
+EPS_0 = 8.854e-12  # Vacuum permittivity (F/m)
+
+# Fixed values for single-variable analysis
+V_fixed = 500      # Voltage: 500V
+d_fixed = 0.01     # Distance: 10mm (0.01m)
+kappa_fixed = 1.0  # Vacuum environment
+
+# ==========================================
+# 2. DATA INITIALIZATION
+# ==========================================
+V_arr = np.linspace(0, 1000, 200)       # Voltage range: 0 - 1000V
+d_arr = np.linspace(0.01, 0.05, 200)    # Distance range: 10mm - 50mm
+kappa_arr = np.linspace(1, 10, 200)      # Dielectric constant range: 1 - 10
+
+# ==========================================
+# 3. ENERGY DENSITY CALCULATION (J/m^3)
+# ==========================================
+# Formula: u_E = 0.5 * kappa * EPS_0 * (V / d)^2
+uE_V = 0.5 * kappa_fixed * EPS_0 * (V_arr / d_fixed)**2
+uE_d = 0.5 * kappa_fixed * EPS_0 * (V_fixed / d_arr)**2
+uE_kappa = 0.5 * kappa_arr * EPS_0 * (V_fixed / d_fixed)**2
+
+# ==========================================
+# 4. 2D PLOTTING
+# ==========================================
+fig, axs = plt.subplots(1, 3, figsize=(18, 6))
+
+# --- Plot 1: u_E vs Voltage (V) ---
+axs[0].plot(V_arr, uE_V, color='blue', linewidth=2.5)
+axs[0].set_title(r'$u_E$ vs $V$ ($u_E \propto V^2$)', fontsize=14, pad=15)
+axs[0].set_xlabel('Voltage V (V)', fontsize=12)
+axs[0].set_ylabel(r'Energy Density $u_E$ ($J/m^3$)', fontsize=12)
+axs[0].grid(True, linestyle='--', alpha=0.6)
+axs[0].fill_between(V_arr, uE_V, color='blue', alpha=0.1)
+
+# --- Plot 2: u_E vs Distance (d) ---
+axs[1].plot(d_arr, uE_d, color='red', linewidth=2.5)
+axs[1].set_title(r'$u_E$ vs $d$ ($u_E \propto \frac{1}{d^2}$)', fontsize=14, pad=15)
+axs[1].set_xlabel('Distance d (m)', fontsize=12)
+axs[1].set_ylabel(r'Energy Density $u_E$ ($J/m^3$)', fontsize=12)
+axs[1].grid(True, linestyle='--', alpha=0.6)
+axs[1].fill_between(d_arr, uE_d, color='red', alpha=0.1)
+
+# --- Plot 3: u_E vs Dielectric Constant (kappa) ---
+axs[2].plot(kappa_arr, uE_kappa, color='green', linewidth=2.5)
+axs[2].set_title(r'$u_E$ vs $\kappa$ ($u_E \propto \kappa$)', fontsize=14, pad=15)
+axs[2].set_xlabel(r'Dielectric Constant $\kappa$', fontsize=12)
+axs[2].set_ylabel(r'Energy Density $u_E$ ($J/m^3$)', fontsize=12)
+axs[2].grid(True, linestyle='--', alpha=0.6)
+axs[2].fill_between(kappa_arr, uE_kappa, color='green', alpha=0.1)
+
+# Main title and layout adjustment
+fig.suptitle('Dependency of Electric Energy Density ($u_E$) on Parameters', 
+             fontsize=18, fontweight='bold', y=0.98)
+
+plt.tight_layout(rect=[0, 0, 1, 0.93])
+plt.show()
+\end{lstlisting}
+
+\textbf{Cấu trúc mã nguồn triển khai với khảo sát $W(x)$ với $x$ là các biến $\kappa$, $d$, $V$:}
+\begin{lstlisting}[style=pythonstyle, caption={Đoạn code 2D tính tổng năng lượng (W)}]
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ==========================================
+# 1. CONSTANTS AND FIXED PARAMETERS
+# ==========================================
+EPS_0 = 8.854e-12  # Vacuum permittivity (F/m)
+S = 0.04           # Plate area (m^2)
+
+# Fixed values for single-variable sensitivity analysis
+V_fixed = 500      # Fixed Voltage: 500V
+d_fixed = 0.01     # Fixed Distance: 10mm (0.01m)
+kappa_fixed = 1.0  # Vacuum environment
+
+# ==========================================
+# 2. DATA INITIALIZATION
+# ==========================================
+V_arr = np.linspace(0, 1000, 200)       # Range: 0 - 1000V
+d_arr = np.linspace(0.01, 0.05, 200)    # Range: 10mm - 50mm
+kappa_arr = np.linspace(1, 10, 200)     # Range: 1 - 10
+
+# ==========================================
+# 3. TOTAL ENERGY CALCULATION (uJ)
+# ==========================================
+# Formula: W = 0.5 * (kappa * EPS_0 * S / d) * V^2
+# Multiplying by 1e6 to convert Joules (J) to Microjoules (uJ)
+W_V = 0.5 * (kappa_fixed * EPS_0 * S / d_fixed) * (V_arr**2) * 1e6
+W_d = 0.5 * (kappa_fixed * EPS_0 * S / d_arr) * (V_fixed**2) * 1e6
+W_kappa = 0.5 * (kappa_arr * EPS_0 * S / d_fixed) * (V_fixed**2) * 1e6
+
+# ==========================================
+# 4. 2D PLOTTING
+# ==========================================
+fig, axs = plt.subplots(1, 3, figsize=(18, 6))
+
+# --- Plot 1: Total Energy (W) vs. Voltage (V) ---
+axs[0].plot(V_arr, W_V, color='blue', linewidth=2.5)
+axs[0].set_title(r'$W$ vs $V$ ($W \propto V^2$)', fontsize=14, pad=15)
+axs[0].set_xlabel('Voltage V (V)', fontsize=12)
+axs[0].set_ylabel(r'Total Energy $W$ ($\mu J$)', fontsize=12)
+axs[0].grid(True, linestyle='--', alpha=0.6)
+axs[0].fill_between(V_arr, W_V, color='blue', alpha=0.1)
+
+# --- Plot 2: Total Energy (W) vs. Distance (d) ---
+axs[1].plot(d_arr, W_d, color='red', linewidth=2.5)
+axs[1].set_title(r'$W$ vs $d$ ($W \propto \frac{1}{d}$)', fontsize=14, pad=15)
+axs[1].set_xlabel('Distance d (m)', fontsize=12)
+axs[1].set_ylabel(r'Total Energy $W$ ($\mu J$)', fontsize=12)
+axs[1].grid(True, linestyle='--', alpha=0.6)
+axs[1].fill_between(d_arr, W_d, color='red', alpha=0.1)
+
+# --- Plot 3: Total Energy (W) vs. Dielectric Constant (kappa) ---
+axs[2].plot(kappa_arr, W_kappa, color='green', linewidth=2.5)
+axs[2].set_title(r'$W$ vs $\kappa$ ($W \propto \kappa$)', fontsize=14, pad=15)
+axs[2].set_xlabel(r'Dielectric Constant $\kappa$', fontsize=12)
+axs[2].set_ylabel(r'Total Energy $W$ ($\mu J$)', fontsize=12)
+axs[2].grid(True, linestyle='--', alpha=0.6)
+axs[2].fill_between(kappa_arr, W_kappa, color='green', alpha=0.1)
+
+# Main title and layout adjustment
+fig.suptitle('Dependency of Electric Energy (W) on Physical Parameters', 
+             fontsize=18, fontweight='bold', y=0.98)
+
+plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.show()
+\end{lstlisting}
+
+Kết quả từ mô phỏng 2D cho phép nhóm nhanh chóng xác nhận các quy luật như: năng lượng tỷ lệ thuận với bình phương hiệu điện thế ($W \propto V^2$) và tỷ lệ nghịch với khoảng cách ($W \propto \frac{1}{d}$),...
+
+\paragraph{Không gian tương quan 3D: tổ hợp lưới biến kép\\}
+Nhằm bao quát toàn bộ mặt phẳng thay đổi của năng lượng, phương pháp tổ hợp lưới biến kép được ứng dụng để dựng các bề mặt cong (surfaces). Bằng cách cho phép hai thông số biến thiên đồng thời, chúng tôi có thể quan sát được sự tương tác giữa các đại lượng, ví dụ như cách hằng số điện môi bù đắp cho sự sụt giảm năng lượng khi tăng khoảng cách.
+
+Ba kịch bản tổ hợp chính được thiết lập trong các file 3D\_W.py và 3D\_u\_E.py:
+\begin{itemize}
+    \item Tương quan ($V$ \& $d$): Minh họa sự cạnh tranh giữa lực đẩy điện thế và trở lực không gian.
+    \item Tương quan ($V$ \& $\kappa$): Khảo sát hiệu suất tích lũy năng lượng của các vật liệu điện môi khác nhau dưới áp lực điện trường.
+    \item Tương quan ($d$ \& $\kappa$): Phân tích ảnh hưởng của hình học và vật liệu lên hằng số điện dung.
+\end{itemize}
+Việc triển khai các không gian 3D này cung cấp cái nhìn tổng thể về "độ dốc" năng lượng, giúp xác định các điểm vận hành tối ưu cho tụ điện trong các ứng dụng thực tế. Nhằm giảm chiều dài của bài báo cáo, nhóm sẽ không cấp mã nguồn tại báo cáo. Mã nguồn của báo cáo được nhóm public tại github: \url{https://github.com/baodangtrandev/assignment_physic1}
+
+\subsubsection{Mô hình controller điều khiển động 2D}
+Ngoài việc xây dựng các đồ thị tĩnh để xác lập quy luật, nghiên cứu còn triển khai một hệ thống điều khiển động (Dynamic Controller) dựa trên giao diện người dùng trực quan. Mục tiêu của mô hình này là cho phép quan sát sự biến đổi của năng lượng một cách liên tục và trực tiếp khi các thông số vật lý thay đổi, thay vì chỉ nhìn vào các giá trị rời rạc.
+
+\paragraph{Giao diện thanh trượt và giám sát thời gian thực\\}
+Hệ thống được thiết kế với các thành phần điều khiển (Widgets) cho phép tinh chỉnh ba tham số đầu vào: $V, d,$ và $\kappa$. Cơ chế vận hành dựa trên kiến trúc callback của thư viện Dash: khi người dùng tác động vào thanh trượt, một tín hiệu được gửi đến nhân tính toán NumPy để cập nhật lại toàn bộ ma trận dữ liệu mật độ năng lượng. Kết quả được hiển thị tức thì qua các biểu đồ động, giúp giám sát "độ nhạy" của năng lượng đối với từng thông số. Chẳng hạn, người dùng có thể quan sát mật độ năng lượng $u_E$ tăng vọt theo hàm bậc hai khi kéo thanh trượt hiệu điện thế $V$, hoặc sự suy giảm nhanh chóng của trường lực khi tăng khoảng cách $d$.
+\paragraph{Cơ chế tính toán tự động và phân tích đối chứng điện môi}
+Một tính năng cốt lõi của Controller là hệ thống hiển thị thông số tổng hợp (Summary Metrics). Tại mỗi trạng thái điều khiển, phần mềm tự động thực thi các phép toán logic sau:
+\begin{itemize}
+    \item \textbf{Tính toán cường độ điện trường trung bình:} Áp dụng công thức $E = \frac{V}{d}$ để cập nhật giá trị $E$ hiển thị trên Dashboard. Điều này giúp người học liên hệ trực tiếp giữa thông số hình học và cường độ trường lực.
+    \item \textbf{So sánh năng lượng song song:} Đây là điểm nhấn trong phân tích của nhóm. Hệ thống thực hiện tính toán đồng thời hai mô hình:
+    \begin{enumerate}
+        \item Mô hình lý tưởng (Chân không): Cố định $\kappa = 1$.
+        \item Mô hình thực tế (Điện môi): Sử dụng giá trị $\kappa$ từ thanh trượt.
+    \end{enumerate}
+\end{itemize}
+Việc đặt hai giá trị năng lượng này cạnh nhau trên giao diện cho thấy rõ ràng khả năng "khuếch đại" năng lượng của chất điện môi. Kết quả mô phỏng khẳng định rằng tại cùng một mức điện áp và kích thước, việc chèn vật liệu có hệ số $\kappa > 1$ sẽ làm tăng mật độ năng lượng theo đúng tỷ lệ thuận tuyến tính, giúp tối ưu hóa khả năng tích trữ điện năng của thiết bị. Mã nguồn được cung cấp ở 2 file simulation\_2D\_W.py, simulation\_2D\_u\_E.py ở kho lưu trữ mã nguồn: \url{https://github.com/baodangtrandev/assignment_physic1}
+
+\subsubsection{Hệ thống mô phỏng vật lý không gian Web App 3D}
+Để đạt được mức độ trực quan hóa cao nhất, nghiên cứu đã phát triển một hệ thống mô phỏng 3D hoàn chỉnh trên nền tảng Web App. Không chỉ dừng lại ở các đồ thị toán học, hệ thống này tái lập một môi trường vật lý ảo, nơi các thực thể như bản tụ, đường sức điện trường và mật độ năng lượng được ánh xạ chính xác theo tỷ lệ thực. Github: \url{https://github.com/baodangtrandev/assignment_physic1/blob/main/simulation_3D.py}
+\paragraph{Thuật toán giả lập hình học động cho bản tụ\\}
+Mặt tụ điện được mô hình hóa bằng các thực thể mặt phẳng (Planes) trong không gian 3D. Điểm cốt lõi của thuật toán là khả năng co dãn kích thước động (Dynamic Scaling).
+
+Khi người dùng thay đổi tham số khoảng cách $d$ trên giao diện, hệ thống sẽ tính toán lại tọa độ $Z$ của hai mặt phẳng đại diện cho hai bản cực. Thuật toán đảm bảo rằng thể tích quan sát giữa hai bản tụ luôn được cập nhật tương ứng, cho phép người dùng quan sát trực quan hiện tượng: khi $d$ giảm, cường độ tương tác tăng lên rõ rệt do sự thu hẹp không gian lưu trữ năng lượng.
+
+\paragraph{Trực quan hóa ma trận trường vectơ\\}
+Điện trường $\vec{E}$ vốn là một đại lượng vô hình, được hệ thống cụ thể hóa thông qua ma trận hình nón (Cone markers).
+\begin{itemize}
+    \item Hướng: Mỗi hình nón trong ma trận đại diện cho một vectơ cường độ điện trường tại điểm đó, hướng từ bản cực dương sang bản cực âm.
+    \item Mật độ: Các vectơ được phân bổ đều trong không gian giữa hai bản tụ theo cấu trúc lưới tọa độ lưới $X, Y, Z$, minh chứng cho tính chất của điện trường đều trong tụ điện phẳng lý tưởng.
+\end{itemize}
+Việc sử dụng trường vectơ giúp người dùng dễ dàng nhận diện hướng truyền của lực điện trường và cách mà vật liệu điện môi ($\kappa$) tương tác làm thay đổi độ lớn của trường lực này.
+
+\paragraph{Trực quan hóa giá trị năng lượng qua Colormap\\}
+Hệ thống ứng dụng kỹ thuật ánh xạ màu sắc (Color mapping) để biểu diễn mật độ năng lượng $u_E$. Toàn bộ vùng không gian giữa hai bản tụ được phủ một thang màu phân cấp (thường là thang Viridis hoặc RdBu):
+\begin{itemize}
+    \item \textbf{Vùng màu nóng (Đỏ/Vàng):} Biểu thị các vùng có mật độ năng lượng cao (thường xuất hiện khi $V$ lớn hoặc $d$ rất nhỏ).
+    \item \textbf{Vùng màu lạnh (Xanh):} Biểu thị các vùng mật độ năng lượng thấp hoặc bằng không (khu vực bên ngoài tụ điện).
+\end{itemize}
+
+Cơ chế này giúp chuyển đổi các giá trị số thập phân phức tạp thành một biểu đồ nhiệt không gian, giúp người học nhận biết ngay lập tức mức độ tập trung năng lượng mà không cần đọc trực tiếp số liệu.
+
+
+
+

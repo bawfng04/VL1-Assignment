@@ -1,0 +1,105 @@
+\section{Phụ lục: Mã nguồn chương trình}
+
+\subsection{File \texttt{projectile\_with\_drag.py} -- Chương trình tĩnh (trích đoạn)}
+
+\begin{lstlisting}[style=pythonstyle, caption={Phần giải ODE và tính toán quỹ đạo}]
+from sympy import *
+import numpy as np
+import matplotlib.pyplot as plt
+
+# === Khai bao bien symbolic ===
+t = symbols('t', positive=True)
+m_s, g_s, h_s, v0_s, alpha_s = symbols(
+    'm g h v_0 alpha', positive=True)
+x = Function('x')
+y = Function('y')
+
+# === Thiet lap va giai ODE ===
+# Phuong Ox: m*x''(t) + h*x'(t) = 0
+ode_x = Eq(m_s * x(t).diff(t, 2) 
+           + h_s * x(t).diff(t), 0)
+sol_x = dsolve(ode_x, x(t), ics={
+    x(0): 0,
+    x(t).diff(t).subs(t, 0): v0_s * cos(alpha_s)
+})
+
+# Phuong Oy: m*y''(t) + h*y'(t) = -m*g
+ode_y = Eq(m_s * y(t).diff(t, 2) 
+           + h_s * y(t).diff(t), -m_s * g_s)
+sol_y = dsolve(ode_y, y(t), ics={
+    y(0): 0,
+    y(t).diff(t).subs(t, 0): v0_s * sin(alpha_s)
+})
+
+# === Don gian hoa va chuyen sang ham so ===
+x_expr = simplify(sol_x.rhs)
+y_expr = simplify(sol_y.rhs)
+vx_expr = simplify(x_expr.diff(t))
+vy_expr = simplify(y_expr.diff(t))
+
+params = (t, m_s, g_s, h_s, v0_s, alpha_s)
+x_func  = lambdify(params, x_expr,  'numpy')
+y_func  = lambdify(params, y_expr,  'numpy')
+vx_func = lambdify(params, vx_expr, 'numpy')
+vy_func = lambdify(params, vy_expr, 'numpy')
+
+# === Thong so dau vao ===
+m_val  = 1.0    # kg
+g_val  = 9.81   # m/s^2
+h_val  = 0.5    # kg/s
+v0_val = 50.0   # m/s
+angles = [15, 30, 45, 60, 75]  # do
+t_max  = 15.0   # s
+\end{lstlisting}
+
+\subsection{File \texttt{app.py} -- Ứng dụng Streamlit (trích đoạn)}
+
+\begin{lstlisting}[style=pythonstyle, caption={Giải ODE và cache kết quả trong Streamlit}]
+import streamlit as st
+from sympy import *
+
+@st.cache_resource
+def solve_ode_symbolic():
+    """Giai he ODE bang SymPy 
+    -- chi chay 1 lan, cache bang 
+    cache_resource."""
+    t_s = symbols('t', positive=True)
+    m_s, g_s, h_s, v0_s, a_s = symbols(
+        'm g h v_0 alpha', positive=True)
+    xf, yf = Function('x'), Function('y')
+
+    sol_x = dsolve(
+        Eq(m_s * xf(t_s).diff(t_s, 2) 
+           + h_s * xf(t_s).diff(t_s), 0),
+        xf(t_s),
+        ics={xf(0): 0, 
+             xf(t_s).diff(t_s).subs(t_s, 0): 
+                v0_s * cos(a_s)}
+    )
+    sol_y = dsolve(
+        Eq(m_s * yf(t_s).diff(t_s, 2) 
+           + h_s * yf(t_s).diff(t_s), 
+           -m_s * g_s),
+        yf(t_s),
+        ics={yf(0): 0, 
+             yf(t_s).diff(t_s).subs(t_s, 0): 
+                v0_s * sin(a_s)}
+    )
+
+    x_e = simplify(sol_x.rhs)
+    y_e = simplify(sol_y.rhs)
+    args = (t_s, m_s, g_s, h_s, v0_s, a_s)
+    
+    return (
+        lambdify(args, x_e, 'numpy'),
+        lambdify(args, y_e, 'numpy'),
+        lambdify(args, x_e.diff(t_s), 'numpy'),
+        lambdify(args, y_e.diff(t_s), 'numpy'),
+        latex(x_e), latex(y_e),
+        latex(x_e.diff(t_s)), 
+        latex(y_e.diff(t_s)),
+    )
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textit{Mã nguồn đầy đủ được đính kèm trong thư mục nộp bài.}

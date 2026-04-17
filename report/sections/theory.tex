@@ -1,0 +1,125 @@
+\section{Cơ sở lý thuyết}
+
+\subsection{Chuyển động ném xiên -- Mô hình lý tưởng}
+\subsubsection{Phát biểu bài toán}
+Xét một chất điểm khối lượng $m$ được ném từ gốc tọa độ $O$ với vận tốc ban đầu $v_0$ hợp với phương ngang một góc $\alpha$. Trong trường hợp lý tưởng (bỏ qua lực cản không khí), chất điểm chỉ chịu tác dụng của trọng lực $\vec{P} = m\vec{g}$, và quỹ đạo là một parabol đối xứng.
+
+Tuy nhiên, trong thực tế, khi vật chuyển động trong môi trường chất lưu (không khí, nước,...), vật luôn chịu tác dụng của \textbf{lực cản môi trường}. Lực cản này phụ thuộc vào vận tốc và làm thay đổi đáng kể quỹ đạo so với mô hình lý tưởng.
+
+\subsubsection{Phương trình chuyển động lý tưởng}
+Chọn hệ tọa độ $Oxy$ với $Ox$ theo phương ngang, $Oy$ theo phương thẳng đứng hướng lên. Khi bỏ qua lực cản, phương trình Newton II cho chuyển động ném xiên:
+$$m\vec{a} = m\vec{g}$$
+
+Chiếu lên hai phương:
+\begin{equation}
+\begin{cases}
+x(t) = v_0 \cos\alpha \cdot t \\
+y(t) = v_0 \sin\alpha \cdot t - \dfrac{1}{2}gt^2
+\end{cases}
+\label{eq:ideal}
+\end{equation}
+
+Trong trường hợp này, quỹ đạo là parabol đối xứng, tầm xa cực đại đạt được khi $\alpha = 45°$:
+$$R_{max} = \frac{v_0^2}{g}$$
+
+
+\subsection{Mô hình có lực cản môi trường}
+\subsubsection{Lực cản tuyến tính theo vận tốc}
+Khi vật chuyển động trong môi trường nhớt với vận tốc không quá lớn, lực cản có dạng tuyến tính theo vận tốc:
+$$\vec{F}_{cản} = -h\vec{v}$$
+
+trong đó $h$ (kg/s) là hệ số cản của môi trường. Hệ số này phụ thuộc vào hình dạng vật, độ nhớt của môi trường và tiết diện ngang của vật thể.
+
+Phương trình Newton II tổng quát cho bài toán trở thành:
+\begin{equation}
+m\vec{a} = m\vec{g} - h\vec{v}
+\label{eq:newton}
+\end{equation}
+
+\subsubsection{Hệ phương trình vi phân theo hai phương}
+Chiếu phương trình (\ref{eq:newton}) lên hệ tọa độ $Oxy$:
+
+\textbf{Phương Ox (ngang):}
+\begin{equation}
+m\ddot{x} = -h\dot{x} \quad \Leftrightarrow \quad m\ddot{x} + h\dot{x} = 0
+\label{eq:ode_x}
+\end{equation}
+
+\textbf{Phương Oy (đứng):}
+\begin{equation}
+m\ddot{y} = -mg - h\dot{y} \quad \Leftrightarrow \quad m\ddot{y} + h\dot{y} = -mg
+\label{eq:ode_y}
+\end{equation}
+
+Đây là hệ hai phương trình vi phân cấp hai, tuyến tính, hệ số hằng. Phương trình (\ref{eq:ode_x}) là ODE thuần nhất, phương trình (\ref{eq:ode_y}) là ODE không thuần nhất.
+
+\subsubsection{Điều kiện ban đầu}
+\begin{equation}
+\begin{cases}
+x(0) = 0, \quad y(0) = 0 \\
+\dot{x}(0) = v_{0x} = v_0 \cos\alpha \\
+\dot{y}(0) = v_{0y} = v_0 \sin\alpha
+\end{cases}
+\label{eq:ic}
+\end{equation}
+
+\subsection{Nghiệm giải tích}
+Đặt $k = h/m$ là hệ số cản riêng (đơn vị: $s^{-1}$).
+
+\subsubsection{Nghiệm theo phương Ox}
+Phương trình (\ref{eq:ode_x}) là ODE tuyến tính thuần nhất bậc 2 với hệ số hằng. Phương trình đặc trưng $r^2 + kr = 0$ cho nghiệm $r_1 = 0$, $r_2 = -k$. Áp dụng điều kiện ban đầu:
+
+\textbf{Vận tốc:}
+\begin{equation}
+v_x(t) = v_0 \cos\alpha \cdot e^{-kt}
+\label{eq:vx}
+\end{equation}
+
+\textbf{Vị trí:}
+\begin{equation}
+x(t) = \frac{m \cdot v_0 \cos\alpha}{h}\left(1 - e^{-\frac{h}{m}t}\right)
+\label{eq:x}
+\end{equation}
+
+Nhận xét: Khi $t \to \infty$, $v_x \to 0$ và $x \to \dfrac{mv_0\cos\alpha}{h}$ (giá trị hữu hạn). Đây là điểm khác biệt cơ bản so với trường hợp không cản (vận tốc ngang không đổi).
+
+\subsubsection{Nghiệm theo phương Oy}
+Phương trình (\ref{eq:ode_y}) là ODE tuyến tính không thuần nhất. Nghiệm gồm nghiệm thuần nhất và nghiệm riêng (nghiệm dừng $v_y = -g/k$):
+
+\textbf{Vận tốc:}
+\begin{equation}
+v_y(t) = \left(v_0\sin\alpha + \frac{mg}{h}\right)e^{-\frac{h}{m}t} - \frac{mg}{h}
+\label{eq:vy}
+\end{equation}
+
+\textbf{Vị trí:}
+\begin{equation}
+y(t) = \frac{m}{h^2}\left[\left(g \cdot m + h \cdot v_0\sin\alpha\right)\left(1 - e^{-\frac{h}{m}t}\right) - g \cdot h \cdot t\right]
+\label{eq:y}
+\end{equation}
+
+\subsection{Các đại lượng đặc trưng}
+\subsubsection{Vận tốc giới hạn (Terminal velocity)}
+Khi $t \to \infty$, từ phương trình (\ref{eq:vy}):
+$$v_\infty = -\frac{mg}{h}$$
+
+Đây là vận tốc giới hạn khi lực cản cân bằng hoàn toàn với trọng lực. Vật rơi đều với tốc độ không đổi $|v_\infty| = mg/h$.
+
+\subsubsection{Thời gian đạt độ cao cực đại}
+Tại đỉnh quỹ đạo, $v_y = 0$. Từ (\ref{eq:vy}):
+\begin{equation}
+t_{max} = \frac{m}{h}\ln\left(1 + \frac{h v_0\sin\alpha}{mg}\right)
+\label{eq:tmax}
+\end{equation}
+
+So với trường hợp không cản ($t_{max,0} = v_0\sin\alpha / g$), thời gian leo lên \textbf{ngắn hơn} do lực cản hướng ngược vận tốc làm giảm tốc mạnh hơn.
+
+\subsubsection{Năng lượng}
+Cơ năng của hệ ($E = KE + PE$) không bảo toàn do lực cản là lực không bảo toàn:
+\begin{itemize}
+    \item Động năng: $KE = \frac{1}{2}m(v_x^2 + v_y^2)$
+    \item Thế năng: $PE = mgy$
+    \item Năng lượng mất do cản: $W_{cản} = E_0 - (KE + PE)$
+\end{itemize}
+
+Định luật bảo toàn năng lượng tổng quát: $E_0 = KE + PE + W_{cản}$ luôn được thỏa mãn tại mọi thời điểm.

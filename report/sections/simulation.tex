@@ -1,0 +1,178 @@
+\section{Mô phỏng}
+
+\subsection{Mục đích và phạm vi mô phỏng}
+\subsubsection{Mục đích mô phỏng}
+Tiến trình mô phỏng được thiết lập với mục tiêu tiên quyết là hiện thực hóa các mô hình toán lý thuần túy thành các thuật toán xử lý dữ liệu trên nền tảng máy tính. Trọng tâm của công tác này là việc tin học hóa hệ phương trình vi phân mô tả chuyển động ném xiên trong trọng trường có lực cản môi trường, từ đó:
+\begin{itemize}
+    \item Giải symbolic hệ ODE bằng thư viện SymPy, thu được nghiệm giải tích cho $x(t)$ và $y(t)$.
+    \item Tính toán các đại lượng đặc trưng: tầm xa, độ cao cực đại, thời gian bay cho các góc ném $\alpha$ khác nhau.
+    \item Trực quan hóa quỹ đạo, biến thiên vận tốc và năng lượng dưới dạng đồ thị 2D.
+    \item Xây dựng ứng dụng tương tác Web cho phép thay đổi tham số và quan sát kết quả theo thời gian thực.
+\end{itemize}
+
+\subsubsection{Phạm vi và giới hạn khảo sát}
+Không gian mô phỏng được giới hạn trong phạm vi khảo sát các thông số đầu vào cốt lõi với các giá trị mặc định:
+\begin{itemize}
+    \item Khối lượng $m = 1.0$ kg
+    \item Gia tốc trọng trường $g = 9.81$ m/s²
+    \item Hệ số cản $h = 0.5$ kg/s (biến thiên từ 0 đến 5.0 trong khảo sát)
+    \item Vận tốc ban đầu $v_0 = 50$ m/s
+    \item Góc ném $\alpha \in \{15°, 30°, 45°, 60°, 75°\}$
+    \item Thời gian khảo sát $t_{max} = 15$ s
+\end{itemize}
+
+Bài toán sử dụng mô hình lực cản tuyến tính ($F_{cản} \propto v$), phù hợp với vận tốc thấp và trung bình trong môi trường nhớt.
+
+\subsection{Nền tảng công cụ và thiết kế kỹ thuật}
+\subsubsection{Ngôn ngữ lập trình}
+Toàn bộ hệ thống mô phỏng được phát triển trên ngôn ngữ lập trình Python, một lựa chọn ưu việt trong nghiên cứu khoa học nhờ tính linh hoạt và hệ sinh thái thư viện hỗ trợ tính toán mạnh mẽ. Cụ thể, các thư viện chính được sử dụng:
+
+\begin{itemize}
+    \item \textbf{SymPy:} Thư viện tính toán symbolic, sử dụng để giải hệ phương trình vi phân bậc 2 với điều kiện ban đầu bằng hàm \texttt{dsolve()}. Kết quả là các biểu thức giải tích chính xác cho $x(t)$, $y(t)$, $v_x(t)$, $v_y(t)$.
+    \item \textbf{NumPy:} Thư viện tính toán số, sử dụng kỹ thuật vector hóa (vectorization) để thực hiện đồng thời các phép tính trên hàng nghìn điểm dữ liệu.
+    \item \textbf{Matplotlib:} Thư viện vẽ đồ thị tiêu chuẩn, sử dụng để tạo các đồ thị tĩnh chất lượng cao phục vụ xuất bản.
+    \item \textbf{Plotly:} Engine đồ họa tương tác, cho phép zoom, pan, hover trên đồ thị.
+    \item \textbf{Streamlit:} Framework xây dựng ứng dụng web tương tác từ Python, tích hợp thanh trượt (slider), tabs và các widget điều khiển.
+\end{itemize}
+
+\subsubsection{Kiến trúc chương trình}
+Chương trình được tổ chức thành 2 file chính, phục vụ hai mục đích khác nhau:
+
+\begin{table}[H]
+\centering
+\caption{Cấu trúc file chương trình}
+\begin{tabular}{|l|l|p{7.5cm}|}
+\hline
+\textbf{File} & \textbf{Loại} & \textbf{Mô tả} \\
+\hline
+\texttt{projectile\_with\_drag.py} & Script & Chương trình tĩnh: giải symbolic, tính toán, vẽ đồ thị Matplotlib, xuất file PNG \\
+\hline
+\texttt{app.py} & Web App & Ứng dụng Streamlit tương tác: slider nhập tham số, đồ thị Plotly real-time \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Hiện thực hóa các kịch bản mô phỏng}
+
+\subsubsection{Giải hệ phương trình vi phân bằng SymPy}
+Bước đầu tiên và quan trọng nhất của mô phỏng là thiết lập và giải hệ phương trình vi phân bằng phương pháp symbolic. Thư viện SymPy cung cấp hàm \texttt{dsolve()} cho phép giải ODE với điều kiện ban đầu một cách chính xác.
+
+\begin{lstlisting}[style=pythonstyle, caption={Khai báo biến symbolic và thiết lập phương trình ODE}]
+from sympy import symbols, Function, Eq, dsolve, cos, sin
+
+t = symbols('t', positive=True)
+m, g, h, v0, alpha = symbols('m g h v_0 alpha', positive=True)
+x = Function('x')
+y = Function('y')
+
+# Phuong trinh ODE theo phuong Ox: m*x''(t) + h*x'(t) = 0
+ode_x = Eq(m * x(t).diff(t, 2) + h * x(t).diff(t), 0)
+
+# Phuong trinh ODE theo phuong Oy: m*y''(t) + h*y'(t) = -m*g
+ode_y = Eq(m * y(t).diff(t, 2) + h * y(t).diff(t), -m * g)
+\end{lstlisting}
+
+\begin{lstlisting}[style=pythonstyle, caption={Giải ODE với điều kiện ban đầu}]
+# Giai phuong trinh x(t) voi DK ban dau
+sol_x = dsolve(ode_x, x(t), ics={
+    x(0): 0,
+    x(t).diff(t).subs(t, 0): v0 * cos(alpha)
+})
+
+# Giai phuong trinh y(t) voi DK ban dau
+sol_y = dsolve(ode_y, y(t), ics={
+    y(0): 0,
+    y(t).diff(t).subs(t, 0): v0 * sin(alpha)
+})
+\end{lstlisting}
+
+Kết quả trả về từ SymPy (đã đơn giản hóa) khớp hoàn toàn với nghiệm giải tích ở Chương 1:
+\begin{equation}
+x(t) = \frac{m v_0 \cos\alpha}{h}\left(1 - e^{-\frac{h}{m}t}\right)
+\end{equation}
+\begin{equation}
+y(t) = \frac{m}{h^2}\left[\left(gm + hv_0\sin\alpha\right)\left(1 - e^{-\frac{h}{m}t}\right) - ght\right]
+\end{equation}
+
+\subsubsection{Chuyển đổi từ symbolic sang hàm số}
+Sau khi có nghiệm giải tích dưới dạng biểu thức SymPy, cần chuyển đổi sang hàm số (numerical function) để tính toán nhanh với NumPy. Thư viện SymPy cung cấp hàm \texttt{lambdify()} cho mục đích này:
+
+\begin{lstlisting}[style=pythonstyle, caption={Chuyển biểu thức symbolic sang hàm số bằng lambdify}]
+from sympy import lambdify, simplify
+
+x_expr = simplify(sol_x.rhs)
+y_expr = simplify(sol_y.rhs)
+vx_expr = simplify(x_expr.diff(t))
+vy_expr = simplify(y_expr.diff(t))
+
+# Chuyen sang ham so de tinh toan nhanh
+params = (t, m, g, h, v0, alpha)
+x_func  = lambdify(params, x_expr, 'numpy')
+y_func  = lambdify(params, y_expr, 'numpy')
+vx_func = lambdify(params, vx_expr, 'numpy')
+vy_func = lambdify(params, vy_expr, 'numpy')
+\end{lstlisting}
+
+Sau bước này, các hàm \texttt{x\_func}, \texttt{y\_func},... chấp nhận đầu vào là mảng NumPy và trả về kết quả vector hóa, cho phép tính toán đồng thời hàng nghìn điểm dữ liệu.
+
+\subsubsection{Thuật toán xác định thời điểm chạm đất}
+Thời điểm chạm đất ($y = 0$ với $t > 0$) không có dạng giải tích đơn giản do biểu thức $y(t)$ chứa hàm mũ lẫn hàm tuyến tính. Do đó, ta sử dụng phương pháp nội suy tuyến tính trên mảng dữ liệu:
+
+\begin{lstlisting}[style=pythonstyle, caption={Thuật toán tìm thời điểm chạm đất bằng nội suy}]
+import numpy as np
+
+t_arr = np.linspace(0, t_max, 3000)
+y_vals = y_func(t_arr, m_val, g_val, h_val, v0_val, alpha_rad)
+
+# Tim chi so noi y chuyen tu duong sang am
+landing = np.where((y_vals[1:] <= 0) & (y_vals[:-1] > 0))[0]
+if len(landing) > 0:
+    idx = landing[0] + 1
+    # Noi suy tuyen tinh
+    t_land = t_arr[idx-1] + (0 - y_vals[idx-1]) / \
+             (y_vals[idx] - y_vals[idx-1]) * \
+             (t_arr[idx] - t_arr[idx-1])
+\end{lstlisting}
+
+Phương pháp này cho sai số nhỏ hơn $\Delta t / 2 \approx 0.0025$ s (với 3000 điểm trên đoạn $[0, t_{max}]$).
+
+\subsubsection{Ứng dụng tương tác Web (Streamlit)}
+Ngoài chương trình tĩnh, dự án còn bao gồm một ứng dụng web tương tác được xây dựng bằng Streamlit. Ứng dụng được thiết kế phân tầng:
+
+\begin{itemize}
+    \item \textbf{Thanh bên (Sidebar):} Chứa các slider để nhập trực tiếp $m, g, h, v_0, t_{max}$ và chọn góc ném $\alpha$ theo ba chế độ: góc cố định, slider tùy chỉnh, hoặc nhập tự do.
+    \item \textbf{Khu vực chính:} Gồm 6 tab hiển thị các đồ thị Plotly tương tác, tự động cập nhật khi tham số thay đổi.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Các tab chức năng trong ứng dụng Streamlit}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Tab} & \textbf{Chức năng} \\
+\hline
+Quỹ đạo & Vẽ quỹ đạo $y(x)$ cho các góc đã chọn, kèm bảng số liệu chi tiết \\
+\hline
+So sánh lực cản & So sánh quỹ đạo có/không lực cản, tính chênh lệch $\Delta R$ và $\Delta H$ \\
+\hline
+Vận tốc & Đồ thị $v_x(t)$, $v_y(t)$, $|v|(t)$ trên 3 panel riêng biệt \\
+\hline
+Năng lượng & Biến thiên $KE$, $PE$, cơ năng $E$, và năng lượng mất do cản \\
+\hline
+Khảo sát hệ số $h$ & Khảo sát ảnh hưởng của $h$ đến quỹ đạo với phạm vi tùy chỉnh \\
+\hline
+Lý thuyết & Trình bày phương trình, nghiệm giải tích, nhận xét vật lý \\
+\hline
+\end{tabularx}
+\end{table}
+
+\textbf{Hướng dẫn chạy ứng dụng:}
+\begin{lstlisting}[style=pythonstyle, caption={Lệnh cài đặt và chạy ứng dụng}, language=bash]
+# Cai dat thu vien
+pip install -r requirements.txt
+
+# Chay ung dung
+streamlit run app.py
+\end{lstlisting}
+
+Ứng dụng sẽ tự động mở trình duyệt tại địa chỉ \texttt{http://localhost:8501}. Người dùng có thể kéo thanh trượt để thay đổi tham số và quan sát đồ thị biến đổi theo thời gian thực.
