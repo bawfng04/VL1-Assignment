@@ -26,18 +26,19 @@
 \contentsline {subsubsection}{\numberline {2.3.2}Chuyển đổi từ symbolic sang hàm số}{6}{subsubsection.2.3.2}%
 \contentsline {subsubsection}{\numberline {2.3.3}Thuật toán xác định thời điểm chạm đất}{6}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}Ứng dụng tương tác Web (Streamlit)}{7}{subsubsection.2.3.4}%
-\contentsline {section}{\numberline {3}Kết quả và phân tích}{8}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Thông số mô phỏng}{8}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Quỹ đạo với các góc ném khác nhau}{8}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}So sánh quỹ đạo có và không có lực cản}{9}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Biến thiên vận tốc theo thời gian}{10}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Biến thiên năng lượng}{11}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Ảnh hưởng của hệ số cản $h$}{12}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Kết luận và mở rộng}{13}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Kết quả đạt được}{13}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Nhận xét vật lý quan trọng}{13}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}So sánh lý thuyết và mô phỏng}{13}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Hướng mở rộng}{14}{subsection.4.4}%
-\contentsline {section}{\numberline {A}Phụ lục: Mã nguồn chương trình}{15}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}File \texttt {projectile\_with\_drag.py} -- Chương trình tĩnh (trích đoạn)}{15}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}File \texttt {app.py} -- Ứng dụng Streamlit (trích đoạn)}{15}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {2.3.5}Giao diện ứng dụng tương tác}{7}{subsubsection.2.3.5}%
+\contentsline {section}{\numberline {3}Kết quả và phân tích}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Thông số mô phỏng}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Quỹ đạo với các góc ném khác nhau}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}So sánh quỹ đạo có và không có lực cản}{11}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Biến thiên vận tốc theo thời gian}{12}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Biến thiên năng lượng}{13}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Ảnh hưởng của hệ số cản $h$}{14}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Kết luận và mở rộng}{15}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Kết quả đạt được}{15}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Nhận xét vật lý quan trọng}{15}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}So sánh lý thuyết và mô phỏng}{15}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Hướng mở rộng}{16}{subsection.4.4}%
+\contentsline {section}{\numberline {A}Phụ lục: Mã nguồn chương trình}{17}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}File \texttt {projectile\_with\_drag.py} -- Chương trình tĩnh (trích đoạn)}{17}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}File \texttt {app.py} -- Ứng dụng Streamlit (trích đoạn)}{17}{subsection.A.2}%
