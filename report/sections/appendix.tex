@@ -30,7 +30,7 @@
 
 \subsubsection{File \texttt{projectile\_with\_drag.py} -- Chương trình tĩnh}
 
-\begin{lstlisting}[style=pythonstyle, caption={Giải hệ ODE và thiết lập hàm tính toán}]
+\begin{lstlisting}[style=pythonstyle, caption={Giải hệ phương trình vi phân và thiết lập hàm tính toán}]
 from sympy import *
 import numpy as np
 import matplotlib.pyplot as plt
@@ -42,7 +42,7 @@ m_s, g_s, h_s, v0_s, alpha_s = symbols(
 x = Function('x')
 y = Function('y')
 
-# === Thiet lap va giai ODE ===
+# === Thiet lap va giai phuong trinh vi phan ===
 # Phuong Ox: m*x''(t) + h*x'(t) = 0
 ode_x = Eq(m_s * x(t).diff(t, 2) 
            + h_s * x(t).diff(t), 0)
@@ -82,13 +82,13 @@ t_max  = 15.0   # s
 
 \subsubsection{File \texttt{app.py} -- Ứng dụng Streamlit}
 
-\begin{lstlisting}[style=pythonstyle, caption={Hàm giải ODE với cơ chế cache trong Streamlit}]
+\begin{lstlisting}[style=pythonstyle, caption={Hàm giải phương trình vi phân với cơ chế nhớ tạm (cache) trong Streamlit}]
 import streamlit as st
 from sympy import *
 
 @st.cache_resource
 def solve_ode_symbolic():
-    """Giai he ODE bang SymPy.
+    """Giai he phuong trinh vi phan bang SymPy.
     Decorator cache_resource dam bao ham 
     chi chay 1 lan duy nhat."""
     t_s = symbols('t', positive=True)

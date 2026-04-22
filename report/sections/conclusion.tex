@@ -1,50 +1,49 @@
 \section{Kết luận và hướng phát triển}
 
-\subsection{Tổng kết kết quả}
-Bài tập lớn đã hoàn thành đầy đủ các yêu cầu đề ra, cụ thể:
+\subsection{Tổng kết những việc đã làm được}
+Nhóm đã hoàn thành đầy đủ các yêu cầu của bài tập lớn đề ra, cụ thể gồm:
 
 \begin{enumerate}
-    \item \textbf{Xây dựng mô hình toán học:} Thiết lập hệ phương trình vi phân bậc hai mô tả chuyển động ném xiên trong trọng trường có lực cản tuyến tính $\vec{F}_c = -h\vec{v}$, đồng thời tìm nghiệm giải tích dạng đóng cho $x(t)$, $y(t)$, $v_x(t)$, $v_y(t)$.
+    \item \textbf{Thiết lập mô hình vật lý:} Đã xây dựng được phương trình định luật II Newton cho vật ném xiên khi có thêm lực cản của không khí ($\vec{F}_c = -h\vec{v}$), từ đó thiết lập và giải thành công hệ phương trình vi phân để tìm ra công thức tọa độ $x(t)$, $y(t)$ và vận tốc $v_x(t)$, $v_y(t)$.
     
-    \item \textbf{Giải số và kiểm chứng:} Sử dụng thư viện SymPy (Python) để giải symbolic hệ ODE. Kết quả khớp hoàn toàn với nghiệm giải tích thu được bằng phương pháp thủ công, và thỏa mãn trường hợp giới hạn $h \to 0$ (hội tụ về parabol lý tưởng).
+    \item \textbf{Lập trình tính toán:} Đã dùng thư viện SymPy của Python để yêu cầu máy tính tự động giải lại các phương trình trên. Kết quả máy giải ra hoàn toàn khớp với công thức mà nhóm tính tay, đảm bảo tính chính xác tuyệt đối.
     
-    \item \textbf{Phân tích đa chiều:} Khảo sát 5 khía cạnh của bài toán -- quỹ đạo theo góc ném, so sánh có/không lực cản, biến thiên vận tốc, biến thiên năng lượng, và ảnh hưởng của hệ số cản $h$ -- với phân tích vật lý chi tiết cho từng trường hợp.
+    \item \textbf{Khảo sát và vẽ đồ thị:} Nhóm đã vẽ đồ thị và phân tích chi tiết 5 vấn đề: đường bay thay đổi thế nào theo góc ném, sự khác biệt khi có và không có không khí, sự giảm sút của vận tốc, sự tiêu hao năng lượng, và mức độ ảnh hưởng khi lực cản mạnh hay yếu.
     
-    \item \textbf{Ứng dụng tương tác:} Phát triển ứng dụng web (Streamlit + Plotly) cho phép nhập tham số bằng thanh trượt và quan sát kết quả biến đổi theo thời gian thực, đáp ứng yêu cầu ``nhập các giá trị $m$, $h$, $v_0$, $\alpha$, $t$'' của đề bài.
+    \item \textbf{Làm ứng dụng tương tác:} Nhóm đã thiết kế thành công một trang web nhỏ (dùng Streamlit) cho phép người dùng tự do nhập các thông số ($m$, $h$, $v_0$, $\alpha$) bằng thanh trượt và xem đồ thị thay đổi ngay lập tức, đúng như yêu cầu của đề bài.
 \end{enumerate}
 
-\subsection{Các kết luận vật lý}
-Từ kết quả mô phỏng, các kết luận vật lý quan trọng được rút ra:
+\subsection{Các kết luận rút ra từ hiện tượng}
+Qua đồ thị và số liệu, nhóm rút ra được các kết luận vật lý sau:
 
-\begin{enumerate}
-    \item Lực cản tuyến tính phá vỡ \textit{tính đối xứng parabol} của quỹ đạo: nhánh đi xuống dốc hơn nhánh đi lên, do vận tốc ngang suy giảm liên tục theo hàm mũ $e^{-ht/m}$.
+\begin{itemize}
+    \item Không khí làm cho đường bay của vật \textit{không còn là một parabol đối xứng} nữa. Khi rớt xuống, vật rơi cắm đầu xuống đất nhanh hơn là lúc bay lên, do đà bay ngang đã bị triệt tiêu gần hết.
     
-    \item \textit{Góc ném cho tầm xa cực đại} dịch chuyển từ $45°$ (lý tưởng) xuống $\approx 30°$ (có cản, $h = 0{,}5$ kg/s). Bản chất: góc nhỏ hơn giúp giảm thời gian bay, từ đó giảm tổng tác dụng tích lũy của lực cản.
+    \item Để ném được xa nhất trong không khí, ta \textit{không nên ném ở góc 45°} như lý thuyết cấp 3. Góc ném tốt nhất thường nhỏ hơn (khoảng 30° trong bài này) để vật rơi xuống nhanh hơn, tránh bị không khí cản lại quá lâu trên trời.
     
-    \item Vận tốc đứng tiệm cận \textit{vận tốc giới hạn} $v_\infty = -mg/h$ khi $t$ đủ lớn, phù hợp với lý thuyết cân bằng lực cản--trọng lực.
+    \item Vận tốc rơi của vật không tăng vô hạn mà sẽ \textit{đạt mức giới hạn} (vận tốc lớn nhất) khi lực cản đẩy lên cân bằng với trọng lượng kéo xuống.
     
-    \item Cơ năng \textit{không bảo toàn}: năng lượng cơ học chuyển hóa thành nhiệt năng thông qua công của lực cản. Tại thời điểm chạm đất, phần năng lượng bị tiêu hao chiếm 85--87\% năng lượng ban đầu (với bộ tham số mặc định).
+    \item Cơ năng của vật \textit{bị hao hụt rất nhiều}. Lực cản đã biến phần lớn năng lượng ban đầu (động năng) thành nhiệt năng. Quãng đường bay càng dài thì năng lượng mất đi càng lớn.
     
-    \item Ảnh hưởng của hệ số cản $h$ lên tầm xa là \textit{phi tuyến}: tầm xa giảm rất nhanh khi $h$ tăng từ 0, sau đó ``bão hòa'' khi $h$ đủ lớn (do vận tốc đã giảm mạnh, bản thân lực cản cũng yếu đi).
-\end{enumerate}
-
-\subsection{So sánh lý thuyết và mô phỏng}
-Nghiệm từ SymPy đã được kiểm chứng qua ba tiêu chí:
-\begin{itemize}[nosep]
-    \item \textbf{Trường hợp giới hạn:} Khi $h \to 0$, nghiệm hội tụ về parabol lý tưởng (\ref{eq:ideal}) -- xác nhận bằng khai triển Taylor bậc nhất.
-    \item \textbf{Tiệm cận:} Khi $t \to \infty$, $v_x \to 0$ và $v_y \to -mg/h$ -- khớp với dự đoán lý thuyết (\ref{eq:terminal}).
-    \item \textbf{Bảo toàn năng lượng tổng quát:} $E_0 = KE + PE + |W_c|$ thỏa mãn tại mọi thời điểm với sai số $< 10^{-10}$ J.
+    \item Tầm xa của vật \textit{giảm rất mạnh lúc lực cản mới xuất hiện}, nhưng khi lực cản đã rất mạnh rồi thì tầm xa không tụt nhanh nữa. Nguyên nhân là do vật đã bay quá chậm, mà bay chậm thì lực cản cũng tự yếu đi.
 \end{itemize}
 
-Ba kiểm chứng nói trên cung cấp bằng chứng mạnh cho tính đúng đắn của cả mô hình lý thuyết lẫn chương trình tính toán.
+\subsection{Kiểm tra độ tin cậy của chương trình}
+Để chắc chắn code viết ra chạy đúng, nhóm đã thử nghiệm bằng 3 cách:
+\begin{itemize}[nosep]
+    \item \textbf{Thử cho không khí biến mất ($h = 0$):} Đồ thị tự động trở lại thành hình parabol hoàn hảo, giống hệt sách giáo khoa.
+    \item \textbf{Thử cho thời gian trôi qua rất lâu:} Vận tốc ngang giảm về đúng 0, còn vận tốc rơi đúng bằng vận tốc giới hạn tính theo lý thuyết.
+    \item \textbf{Cộng trừ năng lượng:} Tổng của Động năng + Thế năng + Năng lượng bị ma sát đốt cháy luôn luôn bằng đúng 100\% năng lượng ban đầu, không bị lệch một Joule nào.
+\end{itemize}
 
-\subsection{Hướng phát triển}
+Cả 3 bài test đều vượt qua, chứng tỏ chương trình mô phỏng hoàn toàn chính xác.
+
+\subsection{Hướng phát triển thêm}
+Nếu có thêm thời gian, mô hình này có thể được nâng cấp để thực tế hơn nữa:
 \begin{itemize}
-    \item \textbf{Mô hình lực cản bậc hai:} $\vec{F}_c = -\frac{1}{2}C_D\rho A|\vec{v}|\vec{v}$, phù hợp hơn với vận tốc cao (số Reynolds lớn). Hệ ODE trở thành phi tuyến, không có nghiệm giải tích dạng đóng, cần giải bằng phương pháp Runge--Kutta (\texttt{scipy.integrate.solve\_ivp}).
+    \item \textbf{Dùng công thức lực cản bậc hai:} Lực cản tỷ lệ với vận tốc bình phương ($\vec{F}_c \propto -v^2$). Công thức này đúng hơn cho các vật bay rất nhanh (như quả bóng chày, viên đạn). Tuy nhiên phương trình này rất khó, không có công thức giải sẵn mà phải nhờ máy tính giải gần đúng từng bước.
     
-    \item \textbf{Hiệu ứng gió và địa hình:} Bổ sung thành phần lực ngoài theo phương ngang (gió), hoặc xét vật phóng từ độ cao ban đầu khác không ($y_0 \neq 0$).
+    \item \textbf{Thêm sức gió:} Bổ sung thêm lực thổi ngang của gió vào phương trình Newton.
     
-    \item \textbf{Tối ưu hóa góc ném:} Sử dụng \texttt{scipy.optimize.minimize\_scalar} để tìm chính xác góc cho tầm xa cực đại với mọi bộ tham số $(m, g, h, v_0)$.
-    
-    \item \textbf{Mô phỏng 3D:} Mở rộng sang không gian ba chiều để xét ảnh hưởng của gió ngang, hiệu ứng Magnus (cho vật quay).
+    \item \textbf{Máy tính tự dò góc ném tốt nhất:} Viết thêm code (dùng thư viện tối ưu hóa) để máy tính tự dò tìm ra góc ném xa nhất ứng với từng mức lực cản, thay vì con người phải kéo thanh trượt để tự đoán.
 \end{itemize}

@@ -2,15 +2,15 @@
 
 \subsection{Chuyển động ném xiên trong trọng trường -- Mô hình lý tưởng}
 \subsubsection{Phát biểu bài toán}
-Xét một chất điểm có khối lượng $m$ được phóng từ gốc tọa độ $O$ với vận tốc ban đầu $v_0$ hợp với phương ngang một góc $\alpha$ ($0 < \alpha < \pi/2$). Bài toán đặt ra là xác định quỹ đạo chuyển động của chất điểm trong hai trường hợp: (i) bỏ qua lực cản không khí, và (ii) có xét đến lực cản của môi trường.
+Xét một vật có khối lượng $m$ được ném từ gốc tọa độ $O$ với vận tốc ban đầu $v_0$, hợp với phương ngang một góc $\alpha$ ($0 < \alpha < \pi/2$). Mục tiêu của chúng ta là tìm phương trình quỹ đạo của vật trong hai trường hợp: (i) bỏ qua lực cản của không khí, và (ii) có xét đến lực cản của môi trường.
 
-Chọn hệ tọa độ Descartes $Oxy$ với trục $Ox$ hướng theo phương ngang (chiều dương cùng chiều ném), trục $Oy$ hướng thẳng đứng lên trên. Gốc $O$ trùng với vị trí phóng vật.
+Ta chọn hệ trục tọa độ $Oxy$ sao cho trục $Ox$ nằm ngang (chiều dương hướng theo chiều ném), trục $Oy$ hướng thẳng đứng lên trên. Gốc tọa độ $O$ là vị trí ném vật ban đầu.
 
 \subsubsection{Phương trình chuyển động lý tưởng}
-Khi bỏ qua mọi lực cản, vật chỉ chịu tác dụng của trọng lực $\vec{P} = m\vec{g}$, với $\vec{g}$ hướng xuống dưới ($g \approx 9{,}81$ m/s$^2$ trên bề mặt Trái Đất). Áp dụng định luật II Newton:
+Nếu bỏ qua mọi lực cản, vật chỉ chịu tác dụng duy nhất của trọng lực $\vec{P} = m\vec{g}$, trong đó $\vec{g}$ hướng thẳng đứng xuống dưới ($g \approx 9{,}81$ m/s$^2$). Áp dụng định luật II Newton, ta có:
 $$m\vec{a} = m\vec{g}$$
 
-Chiếu lên hai trục tọa độ và tích phân hai lần theo thời gian với điều kiện ban đầu $x(0) = 0$, $y(0) = 0$, $\dot{x}(0) = v_0\cos\alpha$, $\dot{y}(0) = v_0\sin\alpha$, ta thu được phương trình chuyển động:
+Chiếu phương trình này lên hai trục tọa độ và lấy tích phân hai lần theo thời gian $t$, kết hợp với điều kiện ban đầu ($x(0) = 0$, $y(0) = 0$, $v_{0x} = v_0\cos\alpha$, $v_{0y} = v_0\sin\alpha$), ta được hệ phương trình chuyển động:
 \begin{equation}
 \begin{cases}
 x(t) = v_0 \cos\alpha \cdot t \\[6pt]
@@ -19,147 +19,146 @@ y(t) = v_0 \sin\alpha \cdot t - \dfrac{1}{2}gt^2
 \label{eq:ideal}
 \end{equation}
 
-Khử tham số $t$ giữa hai phương trình trên, quỹ đạo có dạng parabol bậc hai:
+Rút $t$ từ phương trình $x(t)$ thế vào phương trình $y(t)$, ta được phương trình quỹ đạo có dạng một đường parabol:
 \begin{equation}
 y = x\tan\alpha - \frac{g}{2v_0^2\cos^2\alpha}\,x^2
 \label{eq:parabola}
 \end{equation}
 
-Các đại lượng đặc trưng trong trường hợp lý tưởng bao gồm:
+Một số đại lượng đặc trưng trong trường hợp này:
 \begin{itemize}[nosep]
-    \item \textbf{Tầm xa:} $R_0 = \dfrac{v_0^2\sin 2\alpha}{g}$, đạt cực đại $R_{max} = v_0^2/g$ khi $\alpha = 45°$.
+    \item \textbf{Tầm xa cực đại:} $R_0 = \dfrac{v_0^2\sin 2\alpha}{g}$. Tầm xa đạt giá trị lớn nhất $R_{max} = v_0^2/g$ khi góc ném $\alpha = 45°$.
     \item \textbf{Độ cao cực đại:} $H_0 = \dfrac{v_0^2\sin^2\alpha}{2g}$.
     \item \textbf{Thời gian bay:} $T_0 = \dfrac{2v_0\sin\alpha}{g}$.
 \end{itemize}
 
-Quỹ đạo (\ref{eq:parabola}) có tính chất đối xứng qua đỉnh parabol. Hai góc ném bù nhau ($\alpha$ và $90° - \alpha$) cho cùng tầm xa. Tuy nhiên, mô hình này chỉ hợp lệ khi bỏ qua ảnh hưởng của môi trường -- một giả thiết không còn chính xác khi vận tốc hoặc kích thước vật thể đủ lớn.
-
+Quỹ đạo ở đây là một đường parabol hoàn toàn đối xứng. Tuy nhiên, mô hình lý tưởng này chỉ đúng khi vật di chuyển chậm hoặc trong môi trường chân không. Trong thực tế, khi ném một vật trong không khí, lực cản sẽ làm thay đổi đáng kể quỹ đạo của nó.
 
 \subsection{Mô hình có lực cản môi trường}
-\subsubsection{Bản chất vật lý của lực cản}
-Khi vật chuyển động trong môi trường chất lưu (không khí, nước,...), các phân tử chất lưu tương tác với bề mặt vật, tạo ra một lực ma sát nhớt (viscous drag) cản trở chuyển động. Đối với vật có kích thước nhỏ hoặc vận tốc thấp (số Reynolds $Re \ll 1$), lực cản tỷ lệ bậc nhất với vận tốc -- đây là miền Stokes \cite{halliday2013fundamentals}:
+\subsubsection{Bản chất của lực cản}
+Khi vật chuyển động trong không khí, nó sẽ chịu một lực cản do ma sát với các phân tử không khí. Đối với các vật di chuyển không quá nhanh, lực cản này thường tỷ lệ thuận với vận tốc của vật \cite{halliday2013fundamentals}:
 \begin{equation}
 \vec{F}_{c} = -h\vec{v}
 \label{eq:drag}
 \end{equation}
-trong đó $h$ (đơn vị: kg/s) là hệ số cản nhớt của môi trường. Giá trị $h$ phụ thuộc vào hình dạng, kích thước vật thể và độ nhớt động lực $\eta$ của chất lưu. Đối với quả cầu bán kính $r$ trong chất lưu có độ nhớt $\eta$, định luật Stokes cho $h = 6\pi\eta r$.
-
-Dấu trừ trong biểu thức (\ref{eq:drag}) biểu thị lực cản luôn ngược hướng với vận tốc, do đó luôn sinh công âm -- đây là đặc trưng của lực không bảo toàn.
+Ở đây, $h$ (kg/s) là hệ số cản của môi trường. Giá trị của $h$ phụ thuộc vào kích thước, hình dáng của vật và độ nhớt của không khí. Dấu trừ mang ý nghĩa lực cản luôn ngược chiều với chiều chuyển động của vật, do đó lực này luôn sinh công âm (làm tiêu hao năng lượng).
 
 \subsubsection{Phương trình chuyển động tổng quát}
-Áp dụng định luật II Newton cho chất điểm chịu đồng thời trọng lực và lực cản:
+Áp dụng định luật II Newton cho vật khi có thêm lực cản:
 \begin{equation}
 m\vec{a} = m\vec{g} - h\vec{v}
 \label{eq:newton}
 \end{equation}
 
-\subsubsection{Hệ phương trình vi phân theo hai phương}
-Chiếu phương trình (\ref{eq:newton}) lên hệ tọa độ $Oxy$:
+\subsubsection{Hệ phương trình vi phân theo hai trục}
+Chiếu phương trình (\ref{eq:newton}) lên hệ trục tọa độ $Oxy$:
 
-\textbf{Phương Ox (ngang):} Trọng lực không có thành phần theo phương ngang, do đó:
+\textbf{Theo trục Ox (nằm ngang):} Trọng lực không có tác dụng theo phương ngang nên:
 \begin{equation}
 m\ddot{x} + h\dot{x} = 0
 \label{eq:ode_x}
 \end{equation}
 
-\textbf{Phương Oy (đứng):} Trọng lực hướng xuống ($-mg$), kết hợp thành phần cản đứng:
+\textbf{Theo trục Oy (thẳng đứng):} Có thêm trọng lực hướng xuống ($-mg$):
 \begin{equation}
 m\ddot{y} + h\dot{y} = -mg
 \label{eq:ode_y}
 \end{equation}
 
-Phương trình (\ref{eq:ode_x}) là ODE tuyến tính thuần nhất bậc hai với hệ số hằng. Phương trình (\ref{eq:ode_y}) là ODE tuyến tính không thuần nhất bậc hai. Đáng chú ý, hai phương trình hoàn toàn tách rời (decoupled), cho phép giải độc lập từng phương.
+Phương trình (\ref{eq:ode_x}) là phương trình vi phân bậc hai thuần nhất, còn phương trình (\ref{eq:ode_y}) là phương trình vi phân bậc hai không thuần nhất. Hai phương trình này độc lập với nhau, nên ta có thể giải riêng rẽ từng phương trình.
 
 \subsubsection{Điều kiện ban đầu}
-Tại thời điểm $t = 0$, chất điểm ở gốc tọa độ với vận tốc phân tích thành hai thành phần:
+Lúc bắt đầu ném ($t = 0$), vật ở gốc tọa độ và có vận tốc ban đầu là:
 \begin{equation}
 \begin{cases}
 x(0) = 0, \quad y(0) = 0 \\[4pt]
-\dot{x}(0) = v_{0x} = v_0 \cos\alpha \\[4pt]
-\dot{y}(0) = v_{0y} = v_0 \sin\alpha
+v_x(0) = v_{0x} = v_0 \cos\alpha \\[4pt]
+v_y(0) = v_{0y} = v_0 \sin\alpha
 \end{cases}
 \label{eq:ic}
 \end{equation}
 
 
-\subsection{Nghiệm giải tích}
-Đặt $k = h/m$ (đơn vị: $s^{-1}$) là hệ số cản riêng -- đại lượng này đặc trưng cho tốc độ suy giảm vận tốc do lực cản.
+\subsection{Giải phương trình tìm nghiệm}
+Để cho gọn, ta đặt $k = h/m$ (đơn vị: 1/s). Đây là hệ số đặc trưng cho sự suy giảm vận tốc do lực cản.
 
-\subsubsection{Nghiệm theo phương Ox}
-Viết lại phương trình (\ref{eq:ode_x}): $\ddot{x} + k\dot{x} = 0$. Đặt $u = \dot{x}$, phương trình trở thành $\dot{u} + ku = 0$ -- ODE bậc nhất tuyến tính thuần nhất. Nghiệm tổng quát: $u(t) = Ce^{-kt}$. Từ điều kiện ban đầu $u(0) = v_0\cos\alpha$, suy ra $C = v_0\cos\alpha$.
+\subsubsection{Chuyển động theo phương Ox}
+Viết lại phương trình (\ref{eq:ode_x}): $\ddot{x} + k\dot{x} = 0$. Đặt $u = \dot{x}$ (vận tốc ngang), phương trình trở thành $\dot{u} + ku = 0$. Đây là phương trình vi phân bậc nhất cơ bản. Nghiệm của nó có dạng: $u(t) = C \cdot e^{-kt}$. Thay điều kiện ban đầu $u(0) = v_0\cos\alpha$ vào, ta tìm được hằng số $C = v_0\cos\alpha$.
 
-\textbf{Vận tốc ngang:}
+\textbf{Vận tốc theo phương ngang:}
 \begin{equation}
 v_x(t) = v_0 \cos\alpha \cdot e^{-kt}
 \label{eq:vx}
 \end{equation}
 
-Tích phân một lần nữa theo $t$ với $x(0) = 0$:
+Lấy tích phân vận tốc theo thời gian $t$ (với $x(0) = 0$), ta được:
 
-\textbf{Tọa độ ngang:}
+\textbf{Tọa độ x:}
 \begin{equation}
 x(t) = \frac{m v_0 \cos\alpha}{h}\left(1 - e^{-\frac{h}{m}t}\right)
 \label{eq:x}
 \end{equation}
 
-\textit{Nhận xét:} Vận tốc ngang suy giảm theo hàm mũ và tiến dần về 0. Tọa độ $x$ tiệm cận giá trị hữu hạn $x_\infty = mv_0\cos\alpha/h$ khi $t \to \infty$. Đây là điểm khác biệt then chốt so với trường hợp lý tưởng, ở đó $v_x$ không đổi và $x$ tăng tuyến tính theo $t$.
+\textit{Nhận xét:} Vận tốc ngang của vật giảm dần theo hàm số mũ và sẽ tiến về 0. Tọa độ $x$ cũng không tăng vô hạn mà sẽ dừng lại ở một khoảng cách tối đa $x_\infty = mv_0\cos\alpha/h$ khi thời gian $t$ đủ lớn. Điều này khác hẳn với mô hình lý tưởng (vật bay ngang mãi mãi).
 
-\subsubsection{Nghiệm theo phương Oy}
-Viết lại phương trình (\ref{eq:ode_y}): $\ddot{y} + k\dot{y} = -g$. Đặt $w = \dot{y}$: $\dot{w} + kw = -g$. Đây là ODE bậc nhất không thuần nhất. Nghiệm riêng (nghiệm dừng) là $w_p = -g/k = -mg/h$. Nghiệm thuần nhất: $w_h = De^{-kt}$. Nghiệm tổng quát: $w = De^{-kt} - g/k$. Từ điều kiện $w(0) = v_0\sin\alpha$:
+\subsubsection{Chuyển động theo phương Oy}
+Viết lại phương trình (\ref{eq:ode_y}): $\ddot{y} + k\dot{y} = -g$. Đặt $w = \dot{y}$ (vận tốc đứng), ta có: $\dot{w} + kw = -g$. Đây là phương trình vi phân bậc nhất không thuần nhất. Nghiệm của phương trình này bao gồm nghiệm tổng quát và nghiệm riêng. Giải phương trình này với điều kiện ban đầu $w(0) = v_0\sin\alpha$, ta được:
 
-\textbf{Vận tốc đứng:}
+\textbf{Vận tốc theo phương đứng:}
 \begin{equation}
 v_y(t) = \left(v_0\sin\alpha + \frac{mg}{h}\right)e^{-\frac{h}{m}t} - \frac{mg}{h}
 \label{eq:vy}
 \end{equation}
 
-Tích phân với $y(0) = 0$:
+Tiếp tục lấy tích phân theo thời gian $t$ (với $y(0) = 0$):
 
-\textbf{Tọa độ đứng:}
+\textbf{Tọa độ y:}
 \begin{equation}
 y(t) = \frac{m}{h}\left(v_0\sin\alpha + \frac{mg}{h}\right)\left(1 - e^{-\frac{h}{m}t}\right) - \frac{mg}{h}\,t
 \label{eq:y}
 \end{equation}
 
 
-\subsection{Các đại lượng đặc trưng}
+\subsection{Các đặc điểm của chuyển động}
 
 \subsubsection{Vận tốc giới hạn}
-Khi $t \to \infty$, thành phần hàm mũ trong (\ref{eq:vy}) triệt tiêu:
+Khi thời gian $t$ rất lớn ($t \to \infty$), phần chứa số mũ trong phương trình (\ref{eq:vy}) sẽ tiến về 0. Lúc này, vận tốc rơi của vật đạt một giá trị ổn định gọi là vận tốc giới hạn:
 \begin{equation}
 v_\infty = \lim_{t \to \infty} v_y(t) = -\frac{mg}{h}
 \label{eq:terminal}
 \end{equation}
 
-Tại vận tốc giới hạn, lực cản cân bằng chính xác với trọng lực ($h|v_\infty| = mg$), gia tốc triệt tiêu, và vật chuyển động đều. Khái niệm vận tốc giới hạn có ý nghĩa thực tiễn trong nhiều hiện tượng tự nhiên: tốc độ rơi của hạt mưa, tốc độ lắng đọng trong chất lỏng \cite{serway2008physics}.
+Tại mức vận tốc này, lực cản không khí đẩy lên đã cân bằng hoàn toàn với trọng lực kéo xuống ($h|v_\infty| = mg$). Vật không còn tăng tốc nữa mà sẽ rơi đều. Hiện tượng này rất phổ biến trong thực tế, ví dụ như giọt mưa rơi xuống đất với vận tốc ổn định chứ không nhanh dần vô hạn \cite{serway2008physics}.
 
-\subsubsection{Thời gian đạt độ cao cực đại}
-Tại đỉnh quỹ đạo, thành phần vận tốc đứng triệt tiêu ($v_y = 0$). Từ phương trình (\ref{eq:vy}):
+\subsubsection{Thời gian vật lên tới đỉnh}
+Vật đạt độ cao lớn nhất khi vận tốc thẳng đứng giảm về 0 ($v_y = 0$). Từ phương trình (\ref{eq:vy}), ta có thể tính được thời điểm này:
 \begin{equation}
 t_{H} = \frac{m}{h}\ln\left(1 + \frac{h v_0\sin\alpha}{mg}\right)
 \label{eq:tmax}
 \end{equation}
 
-So sánh với trường hợp lý tưởng ($t_{H,0} = v_0\sin\alpha / g$), có thể chứng minh rằng $t_H < t_{H,0}$: thời gian leo lên bị rút ngắn do lực cản hướng ngược vận tốc, cộng hưởng với trọng lực để giảm tốc vật nhanh hơn. Hệ quả là thời gian rơi xuống lớn hơn thời gian leo lên -- quỹ đạo mất tính đối xứng.
+So với trường hợp không có lực cản ($t_{H,0} = v_0\sin\alpha / g$), thời gian vật bay lên sẽ ngắn hơn. Lực cản hướng xuống cùng chiều với trọng lực làm vật mất đà nhanh hơn. Ngoài ra, thời gian vật rơi xuống sẽ lâu hơn thời gian bay lên, làm cho quỹ đạo bay mất đi tính đối xứng parabol.
 
-\subsubsection{Phân tích năng lượng}
-Cơ năng $E$ của chất điểm được định nghĩa:
+\subsubsection{Năng lượng của vật}
+Cơ năng $E$ của vật bao gồm động năng và thế năng:
 $$E(t) = \frac{1}{2}m\left(v_x^2 + v_y^2\right) + mgy$$
 
-Do lực cản là lực không bảo toàn, cơ năng \textit{không được bảo toàn}. Công của lực cản từ thời điểm $0$ đến $t$ bằng:
+Vì lực cản luôn cản trở chuyển động, cơ năng của vật sẽ bị tiêu hao dần thành nhiệt năng (không được bảo toàn). Phần năng lượng bị mất đi chính là công của lực cản từ lúc bắt đầu ném đến thời điểm $t$:
 \begin{equation}
 W_{c}(t) = -h\int_0^t \left(v_x^2 + v_y^2\right) d\tau
 \label{eq:work_drag}
 \end{equation}
 
-Áp dụng định lý công--năng lượng tổng quát:
+Theo định lý biến thiên cơ năng, ta luôn có:
 \begin{equation}
 E_0 = E(t) + |W_c(t)|
 \label{eq:energy_conservation}
 \end{equation}
-trong đó $E_0 = \frac{1}{2}mv_0^2$ là cơ năng ban đầu. Biểu thức (\ref{eq:energy_conservation}) được sử dụng để kiểm chứng tính nhất quán của nghiệm số trong quá trình mô phỏng.
+Với $E_0 = \frac{1}{2}mv_0^2$ là cơ năng ban đầu lúc mới ném. Chúng ta sẽ dùng biểu thức này để kiểm tra lại tính chính xác của chương trình mô phỏng ở các chương sau.
 
-\subsubsection{Trường hợp giới hạn: kiểm tra tính tương thích}
-Khi hệ số cản $h \to 0$, nghiệm (\ref{eq:x})--(\ref{eq:y}) phải hội tụ về nghiệm lý tưởng (\ref{eq:ideal}). Thật vậy, khai triển Taylor bậc nhất:
-$$e^{-ht/m} \approx 1 - \frac{h}{m}t \quad \text{khi } h \to 0$$
-thế vào (\ref{eq:x}): $x \approx \frac{mv_0\cos\alpha}{h}\cdot\frac{h}{m}t = v_0\cos\alpha\cdot t$, khớp với (\ref{eq:ideal}). Lập luận tương tự áp dụng cho $y(t)$ và các thành phần vận tốc. Tính tương thích này xác nhận sự đúng đắn của nghiệm giải tích.
+\subsubsection{Trường hợp không có lực cản (khi h rất nhỏ)}
+Để chắc chắn các phương trình trên là đúng, ta thử xét khi hệ số cản $h$ tiến gần về 0. Lúc này, phương trình phải quay về giống với mô hình lý tưởng ban đầu. 
+
+Sử dụng khai triển Taylor cho hàm số mũ: $e^{-ht/m} \approx 1 - \frac{h}{m}t$, thay vào phương trình (\ref{eq:x}) ta được:
+$$x \approx \frac{mv_0\cos\alpha}{h}\cdot\left(1 - \left(1 - \frac{h}{m}t\right)\right) = v_0\cos\alpha\cdot t$$
+Kết quả này hoàn toàn trùng khớp với phương trình (\ref{eq:ideal}). Nếu làm tương tự cho tọa độ $y(t)$ và vận tốc, ta cũng thu được kết quả của mô hình ném xiên lý tưởng. Điều này chứng tỏ nghiệm giải ra là hợp lý.

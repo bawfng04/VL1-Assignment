@@ -2,63 +2,63 @@
 
 \subsection{Mục đích và phạm vi mô phỏng}
 \subsubsection{Mục đích mô phỏng}
-Mục tiêu của quá trình mô phỏng là chuyển đổi mô hình giải tích trình bày ở Chương~1 thành chương trình tính toán có khả năng: (i) giải symbolic hệ ODE (\ref{eq:ode_x})--(\ref{eq:ode_y}) để thu nghiệm chính xác dạng đóng; (ii) tính toán các đại lượng đặc trưng (tầm xa, độ cao cực đại, thời gian bay) cho nhiều bộ tham số khác nhau; (iii) trực quan hóa quỹ đạo, biến thiên vận tốc và năng lượng dưới dạng đồ thị; và (iv) cung cấp giao diện tương tác cho phép thay đổi tham số và quan sát kết quả theo thời gian thực.
+Mục tiêu của phần mô phỏng này là lập trình để: (1) tự động giải hệ phương trình vi phân bằng máy tính để tìm ra công thức chính xác; (2) tính toán các thông số cụ thể như tầm xa, độ cao tối đa, thời gian bay cho các góc ném khác nhau; (3) vẽ đồ thị minh họa cho quỹ đạo, sự thay đổi của vận tốc và năng lượng; và (4) tạo ra một ứng dụng có giao diện trực quan, cho phép người dùng thay đổi thông số và xem đồ thị thay đổi ngay lập tức.
 
 \subsubsection{Phạm vi và giới hạn khảo sát}
-Không gian tham số được giới hạn trong các giá trị mặc định sau:
+Các thông số dùng để mô phỏng được giới hạn trong khoảng giá trị sau:
 \begin{itemize}[nosep]
     \item Khối lượng $m = 1{,}0$ kg
     \item Gia tốc trọng trường $g = 9{,}81$ m/s$^2$
-    \item Hệ số cản $h = 0{,}5$ kg/s (biến thiên từ 0 đến 5{,}0 trong khảo sát)
+    \item Hệ số cản $h = 0{,}5$ kg/s (có thể thay đổi từ 0 đến 5{,}0)
     \item Vận tốc ban đầu $v_0 = 50$ m/s
     \item Góc ném $\alpha \in \{15°, 30°, 45°, 60°, 75°\}$
     \item Thời gian khảo sát $t_{max} = 15$ s
 \end{itemize}
 
-Mô hình sử dụng lực cản tuyến tính ($F_c \propto v$), phù hợp với số Reynolds thấp. Đối với vật thể có vận tốc cao hoặc kích thước lớn ($Re \gg 1$), lực cản bậc hai ($F_c \propto v^2$) sẽ chính xác hơn; hướng mở rộng này được thảo luận tại Chương~4.
+Chương trình hiện tại sử dụng mô hình lực cản tỷ lệ thuận với vận tốc ($F_c \propto v$), phù hợp khi vật di chuyển chậm. Nếu vật di chuyển quá nhanh hoặc có kích thước lớn, lực cản sẽ tỷ lệ với bình phương vận tốc ($F_c \propto v^2$). Việc nâng cấp mô hình này sẽ được nhắc đến ở Chương 4.
 
-\subsection{Nền tảng công cụ và thiết kế kỹ thuật}
+\subsection{Công cụ và cách thực hiện}
 \subsubsection{Ngôn ngữ lập trình và thư viện}
-Hệ thống mô phỏng được phát triển hoàn toàn trên \textbf{Python 3}, tận dụng hệ sinh thái thư viện khoa học phong phú. Các thư viện chính bao gồm:
+Nhóm chọn ngôn ngữ \textbf{Python 3} để viết chương trình vì Python có sẵn nhiều công cụ hỗ trợ tính toán rất mạnh mẽ. Các thư viện được sử dụng gồm:
 
 \begin{itemize}[nosep]
-    \item \textbf{SymPy} \cite{sympy_docs}: Tính toán symbolic -- giải hệ ODE với điều kiện ban đầu bằng hàm \texttt{dsolve()}, đơn giản hóa biểu thức, và chuyển đổi sang hàm số bằng \texttt{lambdify()}.
-    \item \textbf{NumPy}: Tính toán số trên mảng đa chiều, sử dụng kỹ thuật vector hóa (vectorization) để đạt hiệu năng cao.
-    \item \textbf{Matplotlib}: Vẽ đồ thị tĩnh đạt chuẩn xuất bản khoa học, xuất file ảnh PNG cho báo cáo.
-    \item \textbf{Plotly}: Đồ họa tương tác (zoom, pan, hover), phục vụ phân tích trực quan trên trình duyệt.
-    \item \textbf{Streamlit}: Framework xây dựng ứng dụng web tương tác, cung cấp slider, tab và các widget điều khiển mà không cần viết mã HTML/JavaScript.
+    \item \textbf{SymPy} \cite{sympy_docs}: Dùng để giải hệ phương trình vi phân ra công thức dạng chữ (symbolic), sau đó dùng lệnh \texttt{lambdify()} để chuyển thành hàm tính số liệu.
+    \item \textbf{NumPy}: Dùng để tính toán số liệu trên các mảng lớn (vector) một cách nhanh chóng.
+    \item \textbf{Matplotlib}: Dùng để vẽ các đồ thị tĩnh chèn vào báo cáo.
+    \item \textbf{Plotly}: Dùng để vẽ đồ thị có thể tương tác (phóng to, thu nhỏ, xem tọa độ điểm) trên trang web.
+    \item \textbf{Streamlit}: Công cụ giúp tạo giao diện web (có thanh trượt, nút bấm, chia tab) bằng Python một cách dễ dàng.
 \end{itemize}
 
-\subsubsection{Kiến trúc chương trình}
-Chương trình được tổ chức thành hai thành phần chính, phục vụ hai luồng công việc khác nhau:
+\subsubsection{Cấu trúc chương trình}
+Chương trình chia làm hai file chính:
 
 \begin{table}[H]
 \centering
 \caption{Cấu trúc file chương trình}
 \begin{tabular}{|l|l|p{7.5cm}|}
 \hline
-\textbf{File} & \textbf{Loại} & \textbf{Mô tả} \\
+\textbf{Tên file} & \textbf{Loại} & \textbf{Mô tả} \\
 \hline
-\texttt{projectile\_with\_drag.py} & Script tĩnh & Giải symbolic, tính toán, vẽ đồ thị Matplotlib, xuất file PNG phục vụ báo cáo \\
+\texttt{projectile\_with\_drag.py} & Script tĩnh & Dùng để tính toán và xuất các đồ thị dạng ảnh PNG dùng cho báo cáo. \\
 \hline
-\texttt{app.py} & Ứng dụng Web & Giao diện Streamlit tương tác: nhập tham số bằng slider, đồ thị Plotly cập nhật theo thời gian thực \\
+\texttt{app.py} & Ứng dụng Web & Code giao diện Streamlit: hiển thị thanh trượt và đồ thị chạy trực tiếp trên web. \\
 \hline
 \end{tabular}
 \end{table}
 
-Toàn bộ mã nguồn được lưu trữ công khai tại kho GitHub:
+Mã nguồn đầy đủ của đồ án được đăng tải tại:
 
 \begin{center}
 \url{https://github.com/bawfng04/VL1-Assignment}
 \end{center}
 
 
-\subsection{Hiện thực hóa các kịch bản mô phỏng}
+\subsection{Chi tiết các bước lập trình}
 
-\subsubsection{Giải hệ phương trình vi phân bằng SymPy}
-Bước khởi đầu là thiết lập hệ ODE dưới dạng symbolic. Các biến được khai báo dưới dạng ký hiệu (symbol) của SymPy, sau đó hệ phương trình được giải bằng hàm \texttt{dsolve()} với điều kiện ban đầu tường minh.
+\subsubsection{Giải phương trình vi phân bằng SymPy}
+Đầu tiên, ta thiết lập phương trình vi phân trên máy tính bằng các biến ký hiệu (symbol). Sau đó, dùng hàm \texttt{dsolve()} của SymPy để giải phương trình với điều kiện ban đầu (vận tốc lúc bắt đầu ném).
 
-\begin{lstlisting}[style=pythonstyle, caption={Khai báo biến symbolic và thiết lập phương trình ODE}]
+\begin{lstlisting}[style=pythonstyle, caption={Khai báo biến ký hiệu và thiết lập phương trình}]
 from sympy import symbols, Function, Eq, dsolve, cos, sin
 
 t = symbols('t', positive=True)
@@ -66,33 +66,33 @@ m, g, h, v0, alpha = symbols('m g h v_0 alpha', positive=True)
 x = Function('x')
 y = Function('y')
 
-# Phuong trinh ODE theo phuong Ox: m*x''(t) + h*x'(t) = 0
+# Phuong trinh truc Ox: m*x''(t) + h*x'(t) = 0
 ode_x = Eq(m * x(t).diff(t, 2) + h * x(t).diff(t), 0)
 
-# Phuong trinh ODE theo phuong Oy: m*y''(t) + h*y'(t) = -m*g
+# Phuong trinh truc Oy: m*y''(t) + h*y'(t) = -m*g
 ode_y = Eq(m * y(t).diff(t, 2) + h * y(t).diff(t), -m * g)
 \end{lstlisting}
 
-\begin{lstlisting}[style=pythonstyle, caption={Giải ODE với điều kiện ban đầu}]
-# Giai phuong trinh x(t) voi dieu kien ban dau
+\begin{lstlisting}[style=pythonstyle, caption={Giải phương trình vi phân với điều kiện ban đầu}]
+# Giai tim x(t) voi dieu kien ban dau
 sol_x = dsolve(ode_x, x(t), ics={
     x(0): 0,
     x(t).diff(t).subs(t, 0): v0 * cos(alpha)
 })
 
-# Giai phuong trinh y(t) voi dieu kien ban dau
+# Giai tim y(t) voi dieu kien ban dau
 sol_y = dsolve(ode_y, y(t), ics={
     y(0): 0,
     y(t).diff(t).subs(t, 0): v0 * sin(alpha)
 })
 \end{lstlisting}
 
-Kết quả trả về sau khi đơn giản hóa bằng \texttt{simplify()} khớp hoàn toàn với nghiệm giải tích (\ref{eq:x})--(\ref{eq:y}) đã thiết lập ở Chương~1, xác nhận tính đúng đắn của cả hai quá trình giải.
+Sau khi dùng \texttt{simplify()} để rút gọn, kết quả máy tính trả về hoàn toàn trùng khớp với các công thức (\ref{eq:x}) và (\ref{eq:y}) mà ta đã chứng minh bằng tay ở Chương 1.
 
-\subsubsection{Chuyển đổi từ symbolic sang hàm số}
-Biểu thức symbolic không thể trực tiếp tính toán trên mảng dữ liệu lớn. Hàm \texttt{lambdify()} của SymPy thực hiện phép chuyển đổi từ biểu thức giải tích sang hàm Python/NumPy, cho phép vector hóa tính toán:
+\subsubsection{Đổi công thức thành hàm tính số}
+Công thức dạng chữ của SymPy không thể đưa vào vẽ đồ thị trực tiếp được. Ta phải dùng hàm \texttt{lambdify()} để ép nó thành một hàm số NumPy tính toán nhanh trên các danh sách số liệu.
 
-\begin{lstlisting}[style=pythonstyle, caption={Chuyển biểu thức symbolic sang hàm số}]
+\begin{lstlisting}[style=pythonstyle, caption={Đổi công thức chữ thành hàm số NumPy}]
 from sympy import lambdify, simplify
 
 x_expr = simplify(sol_x.rhs)
@@ -100,7 +100,7 @@ y_expr = simplify(sol_y.rhs)
 vx_expr = simplify(x_expr.diff(t))
 vy_expr = simplify(y_expr.diff(t))
 
-# Chuyen sang ham so NumPy de tinh toan nhanh
+# Doi thanh ham so de tinh toan nhanh hon
 params = (t, m, g, h, v0, alpha)
 x_func  = lambdify(params, x_expr, 'numpy')
 y_func  = lambdify(params, y_expr, 'numpy')
@@ -108,92 +108,92 @@ vx_func = lambdify(params, vx_expr, 'numpy')
 vy_func = lambdify(params, vy_expr, 'numpy')
 \end{lstlisting}
 
-Sau bước này, mỗi hàm chấp nhận mảng NumPy làm đầu vào và trả về kết quả vector hóa, cho phép tính toán đồng thời trên 3000 điểm dữ liệu trong thời gian dưới 1 mili giây.
+Nhờ cách này, chương trình có thể tính toán vị trí của hàng ngàn điểm trên quỹ đạo chỉ trong chưa tới 1 mili giây.
 
-\subsubsection{Thuật toán xác định thời điểm chạm đất}
-Phương trình $y(t) = 0$ với $t > 0$ không có nghiệm dạng đóng do biểu thức (\ref{eq:y}) chứa đồng thời hàm mũ và hàm tuyến tính. Thay vào đó, thời điểm chạm đất được xác định bằng phương pháp nội suy tuyến tính trên mảng dữ liệu rời rạc:
+\subsubsection{Thuật toán tìm thời điểm vật rơi xuống đất}
+Vật chạm đất khi $y(t) = 0$. Vì phương trình $y(t)$ khá phức tạp (vừa có hàm mũ vừa có $t$), ta không thể giải phương trình $y=0$ trực tiếp được. Thay vào đó, chương trình sẽ dò tìm trên đồ thị: tìm điểm mà đồ thị cắt trục hoành (chuyển từ y dương sang y âm), rồi dùng phép nội suy để lấy mốc thời gian chính xác.
 
-\begin{lstlisting}[style=pythonstyle, caption={Xác định thời điểm chạm đất bằng nội suy tuyến tính}]
+\begin{lstlisting}[style=pythonstyle, caption={Dò tìm thời điểm vật chạm đất}]
 import numpy as np
 
 t_arr = np.linspace(0, t_max, 3000)
 y_vals = y_func(t_arr, m_val, g_val, h_val, v0_val, alpha_rad)
 
-# Tim chi so noi y chuyen dau tu duong sang am
+# Tim vi tri ma gia tri y dao dau (tu duong sang am)
 idx = np.where((y_vals[1:] <= 0) & (y_vals[:-1] > 0))[0]
 if len(idx) > 0:
     i = idx[0] + 1
-    # Noi suy tuyen tinh giua hai diem lien tiep
+    # Noi suy de tim chinh xac thoi gian
     t_land = t_arr[i-1] + (0 - y_vals[i-1]) / \
              (y_vals[i] - y_vals[i-1]) * \
              (t_arr[i] - t_arr[i-1])
 \end{lstlisting}
 
-Sai số phương pháp bị chặn bởi $\Delta t / 2 \approx 0{,}0025$ s (với bước lưới $\Delta t = t_{max}/3000$). Đây là độ chính xác đủ cho mục đích phân tích trong bài tập lớn.
+Với 3000 điểm dữ liệu, cách làm này cho kết quả rất sát với thực tế, sai số là không đáng kể.
 
-\subsubsection{Ứng dụng tương tác Web (Streamlit)}
-Bên cạnh chương trình tĩnh, nhóm phát triển thêm ứng dụng web tương tác sử dụng framework Streamlit. Kiến trúc ứng dụng gồm hai phần:
+\subsubsection{Ứng dụng web tương tác (Streamlit)}
+Sản phẩm chính của đồ án là một trang web nhỏ mô phỏng hiện tượng, được làm bằng thư viện Streamlit. Giao diện được thiết kế gồm hai phần:
 
 \begin{itemize}[nosep]
-    \item \textbf{Thanh bên (Sidebar):} Chứa các slider để nhập trực tiếp giá trị $m$, $g$, $h$, $v_0$, $t_{max}$ và chọn góc ném $\alpha$ theo ba chế độ: tập góc cố định, slider tùy chỉnh, hoặc nhập tự do.
-    \item \textbf{Khu vực chính:} Hiển thị 6 tab phân tích, mỗi tab tự động cập nhật khi tham số thay đổi.
+    \item \textbf{Cột bên trái (Sidebar):} Chứa các thanh trượt để điều chỉnh khối lượng $m$, gia tốc $g$, lực cản $h$, vận tốc $v_0$. Riêng góc $\alpha$ có thể chọn sẵn, kéo thanh trượt, hoặc tự gõ vào.
+    \item \textbf{Phần chính bên phải:} Có 6 tab khác nhau để xem kết quả khi thay đổi số liệu.
 \end{itemize}
 
 \begin{table}[H]
 \centering
-\caption{Các tab chức năng trong ứng dụng Streamlit}
+\caption{Chức năng các tab trong ứng dụng}
 \begin{tabularx}{\textwidth}{|l|X|}
 \hline
-\textbf{Tab} & \textbf{Chức năng} \\
+\textbf{Tên Tab} & \textbf{Chức năng} \\
 \hline
-Quỹ đạo & Vẽ quỹ đạo $y(x)$ cho các góc đã chọn, kèm bảng số liệu chi tiết \\
+Quỹ đạo & Xem đường bay của vật ở các góc khác nhau và bảng số liệu (tầm xa, độ cao...). \\
 \hline
-So sánh lực cản & So sánh quỹ đạo có và không có lực cản, tính chênh lệch $\Delta R$ và $\Delta H$ \\
+So sánh lực cản & So sánh hai đường bay: khi có lực cản và khi không có lực cản. \\
 \hline
-Vận tốc & Đồ thị $v_x(t)$, $v_y(t)$, $|v|(t)$ trên 3 panel riêng biệt \\
+Vận tốc & Xem đồ thị vận tốc ngang và dọc giảm đi như thế nào theo thời gian. \\
 \hline
-Năng lượng & Biến thiên động năng, thế năng, cơ năng, và năng lượng tiêu hao do cản \\
+Năng lượng & Xem cơ năng của vật bị tiêu hao đi bao nhiêu phần trăm do lực cản. \\
 \hline
-Khảo sát $h$ & Khảo sát ảnh hưởng của hệ số cản đến quỹ đạo với phạm vi tùy chỉnh \\
+Khảo sát $h$ & Xem quỹ đạo bị móp đi như thế nào khi tăng dần hệ số cản $h$. \\
 \hline
-Lý thuyết & Trình bày phương trình Newton II, nghiệm giải tích, nhận xét vật lý \\
+Lý thuyết & Tóm tắt lại các phương trình và nhận xét dùng trong đồ án. \\
 \hline
 \end{tabularx}
 \end{table}
 
-Một điểm kỹ thuật đáng lưu ý: hàm giải ODE symbolic được đánh dấu \texttt{@st.cache\_resource} thay vì \texttt{@st.cache\_data}, do các đối tượng \texttt{lambdify} không hỗ trợ serialize bằng \texttt{pickle}. Decorator \texttt{cache\_resource} cho phép lưu trữ tham chiếu trực tiếp đến đối tượng trong bộ nhớ mà không cần serialize, đảm bảo hàm giải chỉ chạy một lần duy nhất.
+Trong code có một điểm lưu ý: hàm giải phương trình vi phân được gắn dòng \texttt{@st.cache\_resource}. Lệnh này giúp Streamlit nhớ kết quả giải phương trình, chỉ giải 1 lần lúc mới mở app, nhờ đó mỗi lần người dùng kéo thanh trượt thì đồ thị cập nhật ngay lập tức mà không phải chờ máy tính giải lại phương trình.
 
-\textbf{Hướng dẫn cài đặt và chạy ứng dụng:}
-\begin{lstlisting}[style=pythonstyle, caption={Lệnh cài đặt và khởi chạy ứng dụng}, language=bash]
-# Cai dat cac thu vien phu thuoc
+\textbf{Cách chạy ứng dụng trên máy tính:}
+\begin{lstlisting}[style=pythonstyle, caption={Lệnh cài đặt và mở ứng dụng}, language=bash]
+# Cai dat cac thu vien can thiet
 pip install -r requirements.txt
 
-# Khoi chay ung dung
+# Mo trang web
 streamlit run app.py
 \end{lstlisting}
 
-Ứng dụng tự động mở trình duyệt tại \texttt{http://localhost:8501}. 
+Gõ lệnh xong, trình duyệt sẽ tự mở trang web tại địa chỉ \texttt{http://localhost:8501}. 
 
-\subsubsection{Giao diện ứng dụng tương tác}
-Các hình dưới đây minh họa giao diện ứng dụng khi vận hành với bộ tham số mặc định.
+\subsubsection{Giao diện ứng dụng}
+Dưới đây là một số hình ảnh chụp màn hình lúc ứng dụng đang chạy.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/ss01.png}
-\caption{Tab ``Quỹ đạo'': quỹ đạo $y(x)$ cho 5 góc ném kèm bảng số liệu. Các tham số vật lý hiển thị dưới dạng thẻ (chip) ngay phía trên đồ thị.}
+\caption{Tab ``Quỹ đạo'': cho thấy 5 đường bay với 5 góc khác nhau. Bảng số bên dưới tính toán sẵn tầm xa, độ cao và thời gian bay.}
 \label{fig:ss01}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/ss02.png}
-\caption{Tab ``So sánh lực cản'': thanh trượt cho phép chọn góc $\alpha = 36°$. Sự chênh lệch $\Delta R$ và $\Delta H$ giữa hai trường hợp được tính và hiển thị tự động.}
+\caption{Tab ``So sánh lực cản'': ví dụ khi chọn góc 36°, đường nét đứt đỏ là có lực cản, đường nét liền xanh là không có lực cản. Web tự tính mức độ chênh lệch bên dưới.}
 \label{fig:ss02}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/ss04.png}
-\caption{Tab ``Năng lượng'': phân tích biến thiên năng lượng tại góc $\alpha = 15°$. 87\% năng lượng ban đầu bị tiêu hao do lực cản. Các chỉ số tổng hợp hiển thị phía dưới đồ thị.}
+\caption{Tab ``Năng lượng'': đồ thị cho thấy cơ năng (đường xanh lá) giảm dần. Ở góc 15°, lực cản đã làm mất đi 87\% tổng năng lượng ban đầu của vật.}
 \label{fig:ss04}
 \end{figure}
