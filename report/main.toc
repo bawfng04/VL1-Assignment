@@ -33,10 +33,10 @@
 \contentsline {section}{\numberline {3}Kết quả và phân tích}{12}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Thông số dùng để mô phỏng}{12}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Quỹ đạo ở các góc ném khác nhau}{12}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}So sánh khi có cản và không cản}{13}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Sự thay đổi của vận tốc}{15}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Sự thay đổi năng lượng}{16}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Hệ số cản mạnh yếu khác nhau thì sao?}{17}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.3}So sánh khi có lực cản và không có lực cản}{13}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Sự biến thiên của vận tốc}{15}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Sự biến thiên năng lượng}{16}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Ảnh hưởng của hệ số cản $h$}{17}{subsection.3.6}%
 \contentsline {section}{\numberline {4}Kết luận và hướng phát triển}{18}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Tổng kết kết quả}{18}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Các kết luận vật lý}{18}{subsection.4.2}%
