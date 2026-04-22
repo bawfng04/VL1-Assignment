@@ -2,7 +2,7 @@
 
 \subsection{Chuyển động ném xiên trong trọng trường -- Mô hình lý tưởng}
 \subsubsection{Phát biểu bài toán}
-Xét một vật có khối lượng $m$ được ném từ gốc tọa độ $O$ với vận tốc ban đầu $v_0$, hợp với phương ngang một góc $\alpha$ ($0 < \alpha < \pi/2$). Mục tiêu của chúng ta là tìm phương trình quỹ đạo của vật trong hai trường hợp: (i) bỏ qua lực cản của không khí, và (ii) có xét đến lực cản của môi trường.
+Xét một vật có khối lượng $m$ được ném từ gốc tọa độ $O$ với vận tốc ban đầu $v_0$, hợp với phương ngang một góc $\alpha$ ($0 < \alpha < \pi/2$). Mục tiêu của bài toán là xác định phương trình quỹ đạo của vật trong hai trường hợp: (i) bỏ qua lực cản của không khí, và (ii) có xét đến lực cản của môi trường.
 
 Ta chọn hệ trục tọa độ $Oxy$ sao cho trục $Ox$ nằm ngang (chiều dương hướng theo chiều ném), trục $Oy$ hướng thẳng đứng lên trên. Gốc tọa độ $O$ là vị trí ném vật ban đầu.
 
@@ -19,7 +19,7 @@ y(t) = v_0 \sin\alpha \cdot t - \dfrac{1}{2}gt^2
 \label{eq:ideal}
 \end{equation}
 
-Rút $t$ từ phương trình $x(t)$ thế vào phương trình $y(t)$, ta được phương trình quỹ đạo có dạng một đường parabol:
+Khử tham số thời gian $t$ từ hệ phương trình, ta thu được phương trình quỹ đạo có dạng một đường parabol:
 \begin{equation}
 y = x\tan\alpha - \frac{g}{2v_0^2\cos^2\alpha}\,x^2
 \label{eq:parabola}
@@ -65,7 +65,7 @@ m\ddot{y} + h\dot{y} = -mg
 \label{eq:ode_y}
 \end{equation}
 
-Phương trình (\ref{eq:ode_x}) là phương trình vi phân bậc hai thuần nhất, còn phương trình (\ref{eq:ode_y}) là phương trình vi phân bậc hai không thuần nhất. Hai phương trình này độc lập với nhau, nên ta có thể giải riêng rẽ từng phương trình.
+Phương trình (\ref{eq:ode_x}) là phương trình vi phân bậc hai thuần nhất, còn phương trình (\ref{eq:ode_y}) là phương trình vi phân bậc hai không thuần nhất. Hai phương trình này hoàn toàn độc lập (decoupled), cho phép giải tích phân riêng rẽ từng phương.
 
 \subsubsection{Điều kiện ban đầu}
 Lúc bắt đầu ném ($t = 0$), vật ở gốc tọa độ và có vận tốc ban đầu là:
@@ -80,7 +80,7 @@ v_y(0) = v_{0y} = v_0 \sin\alpha
 
 
 \subsection{Giải phương trình tìm nghiệm}
-Để cho gọn, ta đặt $k = h/m$ (đơn vị: 1/s). Đây là hệ số đặc trưng cho sự suy giảm vận tốc do lực cản.
+Nhằm đơn giản hóa biểu thức, đặt $k = h/m$ (đơn vị: 1/s). Đây là hệ số đặc trưng cho mức độ suy giảm vận tốc do tác dụng của lực cản.
 
 \subsubsection{Chuyển động theo phương Ox}
 Viết lại phương trình (\ref{eq:ode_x}): $\ddot{x} + k\dot{x} = 0$. Đặt $u = \dot{x}$ (vận tốc ngang), phương trình trở thành $\dot{u} + ku = 0$. Đây là phương trình vi phân bậc nhất cơ bản. Nghiệm của nó có dạng: $u(t) = C \cdot e^{-kt}$. Thay điều kiện ban đầu $u(0) = v_0\cos\alpha$ vào, ta tìm được hằng số $C = v_0\cos\alpha$.
@@ -99,7 +99,7 @@ x(t) = \frac{m v_0 \cos\alpha}{h}\left(1 - e^{-\frac{h}{m}t}\right)
 \label{eq:x}
 \end{equation}
 
-\textit{Nhận xét:} Vận tốc ngang của vật giảm dần theo hàm số mũ và sẽ tiến về 0. Tọa độ $x$ cũng không tăng vô hạn mà sẽ dừng lại ở một khoảng cách tối đa $x_\infty = mv_0\cos\alpha/h$ khi thời gian $t$ đủ lớn. Điều này khác hẳn với mô hình lý tưởng (vật bay ngang mãi mãi).
+\textit{Nhận xét:} Vận tốc ngang của vật suy giảm theo hàm mũ và tiệm cận về 0. Do đó, tọa độ $x$ không tăng vô hạn mà bị giới hạn ở một khoảng cách tối đa $x_\infty = mv_0\cos\alpha/h$ khi thời gian $t \to \infty$. Đặc điểm này phản ánh bản chất tiêu tán năng lượng của lực cản, hoàn toàn khác biệt so với chuyển động ngang vĩnh cửu trong mô hình lý tưởng.
 
 \subsubsection{Chuyển động theo phương Oy}
 Viết lại phương trình (\ref{eq:ode_y}): $\ddot{y} + k\dot{y} = -g$. Đặt $w = \dot{y}$ (vận tốc đứng), ta có: $\dot{w} + kw = -g$. Đây là phương trình vi phân bậc nhất không thuần nhất. Nghiệm của phương trình này bao gồm nghiệm tổng quát và nghiệm riêng. Giải phương trình này với điều kiện ban đầu $w(0) = v_0\sin\alpha$, ta được:
@@ -128,7 +128,7 @@ v_\infty = \lim_{t \to \infty} v_y(t) = -\frac{mg}{h}
 \label{eq:terminal}
 \end{equation}
 
-Tại mức vận tốc này, lực cản không khí đẩy lên đã cân bằng hoàn toàn với trọng lực kéo xuống ($h|v_\infty| = mg$). Vật không còn tăng tốc nữa mà sẽ rơi đều. Hiện tượng này rất phổ biến trong thực tế, ví dụ như giọt mưa rơi xuống đất với vận tốc ổn định chứ không nhanh dần vô hạn \cite{serway2008physics}.
+Tại mức vận tốc này, lực cản không khí hướng lên đã cân bằng hoàn toàn với trọng lực hướng xuống ($h|v_\infty| = mg$), dẫn đến gia tốc triệt tiêu và vật chuyển động thẳng đều. Hiện tượng tiệm cận vận tốc này rất phổ biến trong động lực học lưu chất, điển hình như sự rơi của hạt mưa trong khí quyển \cite{serway2008physics}.
 
 \subsubsection{Thời gian vật lên tới đỉnh}
 Vật đạt độ cao lớn nhất khi vận tốc thẳng đứng giảm về 0 ($v_y = 0$). Từ phương trình (\ref{eq:vy}), ta có thể tính được thời điểm này:
@@ -137,7 +137,7 @@ t_{H} = \frac{m}{h}\ln\left(1 + \frac{h v_0\sin\alpha}{mg}\right)
 \label{eq:tmax}
 \end{equation}
 
-So với trường hợp không có lực cản ($t_{H,0} = v_0\sin\alpha / g$), thời gian vật bay lên sẽ ngắn hơn. Lực cản hướng xuống cùng chiều với trọng lực làm vật mất đà nhanh hơn. Ngoài ra, thời gian vật rơi xuống sẽ lâu hơn thời gian bay lên, làm cho quỹ đạo bay mất đi tính đối xứng parabol.
+So với trường hợp không có lực cản ($t_{H,0} = v_0\sin\alpha / g$), thời gian bay lên cực đại ngắn hơn. Nguyên nhân là do lực cản hướng xuống cùng chiều với trọng lực trong giai đoạn này, làm gia tăng lực hãm tổng hợp. Hơn nữa, thời gian vật rơi xuống sẽ lớn hơn thời gian bay lên, phá vỡ tính đối xứng thời gian của quỹ đạo parabol.
 
 \subsubsection{Năng lượng của vật}
 Cơ năng $E$ của vật bao gồm động năng và thế năng:
@@ -154,11 +154,11 @@ Theo định lý biến thiên cơ năng, ta luôn có:
 E_0 = E(t) + |W_c(t)|
 \label{eq:energy_conservation}
 \end{equation}
-Với $E_0 = \frac{1}{2}mv_0^2$ là cơ năng ban đầu lúc mới ném. Chúng ta sẽ dùng biểu thức này để kiểm tra lại tính chính xác của chương trình mô phỏng ở các chương sau.
+Với $E_0 = \frac{1}{2}mv_0^2$ là cơ năng ban đầu của hệ. Hệ thức bảo toàn năng lượng tổng quát này sẽ được sử dụng làm tiêu chuẩn để kiểm chứng độ chính xác của các thuật toán mô phỏng số.
 
-\subsubsection{Trường hợp không có lực cản (khi h rất nhỏ)}
-Để chắc chắn các phương trình trên là đúng, ta thử xét khi hệ số cản $h$ tiến gần về 0. Lúc này, phương trình phải quay về giống với mô hình lý tưởng ban đầu. 
+\subsubsection{Trường hợp không có lực cản (khảo sát giới hạn $h \to 0$)}
+Để kiểm chứng tính nhất quán của nghiệm, ta xét giới hạn khi hệ số cản $h$ tiến về 0. Trong điều kiện này, các phương trình chuyển động phải hội tụ về dạng của mô hình lý tưởng. 
 
 Sử dụng khai triển Taylor cho hàm số mũ: $e^{-ht/m} \approx 1 - \frac{h}{m}t$, thay vào phương trình (\ref{eq:x}) ta được:
 $$x \approx \frac{mv_0\cos\alpha}{h}\cdot\left(1 - \left(1 - \frac{h}{m}t\right)\right) = v_0\cos\alpha\cdot t$$
-Kết quả này hoàn toàn trùng khớp với phương trình (\ref{eq:ideal}). Nếu làm tương tự cho tọa độ $y(t)$ và vận tốc, ta cũng thu được kết quả của mô hình ném xiên lý tưởng. Điều này chứng tỏ nghiệm giải ra là hợp lý.
+Kết quả này hoàn toàn trùng khớp với phương trình chuyển động ngang (\ref{eq:ideal}). Thông qua phép xấp xỉ tương tự đối với tọa độ $y(t)$ và vận tốc, hệ phương trình nghiệm hoàn toàn hội tụ về mô hình ném xiên lý tưởng, khẳng định tính hợp lý và chặt chẽ của lời giải.

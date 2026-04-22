@@ -16,34 +16,34 @@
 \contentsline {subsubsection}{\numberline {1.4.1}Vận tốc giới hạn}{4}{subsubsection.1.4.1}%
 \contentsline {subsubsection}{\numberline {1.4.2}Thời gian vật lên tới đỉnh}{4}{subsubsection.1.4.2}%
 \contentsline {subsubsection}{\numberline {1.4.3}Năng lượng của vật}{4}{subsubsection.1.4.3}%
-\contentsline {subsubsection}{\numberline {1.4.4}Trường hợp không có lực cản (khi h rất nhỏ)}{5}{subsubsection.1.4.4}%
+\contentsline {subsubsection}{\numberline {1.4.4}Trường hợp không có lực cản (khảo sát giới hạn $h \to 0$)}{5}{subsubsection.1.4.4}%
 \contentsline {section}{\numberline {2}Mô phỏng}{6}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Mục đích và phạm vi mô phỏng}{6}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Mục đích mô phỏng}{6}{subsubsection.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.2}Phạm vi và giới hạn khảo sát}{6}{subsubsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.2}Công cụ và cách thực hiện}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Công cụ và thiết kế kỹ thuật}{6}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Ngôn ngữ lập trình và thư viện}{6}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Cấu trúc chương trình}{6}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Chi tiết các bước lập trình}{7}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.2}Kiến trúc chương trình}{6}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Phương pháp hiện thực hóa}{7}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Giải phương trình vi phân bằng SymPy}{7}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Đổi công thức thành hàm tính số}{7}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Thuật toán tìm thời điểm vật rơi xuống đất}{8}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Ứng dụng web tương tác (Streamlit)}{8}{subsubsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.2}Chuyển đổi biểu thức giải tích sang hàm số}{7}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Thuật toán xác định thời điểm chạm đất}{8}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Triển khai ứng dụng Web tương tác}{8}{subsubsection.2.3.4}%
 \contentsline {subsubsection}{\numberline {2.3.5}Giao diện ứng dụng}{9}{subsubsection.2.3.5}%
-\contentsline {section}{\numberline {3}Kết quả và phân tích}{11}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Thông số dùng để mô phỏng}{11}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Quỹ đạo ở các góc ném khác nhau}{11}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}So sánh khi có cản và không cản}{12}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Sự thay đổi của vận tốc}{14}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Sự thay đổi năng lượng}{15}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Hệ số cản mạnh yếu khác nhau thì sao?}{16}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Kết luận và hướng phát triển}{17}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Tổng kết những việc đã làm được}{17}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Các kết luận rút ra từ hiện tượng}{17}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Kiểm tra độ tin cậy của chương trình}{17}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Hướng phát triển thêm}{18}{subsection.4.4}%
-\contentsline {section}{\numberline {A}Phụ lục}{20}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Danh sách thành viên}{20}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Mã nguồn chương trình (trích đoạn)}{20}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {A.2.1}File \texttt {projectile\_with\_drag.py} -- Chương trình tĩnh}{20}{subsubsection.A.2.1}%
-\contentsline {subsubsection}{\numberline {A.2.2}File \texttt {app.py} -- Ứng dụng Streamlit}{21}{subsubsection.A.2.2}%
+\contentsline {section}{\numberline {3}Kết quả và phân tích}{12}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Thông số dùng để mô phỏng}{12}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Quỹ đạo ở các góc ném khác nhau}{12}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}So sánh khi có cản và không cản}{13}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Sự thay đổi của vận tốc}{15}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Sự thay đổi năng lượng}{16}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Hệ số cản mạnh yếu khác nhau thì sao?}{17}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Kết luận và hướng phát triển}{18}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Tổng kết kết quả}{18}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Các kết luận vật lý}{18}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Kiểm chứng độ tin cậy của mô hình}{18}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Hướng phát triển mở rộng}{19}{subsection.4.4}%
+\contentsline {section}{\numberline {A}Phụ lục}{21}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Danh sách thành viên}{21}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Mã nguồn chương trình (trích đoạn)}{21}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {A.2.1}File \texttt {projectile\_with\_drag.py} -- Chương trình tĩnh}{21}{subsubsection.A.2.1}%
+\contentsline {subsubsection}{\numberline {A.2.2}File \texttt {app.py} -- Ứng dụng Streamlit}{22}{subsubsection.A.2.2}%

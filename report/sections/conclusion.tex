@@ -1,49 +1,49 @@
 \section{Kết luận và hướng phát triển}
 
-\subsection{Tổng kết những việc đã làm được}
+\subsection{Tổng kết kết quả}
 Nhóm đã hoàn thành đầy đủ các yêu cầu của bài tập lớn đề ra, cụ thể gồm:
 
 \begin{enumerate}
-    \item \textbf{Thiết lập mô hình vật lý:} Đã xây dựng được phương trình định luật II Newton cho vật ném xiên khi có thêm lực cản của không khí ($\vec{F}_c = -h\vec{v}$), từ đó thiết lập và giải thành công hệ phương trình vi phân để tìm ra công thức tọa độ $x(t)$, $y(t)$ và vận tốc $v_x(t)$, $v_y(t)$.
+    \item \textbf{Thiết lập mô hình vật lý:} Đã xây dựng được phương trình định luật II Newton cho vật ném xiên khi có lực cản môi trường ($\vec{F}_c = -h\vec{v}$), từ đó thiết lập và giải hệ phương trình vi phân để xác định các phương trình tọa độ $x(t)$, $y(t)$ và vận tốc $v_x(t)$, $v_y(t)$.
     
-    \item \textbf{Lập trình tính toán:} Đã dùng thư viện SymPy của Python để yêu cầu máy tính tự động giải lại các phương trình trên. Kết quả máy giải ra hoàn toàn khớp với công thức mà nhóm tính tay, đảm bảo tính chính xác tuyệt đối.
+    \item \textbf{Lập trình tính toán:} Sử dụng tính toán biểu tượng (symbolic computation) thông qua thư viện SymPy để giải hệ phương trình vi phân một cách tự động. Kết quả thu được hoàn toàn khớp với nghiệm giải tích, đảm bảo tính chính xác cao.
     
-    \item \textbf{Khảo sát và vẽ đồ thị:} Nhóm đã vẽ đồ thị và phân tích chi tiết 5 vấn đề: đường bay thay đổi thế nào theo góc ném, sự khác biệt khi có và không có không khí, sự giảm sút của vận tốc, sự tiêu hao năng lượng, và mức độ ảnh hưởng khi lực cản mạnh hay yếu.
+    \item \textbf{Khảo sát và phân tích đồ thị:} Nhóm đã xây dựng các đồ thị và phân tích chi tiết: sự biến dạng của quỹ đạo theo góc ném, sự sai biệt giữa môi trường có cản và không cản, sự suy giảm của vận tốc, sự tiêu hao năng lượng, và mức độ biến thiên quỹ đạo theo hệ số cản $h$.
     
-    \item \textbf{Làm ứng dụng tương tác:} Nhóm đã thiết kế thành công một trang web nhỏ (dùng Streamlit) cho phép người dùng tự do nhập các thông số ($m$, $h$, $v_0$, $\alpha$) bằng thanh trượt và xem đồ thị thay đổi ngay lập tức, đúng như yêu cầu của đề bài.
+    \item \textbf{Ứng dụng mô phỏng trực quan:} Thiết kế thành công một giao diện tương tác (sử dụng framework Streamlit) cho phép người dùng tùy chỉnh các tham số ($m$, $h$, $v_0$, $\alpha$) và quan sát kết quả biến đổi theo thời gian thực.
 \end{enumerate}
 
-\subsection{Các kết luận rút ra từ hiện tượng}
-Qua đồ thị và số liệu, nhóm rút ra được các kết luận vật lý sau:
+\subsection{Các kết luận vật lý}
+Qua quá trình mô phỏng và phân tích số liệu, nhóm rút ra các kết luận vật lý sau:
 
 \begin{itemize}
-    \item Không khí làm cho đường bay của vật \textit{không còn là một parabol đối xứng} nữa. Khi rớt xuống, vật rơi cắm đầu xuống đất nhanh hơn là lúc bay lên, do đà bay ngang đã bị triệt tiêu gần hết.
+    \item Lực cản không khí làm cho quỹ đạo của vật \textit{mất đi tính đối xứng parabol}. Nhánh quỹ đạo đi xuống có độ dốc lớn hơn rõ rệt so với nhánh bay lên do thành phần vận tốc ngang đã bị triệt tiêu gần hết.
     
-    \item Để ném được xa nhất trong không khí, ta \textit{không nên ném ở góc 45°} như lý thuyết cấp 3. Góc ném tốt nhất thường nhỏ hơn (khoảng 30° trong bài này) để vật rơi xuống nhanh hơn, tránh bị không khí cản lại quá lâu trên trời.
+    \item Để đạt được tầm xa cực đại trong môi trường có lực cản, \textit{góc ném tối ưu không còn là $45°$}. Góc ném tối ưu (khoảng $30°$ đối với bộ tham số khảo sát) giúp giảm thiểu thời gian bay, từ đó hạn chế tác dụng cản phá kéo dài của môi trường.
     
-    \item Vận tốc rơi của vật không tăng vô hạn mà sẽ \textit{đạt mức giới hạn} (vận tốc lớn nhất) khi lực cản đẩy lên cân bằng với trọng lượng kéo xuống.
+    \item Vận tốc rơi của vật không tăng vô hạn mà sẽ \textit{tiệm cận vận tốc giới hạn} khi lực cản hướng lên cân bằng hoàn toàn với trọng lực hướng xuống.
     
-    \item Cơ năng của vật \textit{bị hao hụt rất nhiều}. Lực cản đã biến phần lớn năng lượng ban đầu (động năng) thành nhiệt năng. Quãng đường bay càng dài thì năng lượng mất đi càng lớn.
+    \item Cơ năng của vật \textit{không được bảo toàn}. Công của lực cản đã chuyển hóa cơ năng thành nhiệt năng, với mức độ tiêu hao chiếm phần lớn tổng năng lượng ban đầu.
     
-    \item Tầm xa của vật \textit{giảm rất mạnh lúc lực cản mới xuất hiện}, nhưng khi lực cản đã rất mạnh rồi thì tầm xa không tụt nhanh nữa. Nguyên nhân là do vật đã bay quá chậm, mà bay chậm thì lực cản cũng tự yếu đi.
+    \item Tầm xa của vật \textit{có sự suy giảm phi tuyến} theo sự gia tăng của hệ số cản $h$. Khi hệ số cản đủ lớn, vận tốc nhanh chóng bị suy giảm, dẫn đến cường độ lực cản $F_c = hv$ cũng tự động yếu đi, tạo ra hiệu ứng "bão hòa" sự suy giảm.
 \end{itemize}
 
-\subsection{Kiểm tra độ tin cậy của chương trình}
-Để chắc chắn code viết ra chạy đúng, nhóm đã thử nghiệm bằng 3 cách:
+\subsection{Kiểm chứng độ tin cậy của mô hình}
+Để xác nhận tính đúng đắn của chương trình, nhóm đã thực hiện kiểm chứng qua 3 tiêu chí:
 \begin{itemize}[nosep]
-    \item \textbf{Thử cho không khí biến mất ($h = 0$):} Đồ thị tự động trở lại thành hình parabol hoàn hảo, giống hệt sách giáo khoa.
-    \item \textbf{Thử cho thời gian trôi qua rất lâu:} Vận tốc ngang giảm về đúng 0, còn vận tốc rơi đúng bằng vận tốc giới hạn tính theo lý thuyết.
-    \item \textbf{Cộng trừ năng lượng:} Tổng của Động năng + Thế năng + Năng lượng bị ma sát đốt cháy luôn luôn bằng đúng 100\% năng lượng ban đầu, không bị lệch một Joule nào.
+    \item \textbf{Khảo sát trong điều kiện giới hạn ($h \to 0$):} Đồ thị tự động hội tụ về dạng parabol lý tưởng, trùng khớp với kết quả lý thuyết chuẩn.
+    \item \textbf{Khảo sát hành vi tiệm cận ($t \to \infty$):} Vận tốc ngang hội tụ về 0, trong khi vận tốc dọc hội tụ đúng về giá trị vận tốc giới hạn đã tính toán.
+    \item \textbf{Kiểm chứng bảo toàn năng lượng tổng quát:} Tại mọi thời điểm, tổng của động năng, thế năng và năng lượng tiêu hao do công của lực cản luôn bằng đúng cơ năng ban đầu (sai số xấp xỉ 0).
 \end{itemize}
 
-Cả 3 bài test đều vượt qua, chứng tỏ chương trình mô phỏng hoàn toàn chính xác.
+Cả 3 kiểm chứng đều mang lại kết quả thỏa mãn, khẳng định tính chính xác của chương trình mô phỏng.
 
-\subsection{Hướng phát triển thêm}
-Nếu có thêm thời gian, mô hình này có thể được nâng cấp để thực tế hơn nữa:
+\subsection{Hướng phát triển mở rộng}
+Để mô hình tiệm cận hơn với điều kiện thực tế, các hướng phát triển sau có thể được xem xét:
 \begin{itemize}
-    \item \textbf{Dùng công thức lực cản bậc hai:} Lực cản tỷ lệ với vận tốc bình phương ($\vec{F}_c \propto -v^2$). Công thức này đúng hơn cho các vật bay rất nhanh (như quả bóng chày, viên đạn). Tuy nhiên phương trình này rất khó, không có công thức giải sẵn mà phải nhờ máy tính giải gần đúng từng bước.
+    \item \textbf{Mô hình lực cản bậc hai:} Sử dụng lực cản tỷ lệ với bình phương vận tốc ($\vec{F}_c \propto -v^2$), phù hợp với các vật thể di chuyển ở tốc độ cao (như đạn đạo). Hệ phương trình vi phân khi đó sẽ là hệ phi tuyến và cần áp dụng các phương pháp giải tích số (ví dụ: Runge-Kutta).
     
-    \item \textbf{Thêm sức gió:} Bổ sung thêm lực thổi ngang của gió vào phương trình Newton.
+    \item \textbf{Bổ sung hiệu ứng môi trường:} Xét thêm lực tác động của gió ngang hoặc ảnh hưởng của lực Magnus đối với vật thể có chuyển động xoay.
     
-    \item \textbf{Máy tính tự dò góc ném tốt nhất:} Viết thêm code (dùng thư viện tối ưu hóa) để máy tính tự dò tìm ra góc ném xa nhất ứng với từng mức lực cản, thay vì con người phải kéo thanh trượt để tự đoán.
+    \item \textbf{Tối ưu hóa đa biến:} Tích hợp thuật toán tối ưu hóa để tự động xác định chính xác góc ném tối ưu cho mọi bộ tham số tùy ý thay vì sử dụng thanh trượt thủ công.
 \end{itemize}

@@ -212,18 +212,18 @@ TRƯỜNG ĐẠI HỌC BÁCH KHOA} \\
 \section*{Lời nói đầu}
 \addcontentsline{toc}{section}{Lời nói đầu}
 
-Trong chương trình Vật lý đại cương trên lớp, chúng ta chủ yếu làm quen với bài toán ném xiên trong điều kiện lý tưởng, tức là bỏ qua hoàn toàn lực cản của không khí. Mô hình lý tưởng này rất tốt để sinh viên làm quen với các định luật Newton và dễ dàng tính toán quỹ đạo parabol bằng tay.
+Trong chương trình Vật lý đại cương, sinh viên được trang bị nền tảng vững chắc về bài toán chuyển động ném xiên trong điều kiện lý tưởng. Khảo sát chuyển động khi bỏ qua lực cản môi trường đóng vai trò quan trọng trong việc thiết lập tư duy vật lý cơ bản và làm quen với hệ quả của các định luật Newton. 
 
-Tuy nhiên, trong thực tế cuộc sống, lực cản của môi trường (như không khí, nước) lại đóng vai trò cực kỳ quan trọng và làm biến dạng quỹ đạo của vật thể rất nhiều. Nếu cứ áp dụng mô hình không có lực cản vào thực tế (như ném một quả bóng, bắn pháo hoa, đạn đạo...) thì kết quả tính toán sẽ bị sai lệch hoàn toàn.
+Tuy nhiên, đối với các hệ thống vật lý thực tế như đạn đạo hay động lực học thể thao, tác dụng của lực cản môi trường (cụ thể là lực cản khí động học) có ảnh hưởng đáng kể, làm thay đổi hoàn toàn đặc tính hình học và động học của quỹ đạo. Việc khảo sát các hệ thống này đòi hỏi sự hỗ trợ của các công cụ toán học nâng cao, tiêu biểu là việc thiết lập và giải hệ phương trình vi phân.
 
-Nhận thấy được giới hạn của những gì được học trên lớp, nhóm chúng em quyết định tập trung nghiên cứu và mô phỏng bài toán: \textbf{"Xác định quỹ đạo chuyển động ném xiên trong trọng trường có lực cản môi trường"}. Thông qua báo cáo này, nhóm xem việc tính toán có lực cản như một phần "mở rộng" nâng cao, giúp thu hẹp khoảng cách giữa lý thuyết sách vở và thực tế vật lý. Đồng thời, nhóm cũng ứng dụng kỹ năng lập trình Python để bắt máy tính tự động giải các phương trình vi phân phức tạp mà nếu tính tay sẽ tốn rất nhiều thời gian.
+Nhằm thu hẹp khoảng cách giữa mô hình lý thuyết và ứng dụng thực tiễn, đồng thời nâng cao năng lực giải quyết vấn đề bằng công cụ điện toán, đề tài Bài tập lớn: \textbf{"Xác định quỹ đạo chuyển động ném xiên trong trọng trường có lực cản môi trường"} đã được triển khai. Thông qua bài tập lớn này, nhóm thực hiện tiến hành khảo sát sự ảnh hưởng của lực cản, thiết lập các phương trình mô tả chuyển động, và đặc biệt là ứng dụng tính toán biểu tượng (symbolic computation) bằng Python để giải chính xác hệ phương trình và trực quan hóa dữ liệu.
 
-Báo cáo được chia làm 4 phần chính:
+Bố cục của báo cáo được tổ chức thành 4 phần chính:
 \begin{enumerate}[nosep]
-    \item \textbf{Cơ sở lý thuyết:} Nhắc lại mô hình lý tưởng và thiết lập phương trình cho mô hình có lực cản.
-    \item \textbf{Mô phỏng:} Cách lập trình giải phương trình và thiết kế trang web đồ thị tương tác.
-    \item \textbf{Kết quả và phân tích:} Đọc số liệu, so sánh và nhận xét sự khác biệt khi có không khí.
-    \item \textbf{Kết luận:} Đánh giá độ chính xác của chương trình và các hướng phát triển thêm.
+    \item \textbf{Cơ sở lý thuyết:} Tóm tắt mô hình lý tưởng và xây dựng hệ phương trình động lực học cho mô hình có lực cản.
+    \item \textbf{Mô phỏng:} Trình bày thuật toán giải phương trình vi phân và kiến trúc phần mềm của ứng dụng đồ họa tương tác.
+    \item \textbf{Kết quả và phân tích:} Tổng hợp số liệu định lượng, so sánh đối chiếu hai mô hình và phân tích các hệ quả vật lý.
+    \item \textbf{Kết luận:} Khẳng định tính chính xác của mô hình và đề xuất các phương hướng nghiên cứu mở rộng.
 \end{enumerate}
 
 Chúng em xin chân thành cảm ơn TS. Trần Văn Tiến đã tận tình giảng dạy và hướng dẫn để nhóm hoàn thành bài tập lớn này. Do kiến thức còn hạn chế, báo cáo khó tránh khỏi những thiếu sót, nhóm rất mong nhận được sự góp ý của thầy.
