@@ -1,5 +1,48 @@
-[0] Config.pm:328> INFO - This is Biber 2.21
-[0] Config.pm:331> INFO - Logfile is 'main.blg'
-[106] biber-MSWIN64:342> INFO - === 
-[487] Utils.pm:479> ERROR - Cannot find 'main.bcf'!
-[487] Biber.pm:137> INFO - ERRORS: 1
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+The style file: ieeetr.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+You've used 5 entries,
+            1876 wiz_defined-function locations,
+            508 strings with 4076 characters,
+and the built_in function-call counts, 826 in all, are:
+= -- 75
+> -- 35
+< -- 0
++ -- 14
+- -- 9
+* -- 44
+:= -- 129
+add.period$ -- 10
+call.type$ -- 5
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 5
+duplicate$ -- 40
+empty$ -- 99
+format.name$ -- 9
+if$ -- 204
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 8
+newline$ -- 23
+num.names$ -- 5
+pop$ -- 28
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 9
+stack$ -- 0
+substring$ -- 0
+swap$ -- 4
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 5
+width$ -- 6
+write$ -- 50

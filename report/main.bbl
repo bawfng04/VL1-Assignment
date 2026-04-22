@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}
+
+\bibitem{halliday2013fundamentals}
+D.~Halliday, R.~Resnick, and J.~Walker, {\em Fundamentals of Physics}.
+\newblock Hoboken, NJ: Wiley, 10th~ed., 2013.
+
+\bibitem{serway2008physics}
+R.~A. Serway and J.~W. Jewett, {\em Physics for Scientists and Engineers with
+  Modern Physics}.
+\newblock Belmont, CA: Thomson Brooks/Cole, 7th~ed., 2008.
+
+\bibitem{sympy_docs}
+{SymPy Development Team}, ``Sympy documentation -- solving ordinary
+  differential equations,'' 2024.
+\newblock Accessed: 2026-04-15.
+
+\bibitem{taylor2005classical}
+J.~R. Taylor, {\em Classical Mechanics}.
+\newblock Sausalito, CA: University Science Books, 2005.
+
+\bibitem{kleppner2014introduction}
+D.~Kleppner and R.~Kolenkow, {\em An Introduction to Mechanics}.
+\newblock Cambridge University Press, 2nd~ed., 2014.
+
+\end{thebibliography}

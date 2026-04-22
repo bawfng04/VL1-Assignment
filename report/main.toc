@@ -42,8 +42,8 @@
 \contentsline {subsection}{\numberline {4.2}Các kết luận rút ra từ hiện tượng}{17}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Kiểm tra độ tin cậy của chương trình}{17}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Hướng phát triển thêm}{18}{subsection.4.4}%
-\contentsline {section}{\numberline {A}Phụ lục}{19}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Danh sách thành viên}{19}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Mã nguồn chương trình (trích đoạn)}{19}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {A.2.1}File \texttt {projectile\_with\_drag.py} -- Chương trình tĩnh}{19}{subsubsection.A.2.1}%
-\contentsline {subsubsection}{\numberline {A.2.2}File \texttt {app.py} -- Ứng dụng Streamlit}{20}{subsubsection.A.2.2}%
+\contentsline {section}{\numberline {A}Phụ lục}{20}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Danh sách thành viên}{20}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Mã nguồn chương trình (trích đoạn)}{20}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {A.2.1}File \texttt {projectile\_with\_drag.py} -- Chương trình tĩnh}{20}{subsubsection.A.2.1}%
+\contentsline {subsubsection}{\numberline {A.2.2}File \texttt {app.py} -- Ứng dụng Streamlit}{21}{subsubsection.A.2.2}%
