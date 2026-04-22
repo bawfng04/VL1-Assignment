@@ -1,44 +1,48 @@
 \contentsline {section}{Danh mục bảng và hình vẽ}{3}{section*.4}%
 \contentsline {section}{\numberline {1}Cơ sở lý thuyết}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Chuyển động ném xiên -- Mô hình lý tưởng}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.1}Chuyển động ném xiên trong trọng trường -- Mô hình lý tưởng}{1}{subsection.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.1}Phát biểu bài toán}{1}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.2}Phương trình chuyển động lý tưởng}{1}{subsubsection.1.1.2}%
 \contentsline {subsection}{\numberline {1.2}Mô hình có lực cản môi trường}{1}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Lực cản tuyến tính theo vận tốc}{1}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Hệ phương trình vi phân theo hai phương}{1}{subsubsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Điều kiện ban đầu}{2}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.1}Bản chất vật lý của lực cản}{1}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Phương trình chuyển động tổng quát}{2}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Hệ phương trình vi phân theo hai phương}{2}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Điều kiện ban đầu}{2}{subsubsection.1.2.4}%
 \contentsline {subsection}{\numberline {1.3}Nghiệm giải tích}{2}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Nghiệm theo phương Ox}{2}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}Nghiệm theo phương Oy}{2}{subsubsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.4}Các đại lượng đặc trưng}{2}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}Vận tốc giới hạn (Terminal velocity)}{2}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Nghiệm theo phương Oy}{3}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Các đại lượng đặc trưng}{3}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Vận tốc giới hạn}{3}{subsubsection.1.4.1}%
 \contentsline {subsubsection}{\numberline {1.4.2}Thời gian đạt độ cao cực đại}{3}{subsubsection.1.4.2}%
-\contentsline {subsubsection}{\numberline {1.4.3}Năng lượng}{3}{subsubsection.1.4.3}%
-\contentsline {section}{\numberline {2}Mô phỏng}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Mục đích và phạm vi mô phỏng}{4}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Mục đích mô phỏng}{4}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Phạm vi và giới hạn khảo sát}{4}{subsubsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.2}Nền tảng công cụ và thiết kế kỹ thuật}{4}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Ngôn ngữ lập trình}{4}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {1.4.3}Phân tích năng lượng}{3}{subsubsection.1.4.3}%
+\contentsline {subsubsection}{\numberline {1.4.4}Trường hợp giới hạn: kiểm tra tính tương thích}{4}{subsubsection.1.4.4}%
+\contentsline {section}{\numberline {2}Mô phỏng}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Mục đích và phạm vi mô phỏng}{5}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Mục đích mô phỏng}{5}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Phạm vi và giới hạn khảo sát}{5}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Nền tảng công cụ và thiết kế kỹ thuật}{5}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Ngôn ngữ lập trình và thư viện}{5}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Kiến trúc chương trình}{5}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Hiện thực hóa các kịch bản mô phỏng}{5}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Giải hệ phương trình vi phân bằng SymPy}{5}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3}Hiện thực hóa các kịch bản mô phỏng}{6}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Giải hệ phương trình vi phân bằng SymPy}{6}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Chuyển đổi từ symbolic sang hàm số}{6}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Thuật toán xác định thời điểm chạm đất}{6}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3}Thuật toán xác định thời điểm chạm đất}{7}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}Ứng dụng tương tác Web (Streamlit)}{7}{subsubsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {2.3.5}Giao diện ứng dụng tương tác}{7}{subsubsection.2.3.5}%
-\contentsline {section}{\numberline {3}Kết quả và phân tích}{10}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Thông số mô phỏng}{10}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Quỹ đạo với các góc ném khác nhau}{10}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}So sánh quỹ đạo có và không có lực cản}{11}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Biến thiên vận tốc theo thời gian}{12}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Biến thiên năng lượng}{13}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Ảnh hưởng của hệ số cản $h$}{14}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Kết luận và mở rộng}{15}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Kết quả đạt được}{15}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Nhận xét vật lý quan trọng}{15}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}So sánh lý thuyết và mô phỏng}{15}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Hướng mở rộng}{16}{subsection.4.4}%
-\contentsline {section}{\numberline {A}Phụ lục: Mã nguồn chương trình}{17}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}File \texttt {projectile\_with\_drag.py} -- Chương trình tĩnh (trích đoạn)}{17}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}File \texttt {app.py} -- Ứng dụng Streamlit (trích đoạn)}{17}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {2.3.5}Giao diện ứng dụng tương tác}{8}{subsubsection.2.3.5}%
+\contentsline {section}{\numberline {3}Kết quả và phân tích}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Thông số mô phỏng}{11}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Quỹ đạo với các góc ném khác nhau}{11}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}So sánh quỹ đạo có và không có lực cản}{12}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Biến thiên vận tốc theo thời gian}{14}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Biến thiên năng lượng}{15}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Ảnh hưởng của hệ số cản $h$}{16}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Kết luận và hướng phát triển}{17}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Tổng kết kết quả}{17}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Các kết luận vật lý}{17}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}So sánh lý thuyết và mô phỏng}{17}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Hướng phát triển}{18}{subsection.4.4}%
+\contentsline {section}{\numberline {A}Phụ lục}{19}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Danh sách thành viên}{19}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Mã nguồn chương trình (trích đoạn)}{19}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {A.2.1}File \texttt {projectile\_with\_drag.py} -- Chương trình tĩnh}{19}{subsubsection.A.2.1}%
+\contentsline {subsubsection}{\numberline {A.2.2}File \texttt {app.py} -- Ứng dụng Streamlit}{20}{subsubsection.A.2.2}%

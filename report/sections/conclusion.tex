@@ -1,50 +1,50 @@
-\section{Kết luận và mở rộng}
+\section{Kết luận và hướng phát triển}
 
-\subsection{Kết quả đạt được}
-Bài tập lớn đã hoàn thành đầy đủ các mục tiêu đề ra:
+\subsection{Tổng kết kết quả}
+Bài tập lớn đã hoàn thành đầy đủ các yêu cầu đề ra, cụ thể:
+
 \begin{enumerate}
-    \item Thiết lập và giải thành công hệ phương trình vi phân bậc 2 mô tả chuyển động ném xiên có lực cản tuyến tính, sử dụng thư viện SymPy cho lời giải symbolic chính xác.
+    \item \textbf{Xây dựng mô hình toán học:} Thiết lập hệ phương trình vi phân bậc hai mô tả chuyển động ném xiên trong trọng trường có lực cản tuyến tính $\vec{F}_c = -h\vec{v}$, đồng thời tìm nghiệm giải tích dạng đóng cho $x(t)$, $y(t)$, $v_x(t)$, $v_y(t)$.
     
-    \item Tính toán và phân tích chi tiết 5 khía cạnh:
-    \begin{itemize}
-        \item Quỹ đạo $y(x)$ cho 5 góc ném khác nhau ($15°$, $30°$, $45°$, $60°$, $75°$)
-        \item So sánh định lượng quỹ đạo có và không có lực cản
-        \item Biến thiên vận tốc $v_x(t)$, $v_y(t)$ theo thời gian
-        \item Biến thiên năng lượng (động năng, thế năng, cơ năng, năng lượng mất)
-        \item Ảnh hưởng của hệ số cản $h$ đến quỹ đạo
-    \end{itemize}
+    \item \textbf{Giải số và kiểm chứng:} Sử dụng thư viện SymPy (Python) để giải symbolic hệ ODE. Kết quả khớp hoàn toàn với nghiệm giải tích thu được bằng phương pháp thủ công, và thỏa mãn trường hợp giới hạn $h \to 0$ (hội tụ về parabol lý tưởng).
     
-    \item Xây dựng ứng dụng web tương tác (Streamlit + Plotly) cho phép nhập tham số bằng slider và quan sát kết quả biến đổi theo thời gian thực.
+    \item \textbf{Phân tích đa chiều:} Khảo sát 5 khía cạnh của bài toán -- quỹ đạo theo góc ném, so sánh có/không lực cản, biến thiên vận tốc, biến thiên năng lượng, và ảnh hưởng của hệ số cản $h$ -- với phân tích vật lý chi tiết cho từng trường hợp.
+    
+    \item \textbf{Ứng dụng tương tác:} Phát triển ứng dụng web (Streamlit + Plotly) cho phép nhập tham số bằng thanh trượt và quan sát kết quả biến đổi theo thời gian thực, đáp ứng yêu cầu ``nhập các giá trị $m$, $h$, $v_0$, $\alpha$, $t$'' của đề bài.
 \end{enumerate}
 
-\subsection{Nhận xét vật lý quan trọng}
-Từ kết quả mô phỏng, có thể rút ra các kết luận vật lý quan trọng sau:
+\subsection{Các kết luận vật lý}
+Từ kết quả mô phỏng, các kết luận vật lý quan trọng được rút ra:
 
 \begin{enumerate}
-    \item Lực cản tuyến tính $\vec{F}_c = -h\vec{v}$ làm quỹ đạo \textbf{mất tính đối xứng parabol}: nhánh đi xuống dốc hơn nhánh đi lên do vận tốc ngang suy giảm theo hàm mũ.
+    \item Lực cản tuyến tính phá vỡ \textit{tính đối xứng parabol} của quỹ đạo: nhánh đi xuống dốc hơn nhánh đi lên, do vận tốc ngang suy giảm liên tục theo hàm mũ $e^{-ht/m}$.
     
-    \item \textbf{Góc ném tối ưu} (cho tầm xa cực đại) dịch chuyển về phía nhỏ hơn $45°$. Trong điều kiện mô phỏng ($h = 0.5$ kg/s), góc tối ưu $\approx 30°$.
+    \item \textit{Góc ném cho tầm xa cực đại} dịch chuyển từ $45°$ (lý tưởng) xuống $\approx 30°$ (có cản, $h = 0{,}5$ kg/s). Bản chất: góc nhỏ hơn giúp giảm thời gian bay, từ đó giảm tổng tác dụng tích lũy của lực cản.
     
-    \item Vận tốc ngang giảm theo $e^{-ht/m}$, vận tốc đứng tiến tới \textbf{vận tốc giới hạn} $v_\infty = -mg/h$, phù hợp với lý thuyết vật lý.
+    \item Vận tốc đứng tiệm cận \textit{vận tốc giới hạn} $v_\infty = -mg/h$ khi $t$ đủ lớn, phù hợp với lý thuyết cân bằng lực cản--trọng lực.
     
-    \item \textbf{Cơ năng không bảo toàn} do lực cản là lực không bảo toàn, luôn sinh công âm. Năng lượng cơ học chuyển hóa thành nhiệt năng.
+    \item Cơ năng \textit{không bảo toàn}: năng lượng cơ học chuyển hóa thành nhiệt năng thông qua công của lực cản. Tại thời điểm chạm đất, phần năng lượng bị tiêu hao chiếm 85--87\% năng lượng ban đầu (với bộ tham số mặc định).
     
-    \item Hệ số cản $h$ ảnh hưởng \textbf{phi tuyến} đến quỹ đạo -- tầm xa giảm rất nhanh khi $h$ tăng.
+    \item Ảnh hưởng của hệ số cản $h$ lên tầm xa là \textit{phi tuyến}: tầm xa giảm rất nhanh khi $h$ tăng từ 0, sau đó ``bão hòa'' khi $h$ đủ lớn (do vận tốc đã giảm mạnh, bản thân lực cản cũng yếu đi).
 \end{enumerate}
 
 \subsection{So sánh lý thuyết và mô phỏng}
-Nghiệm giải tích từ SymPy khớp hoàn toàn với lý thuyết vật lý:
-\begin{itemize}
-    \item Khi $h \to 0$: nghiệm hội tụ về dạng parabol cổ điển (phương trình \ref{eq:ideal}).
-    \item Khi $t \to \infty$: $v_x \to 0$, $v_y \to -mg/h$ (vận tốc giới hạn).
-    \item Năng lượng: $E_0 = KE + PE + W_{cản}$ luôn thỏa mãn tại mọi thời điểm, xác nhận tính nhất quán của mô hình.
+Nghiệm từ SymPy đã được kiểm chứng qua ba tiêu chí:
+\begin{itemize}[nosep]
+    \item \textbf{Trường hợp giới hạn:} Khi $h \to 0$, nghiệm hội tụ về parabol lý tưởng (\ref{eq:ideal}) -- xác nhận bằng khai triển Taylor bậc nhất.
+    \item \textbf{Tiệm cận:} Khi $t \to \infty$, $v_x \to 0$ và $v_y \to -mg/h$ -- khớp với dự đoán lý thuyết (\ref{eq:terminal}).
+    \item \textbf{Bảo toàn năng lượng tổng quát:} $E_0 = KE + PE + |W_c|$ thỏa mãn tại mọi thời điểm với sai số $< 10^{-10}$ J.
 \end{itemize}
 
-\subsection{Hướng mở rộng}
-Một số hướng phát triển tiềm năng nếu muốn nâng cao độ chính xác của mô hình:
+Ba kiểm chứng nói trên cung cấp bằng chứng mạnh cho tính đúng đắn của cả mô hình lý thuyết lẫn chương trình tính toán.
+
+\subsection{Hướng phát triển}
 \begin{itemize}
-    \item \textbf{Lực cản bậc hai:} $\vec{F}_{cản} = -c|\vec{v}|\vec{v}$, phù hợp hơn với vận tốc cao. Mô hình này không có nghiệm giải tích đơn giản, cần sử dụng phương pháp Runge-Kutta (\texttt{scipy.integrate.solve\_ivp}).
-    \item \textbf{Hiệu ứng gió:} Thêm thành phần lực ngoài theo phương ngang.
-    \item \textbf{Mô phỏng 3D:} Mở rộng sang không gian 3 chiều.
-    \item \textbf{Tối ưu hóa góc ném:} Sử dụng \texttt{scipy.optimize} để tìm góc cho tầm xa cực đại ứng với mỗi bộ tham số.
+    \item \textbf{Mô hình lực cản bậc hai:} $\vec{F}_c = -\frac{1}{2}C_D\rho A|\vec{v}|\vec{v}$, phù hợp hơn với vận tốc cao (số Reynolds lớn). Hệ ODE trở thành phi tuyến, không có nghiệm giải tích dạng đóng, cần giải bằng phương pháp Runge--Kutta (\texttt{scipy.integrate.solve\_ivp}).
+    
+    \item \textbf{Hiệu ứng gió và địa hình:} Bổ sung thành phần lực ngoài theo phương ngang (gió), hoặc xét vật phóng từ độ cao ban đầu khác không ($y_0 \neq 0$).
+    
+    \item \textbf{Tối ưu hóa góc ném:} Sử dụng \texttt{scipy.optimize.minimize\_scalar} để tìm chính xác góc cho tầm xa cực đại với mọi bộ tham số $(m, g, h, v_0)$.
+    
+    \item \textbf{Mô phỏng 3D:} Mở rộng sang không gian ba chiều để xét ảnh hưởng của gió ngang, hiệu ứng Magnus (cho vật quay).
 \end{itemize}

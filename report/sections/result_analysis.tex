@@ -1,78 +1,89 @@
 \section{Kết quả và phân tích}
 
 \subsection{Thông số mô phỏng}
-Các thông số đầu vào mặc định sử dụng cho mô phỏng được tổng hợp trong Bảng~\ref{tab:params}.
+Bảng~\ref{tab:params} tổng hợp các thông số đầu vào sử dụng cho toàn bộ kết quả trình bày trong chương này (trừ khi có ghi chú khác).
 
 \begin{table}[H]
 \centering
-\caption{Thông số mặc định cho mô phỏng}
+\caption{Bộ thông số mặc định cho mô phỏng}
 \label{tab:params}
 \begin{tabular}{|c|l|c|c|}
 \hline
-\textbf{Ký hiệu} & \textbf{Đại lượng} & \textbf{Giá trị} & \textbf{Đơn vị} \\
+\textbf{Ký hiệu} & \textbf{Đại lượng vật lý} & \textbf{Giá trị} & \textbf{Đơn vị} \\
 \hline
-$m$ & Khối lượng vật & 1.0 & kg \\
-$g$ & Gia tốc trọng trường & 9.81 & m/s$^2$ \\
-$h$ & Hệ số cản môi trường & 0.5 & kg/s \\
-$v_0$ & Vận tốc ban đầu & 50.0 & m/s \\
-$t_{max}$ & Thời gian mô phỏng & 15.0 & s \\
-$\alpha$ & Các góc ném & 15, 30, 45, 60, 75 & độ \\
+$m$ & Khối lượng chất điểm & 1{,}0 & kg \\
+$g$ & Gia tốc trọng trường & 9{,}81 & m/s$^2$ \\
+$h$ & Hệ số cản nhớt & 0{,}5 & kg/s \\
+$v_0$ & Vận tốc ban đầu & 50{,}0 & m/s \\
+$t_{max}$ & Thời gian mô phỏng tối đa & 15{,}0 & s \\
+$\alpha$ & Các góc ném khảo sát & 15, 30, 45, 60, 75 & độ \\
 \hline
 \end{tabular}
 \end{table}
 
+
 \subsection{Quỹ đạo với các góc ném khác nhau}
+
+Hình~\ref{fig:trajectories} trình bày quỹ đạo $y(x)$ của chất điểm ứng với năm góc ném. Bảng~\ref{tab:data} tổng hợp các đại lượng đặc trưng tương ứng.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/quy_dao_nem_xien.png}
-\caption{Quỹ đạo chuyển động ném xiên với các góc $\alpha = 15°, 30°, 45°, 60°, 75°$. Ký hiệu $\star$ đánh dấu vị trí đỉnh quỹ đạo (độ cao cực đại), $\blacktriangledown$ đánh dấu vị trí chạm đất.}
+\caption{Quỹ đạo chuyển động ném xiên có lực cản ($h = 0{,}5$ kg/s) với $\alpha = 15°, 30°, 45°, 60°, 75°$. Ký hiệu $\diamond$ đánh dấu đỉnh quỹ đạo, $\blacktriangledown$ đánh dấu vị trí chạm đất.}
 \label{fig:trajectories}
 \end{figure}
 
-Bảng~\ref{tab:data} tổng hợp các đại lượng đặc trưng cho từng góc ném.
-
 \begin{table}[H]
 \centering
-\caption{Bảng số liệu quỹ đạo ứng với các góc ném khác nhau}
+\caption{Các đại lượng đặc trưng ứng với năm góc ném ($h = 0{,}5$ kg/s)}
 \label{tab:data}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
-\textbf{$\alpha$ (°)} & \textbf{$v_{0x}$ (m/s)} & \textbf{$v_{0y}$ (m/s)} & \textbf{$R$ (m)} & \textbf{$H_{max}$ (m)} & \textbf{$T$ (s)} \\
+$\alpha$ (°) & $v_{0x}$ (m/s) & $v_{0y}$ (m/s) & Tầm xa $R$ (m) & $H_{max}$ (m) & $T$ (s) \\
 \hline
-15 & 48.30 & 12.94 & 64.95 & 6.00 & 2.23 \\
-30 & 43.30 & 25.00 & 74.29 & 17.76 & 3.90 \\
-45 & 35.36 & 35.36 & 65.42 & 30.28 & 5.19 \\
-60 & 25.00 & 43.30 & 47.65 & 40.88 & 6.11 \\
-75 & 12.94 & 48.30 & 24.96 & 47.87 & 6.68 \\
+15 & 48{,}30 & 12{,}94 & 64{,}95 & 6{,}00 & 2{,}23 \\
+30 & 43{,}30 & 25{,}00 & 74{,}29 & 17{,}76 & 3{,}90 \\
+45 & 35{,}36 & 35{,}36 & 65{,}42 & 30{,}28 & 5{,}19 \\
+60 & 25{,}00 & 43{,}30 & 47{,}65 & 40{,}88 & 6{,}11 \\
+75 & 12{,}94 & 48{,}30 & 24{,}96 & 47{,}87 & 6{,}68 \\
 \hline
 \end{tabular}
 \end{table}
 
-\textbf{Phân tích kết quả:}
-\begin{itemize}
-    \item Quỹ đạo \textbf{không còn đối xứng} qua đỉnh, khác biệt rõ ràng so với dạng parabol trong mô hình lý tưởng. Nhánh đi xuống dốc hơn nhánh đi lên do lực cản liên tục giảm thành phần vận tốc ngang $v_x$ theo hàm mũ.
-    \item Khi tăng góc $\alpha$: độ cao cực đại $H_{max}$ tăng đơn điệu, nhưng tầm xa $R$ đạt cực đại rồi giảm.
-    \item \textbf{Tầm xa lớn nhất} đạt được ở $\alpha \approx 30°$ (với $R = 74.29$ m), nhỏ hơn so với $45°$ trong trường hợp lý tưởng. Điều này phù hợp với lý thuyết: lực cản làm dịch góc tối ưu về phía nhỏ hơn vì thời gian bay ngắn hơn giúp giảm tích lũy tác dụng của lực cản.
-    \item Với cùng vận tốc ban đầu, góc $75°$ cho tầm xa chỉ bằng $\sim$1/3 so với góc $30°$, mặc dù thế năng đạt được lớn hơn nhiều.
-\end{itemize}
+Từ Hình~\ref{fig:trajectories} và Bảng~\ref{tab:data}, nhận thấy:
+
+\begin{enumerate}[label=(\roman*)]
+    \item Quỹ đạo \textit{không còn đối xứng} qua đỉnh, trái ngược hoàn toàn với dạng parabol trong mô hình lý tưởng. Nhánh đi xuống có độ dốc lớn hơn rõ rệt do thành phần $v_x$ suy giảm liên tục theo hàm mũ (\ref{eq:vx}).
+    
+    \item Độ cao cực đại $H_{max}$ tăng đơn điệu theo $\alpha$, nhưng tầm xa $R$ đạt cực đại rồi giảm. Tầm xa lớn nhất đạt được tại $\alpha \approx 30°$ ($R = 74{,}29$ m), \textit{nhỏ hơn} so với $45°$ trong trường hợp lý tưởng. Hiện tượng này có giải thích vật lý rõ ràng: góc nhỏ hơn cho thời gian bay ngắn hơn, giảm tổng tác dụng tích lũy của lực cản.
+    
+    \item Tỷ số $R_{75°}/R_{30°} \approx 1/3$: tăng góc ném từ $30°$ lên $75°$ chỉ tăng $H_{max}$ thêm $\sim$30 m nhưng mất tới $\sim$50 m tầm xa.
+    
+    \item Thời gian bay tăng theo $\alpha$ do thành phần $v_{0y}$ tăng, nhưng tốc độ tăng chậm dần (bão hòa) do lực cản trên phương đứng cũng tăng tương ứng.
+\end{enumerate}
 
 
 \subsection{So sánh quỹ đạo có và không có lực cản}
 
+Hình~\ref{fig:comparison} đặt sóng đôi quỹ đạo của cùng một chất điểm tại $\alpha = 45°$ trong hai điều kiện: có lực cản ($h = 0{,}5$ kg/s) và không có lực cản ($h = 0$).
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/so_sanh_luc_can.png}
-\caption{So sánh quỹ đạo ném xiên tại $\alpha = 45°$ giữa hai trường hợp: có lực cản ($h = 0.5$ kg/s, đường nét đứt đỏ) và không có lực cản ($h = 0$, đường liền xanh).}
+\caption{So sánh quỹ đạo tại $\alpha = 45°$: đường liền (xanh) -- không cản; đường nét đứt (đỏ) -- có cản $h = 0{,}5$ kg/s. Vùng tô mờ biểu diễn diện tích dưới quỹ đạo.}
 \label{fig:comparison}
 \end{figure}
 
-\textbf{Phân tích kết quả:}
-\begin{itemize}
-    \item Lực cản làm giảm mạnh cả tầm xa và độ cao. Tại $\alpha = 45°$, tầm xa giảm từ $\sim$255 m xuống $\sim$65 m (giảm $\sim$74\%), độ cao cực đại giảm từ $\sim$64 m xuống $\sim$30 m (giảm $\sim$53\%).
-    \item Quỹ đạo có cản mất tính đối xứng parabol đặc trưng. Nhánh đi xuống gần như thẳng đứng hơn nhánh đi lên do vận tốc ngang gần triệt tiêu.
-    \item Sự chênh lệch $\Delta R \approx 190$ m cho thấy ảnh hưởng của lực cản là \textbf{không thể bỏ qua} trong các bài toán thực tế.
+Các chênh lệch định lượng:
+\begin{itemize}[nosep]
+    \item Tầm xa: $R_0 \approx 255$ m $\longrightarrow$ $R \approx 65$ m (giảm $\sim$74\%).
+    \item Độ cao cực đại: $H_0 \approx 64$ m $\longrightarrow$ $H \approx 30$ m (giảm $\sim$53\%).
+    \item Thời gian bay: $T_0 \approx 7{,}2$ s $\longrightarrow$ $T \approx 5{,}2$ s (giảm $\sim$28\%).
 \end{itemize}
+
+Chênh lệch tầm xa $\Delta R \approx 190$ m cho thấy lực cản -- dù chỉ với $h = 0{,}5$ kg/s -- ảnh hưởng \textit{rất đáng kể} đến chuyển động. Trong các ứng dụng thực tế (đạn đạo, thể thao,...), việc bỏ qua lực cản sẽ dẫn đến sai số không thể chấp nhận.
+
+Ngoài ra, quỹ đạo có cản cho thấy rõ tính bất đối xứng: trong giai đoạn cuối, vận tốc ngang gần triệt tiêu ($v_x \to 0$ theo (\ref{eq:vx})), khiến vật gần như rơi thẳng đứng -- hình thái chuyển động hoàn toàn khác so với nhánh parabol đối xứng.
 
 
 \subsection{Biến thiên vận tốc theo thời gian}
@@ -80,16 +91,19 @@ Bảng~\ref{tab:data} tổng hợp các đại lượng đặc trưng cho từng
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/van_toc_theo_thoi_gian.png}
-\caption{Biến thiên vận tốc theo phương ngang $v_x(t)$ (trái) và phương đứng $v_y(t)$ (phải) cho các góc ném khác nhau.}
+\caption{Biến thiên vận tốc theo thời gian: $v_x(t)$ (trái), $v_y(t)$ (giữa), tốc độ $|v|(t)$ (phải) cho năm góc ném.}
 \label{fig:velocity}
 \end{figure}
 
-\textbf{Phân tích kết quả:}
-\begin{itemize}
-    \item $v_x(t)$ giảm theo hàm mũ $e^{-ht/m}$, phản ánh sự suy hao do lực cản. Vận tốc ngang tiến tới 0 khi $t \to \infty$, nghĩa là chất điểm chỉ rơi theo phương thẳng đứng ở giai đoạn cuối.
-    \item $v_y(t)$ tiến tới vận tốc giới hạn $v_\infty = -mg/h = -9.81/0.5 = -19.62$ m/s. Đây là giá trị mà lực cản cân bằng hoàn toàn với trọng lực.
-    \item Vận tốc ngang $v_x(0) = v_0\cos\alpha$ lớn hơn ở các góc nhỏ, nên tác dụng suy giảm của lực cản cũng rõ ràng hơn.
-\end{itemize}
+Hình~\ref{fig:velocity} cho phép kiểm chứng trực tiếp các dự đoán lý thuyết:
+
+\begin{enumerate}[label=(\roman*)]
+    \item Thành phần $v_x(t)$ suy giảm theo hàm mũ, tiệm cận 0 khi $t$ đủ lớn, phù hợp với (\ref{eq:vx}). Tốc độ suy giảm nhanh hơn ở các góc nhỏ do $v_{0x}$ lớn, tạo lực cản ngang mạnh hơn.
+    
+    \item Thành phần $v_y(t)$ tiệm cận vận tốc giới hạn $v_\infty = -mg/h = -19{,}62$ m/s (đường tiệm cận ngang trên đồ thị), xác nhận biểu thức (\ref{eq:terminal}).
+    
+    \item Tốc độ toàn phần $|v|$ giảm nhanh trong giai đoạn đầu, sau đó hội tụ về $|v_\infty|$ khi vận tốc ngang triệt tiêu. Sự hội tụ này xảy ra sớm hơn ở các góc lớn (do $v_{0x}$ nhỏ, triệt tiêu nhanh).
+\end{enumerate}
 
 
 \subsection{Biến thiên năng lượng}
@@ -97,33 +111,44 @@ Bảng~\ref{tab:data} tổng hợp các đại lượng đặc trưng cho từng
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/nang_luong_theo_thoi_gian.png}
-\caption{Biến thiên năng lượng theo thời gian tại $\alpha = 45°$. Đường tím (nét chấm) biểu diễn năng lượng đã mất do lực cản.}
+\caption{Biến thiên năng lượng theo thời gian tại $\alpha = 45°$: động năng (đỏ), thế năng (xanh dương), cơ năng (xanh lá), năng lượng tiêu hao do cản (tím). Đường chấm ghi chú $E_0 = 1250$ J.}
 \label{fig:energy}
 \end{figure}
 
-\textbf{Phân tích kết quả:}
-\begin{itemize}
-    \item \textbf{Động năng} ($KE$, đường đỏ): Giảm nhanh trong giai đoạn đầu (vận tốc lớn nên lực cản mạnh), sau đó giảm chậm dần.
-    \item \textbf{Thế năng} ($PE$, đường xanh dương): Tăng dần, đạt cực đại tại đỉnh quỹ đạo, rồi giảm về 0 khi chạm đất.
-    \item \textbf{Cơ năng} ($E = KE + PE$, đường xanh lá): Giảm liên tục -- đây là đặc trưng của hệ có lực không bảo toàn. Lực cản luôn sinh công âm, chuyển hóa cơ năng thành nhiệt năng.
-    \item \textbf{Năng lượng mất} (đường tím): Tăng đều đặn, chiếm phần lớn năng lượng ban đầu. Tại thời điểm chạm đất, năng lượng mất do cản chiếm $\sim$85\% năng lượng ban đầu.
-    \item Kiểm chứng: $E_0 = KE + PE + W_{cản}$ luôn thỏa mãn tại mọi thời điểm, xác nhận tính đúng đắn của mô hình tính toán.
-\end{itemize}
+Phân tích Hình~\ref{fig:energy} cho thấy:
+
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{Động năng} giảm nhanh trong giai đoạn đầu -- giai đoạn vận tốc còn lớn và lực cản $F_c = hv$ mạnh nhất. Tốc độ giảm chậm lại khi vận tốc tiếp cận $v_\infty$.
+    
+    \item \textbf{Thế năng} tăng dần, đạt cực đại tại đỉnh quỹ đạo ($t \approx t_H$), sau đó giảm về 0 khi chạm đất.
+    
+    \item \textbf{Cơ năng} ($KE + PE$) giảm đơn điệu -- đặc trưng của hệ có lực không bảo toàn. Mỗi thời điểm, phần năng lượng mất đi đúng bằng công của lực cản, theo (\ref{eq:energy_conservation}).
+    
+    \item Tại thời điểm chạm đất, năng lượng bị tiêu hao bởi lực cản chiếm khoảng 85--87\% năng lượng ban đầu. Con số này phản ánh vai trò chi phối của lực cản trong miền vận tốc khảo sát.
+    
+    \item \textbf{Kiểm chứng}: Tại mọi thời điểm, $E_0 = KE(t) + PE(t) + |W_c(t)|$ luôn thỏa mãn (sai số $< 10^{-10}$ J do lỗi số học dấu phẩy động), xác nhận tính nhất quán nội tại của nghiệm.
+\end{enumerate}
 
 
-\subsection{Ảnh hưởng của hệ số cản $h$}
+\subsection{Ảnh hưởng của hệ số cản \texorpdfstring{$h$}{h}}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/anh_huong_he_so_can.png}
-\caption{Ảnh hưởng của hệ số cản $h$ đến quỹ đạo ném xiên tại $\alpha = 45°$. Giá trị $h$ biến thiên từ 0 (không cản) đến 2.0 kg/s.}
+\caption{Quỹ đạo tại $\alpha = 45°$ khi $h$ biến thiên từ 0 (parabol lý tưởng) đến 2{,}0 kg/s.}
 \label{fig:drag_effect}
 \end{figure}
 
-\textbf{Phân tích kết quả:}
-\begin{itemize}
-    \item Khi $h = 0$: quỹ đạo là parabol đối xứng hoàn hảo với tầm xa $R \approx 255$ m.
-    \item Khi $h$ tăng: quỹ đạo bị ``nén'' lại rõ rệt, cả tầm xa và độ cao đều giảm mạnh. Với $h = 2.0$ kg/s, tầm xa chỉ còn $\sim$17 m (giảm 93\% so với không cản).
-    \item Ảnh hưởng của $h$ lên tầm xa là \textbf{phi tuyến}: tăng $h$ gấp đôi không chỉ giảm tầm xa gấp đôi mà giảm nhiều hơn thế. Nguyên nhân là lực cản $F_c = hv$ phụ thuộc đồng thời vào cả $h$ và $v$, tạo hiệu ứng ``phản hồi dương'' trong quá trình suy giảm.
-    \item Hình dạng quỹ đạo cũng thay đổi định tính: từ parabol đối xứng ($h=0$) sang dạng bất đối xứng mạnh ($h$ lớn), với nhánh xuống gần như thẳng đứng.
-\end{itemize}
+Hình~\ref{fig:drag_effect} minh họa sự phụ thuộc phi tuyến của quỹ đạo vào hệ số cản:
+
+\begin{enumerate}[label=(\roman*)]
+    \item Khi $h = 0$: quỹ đạo là parabol đối xứng hoàn hảo, $R \approx 255$ m.
+    
+    \item Khi $h$ tăng dần, quỹ đạo bị ``nén'' lại: tầm xa và độ cao giảm đồng thời, hình dạng chuyển từ đối xứng sang bất đối xứng mạnh
+    
+    \item Mối quan hệ $R(h)$ là \textit{phi tuyến}: tăng $h$ từ 0 lên 0{,}5 kg/s giảm tầm xa $\sim$190 m, nhưng tăng tiếp từ 0{,}5 lên 1{,}0 chỉ giảm thêm $\sim$30 m. Hiệu ứng ``bão hòa'' này xảy ra vì khi $h$ lớn, vận tốc giảm nhanh khiến bản thân lực cản $F_c = hv$ cũng yếu đi.
+    
+    \item Với $h = 2{,}0$ kg/s, tầm xa $R \approx 17$ m -- chỉ bằng 6{,}7\% so với trường hợp không cản. Vận tốc giới hạn tương ứng là $|v_\infty| = mg/h = 4{,}9$ m/s, rất nhỏ.
+\end{enumerate}
+
+Kết quả này có ý nghĩa thực tiễn: bằng cách đo tầm xa thực tế và so sánh với tầm xa lý tưởng, có thể ước lượng ngược hệ số cản $h$ của môi trường -- một phương pháp thực nghiệm gián tiếp đơn giản.

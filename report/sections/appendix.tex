@@ -1,8 +1,36 @@
-\section{Phụ lục: Mã nguồn chương trình}
+\section{Phụ lục}
 
-\subsection{File \texttt{projectile\_with\_drag.py} -- Chương trình tĩnh (trích đoạn)}
+\subsection{Danh sách thành viên}
 
-\begin{lstlisting}[style=pythonstyle, caption={Phần giải ODE và tính toán quỹ đạo}]
+\begin{table}[H]
+\centering
+\caption{Phân công nhiệm vụ các thành viên nhóm}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|c|l|c|}
+\hline
+\textbf{STT} & \textbf{Họ tên} & \textbf{MSSV} \\
+\hline
+1 & Nguyễn Đinh Bằng & 2210298 \\
+\hline
+2 & Nguyễn Phước Lưu Thông & 2433217 \\
+\hline
+3 & Hoàng Đăng Sáng & 2312945 \\
+\hline
+4 & Phạm Quốc Thái & 2213114 \\
+\hline
+5 & Hà Thiên Hải & 2210882 \\
+\hline
+6 & Mai Anh Tài & 2212978 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Mã nguồn chương trình (trích đoạn)}
+
+\subsubsection{File \texttt{projectile\_with\_drag.py} -- Chương trình tĩnh}
+
+\begin{lstlisting}[style=pythonstyle, caption={Giải hệ ODE và thiết lập hàm tính toán}]
 from sympy import *
 import numpy as np
 import matplotlib.pyplot as plt
@@ -31,7 +59,7 @@ sol_y = dsolve(ode_y, y(t), ics={
     y(t).diff(t).subs(t, 0): v0_s * sin(alpha_s)
 })
 
-# === Don gian hoa va chuyen sang ham so ===
+# === Chuyen sang ham so NumPy ===
 x_expr = simplify(sol_x.rhs)
 y_expr = simplify(sol_y.rhs)
 vx_expr = simplify(x_expr.diff(t))
@@ -52,17 +80,17 @@ angles = [15, 30, 45, 60, 75]  # do
 t_max  = 15.0   # s
 \end{lstlisting}
 
-\subsection{File \texttt{app.py} -- Ứng dụng Streamlit (trích đoạn)}
+\subsubsection{File \texttt{app.py} -- Ứng dụng Streamlit}
 
-\begin{lstlisting}[style=pythonstyle, caption={Giải ODE và cache kết quả trong Streamlit}]
+\begin{lstlisting}[style=pythonstyle, caption={Hàm giải ODE với cơ chế cache trong Streamlit}]
 import streamlit as st
 from sympy import *
 
 @st.cache_resource
 def solve_ode_symbolic():
-    """Giai he ODE bang SymPy 
-    -- chi chay 1 lan, cache bang 
-    cache_resource."""
+    """Giai he ODE bang SymPy.
+    Decorator cache_resource dam bao ham 
+    chi chay 1 lan duy nhat."""
     t_s = symbols('t', positive=True)
     m_s, g_s, h_s, v0_s, a_s = symbols(
         'm g h v_0 alpha', positive=True)
@@ -101,5 +129,5 @@ def solve_ode_symbolic():
     )
 \end{lstlisting}
 
-\vspace{0.5cm}
-\textit{Mã nguồn đầy đủ được đính kèm trong thư mục nộp bài.}
+\vspace{0.3cm}
+Mã nguồn đầy đủ của dự án được lưu trữ công khai tại: \url{https://github.com/bawfng04/VL1-Assignment}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.2)  17 APR 2026 14:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.2)  17 APR 2026 15:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1349,7 +1349,7 @@ Package hyperref Info: Link coloring ON on input line 143.
 \openout4 = `main.out'.
 
 \c@lstlisting=\count388
-<hcmut.png, id=182, 417.4797pt x 417.4797pt>
+<hcmut.png, id=198, 417.4797pt x 417.4797pt>
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 156.
@@ -1376,8 +1376,14 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 {C:/Users/nguye/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./hcmut.png>
 ]
 (main.toc
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.45 ...nh sÃ¡ch thÃ nh viÃªn}{19}{subsection.A.1}
+                                                  % [1]
 LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 4
-3.
+7.
 
 (C:\Users\nguye\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -1386,19 +1392,7 @@ File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 \openout5 = `main.toc'.
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.200 \newpage
-               [1]
-File: hcmut.png Graphic file (type png)
-<use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 200.
-(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
-LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 200.
- [2] (main.lof
+[2] (main.lof
 
 LaTeX Warning: Command \textdegree invalid in math mode on input line 2.
 
@@ -1475,489 +1469,478 @@ Missing character: There is no ° in font cmr10!
 
  [3] (sections/theory.tex
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 22.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 30.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 22.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 30.
 
 Missing character: There is no ° in font cmr10!
 
-LaTeX Warning: Command \h invalid in math mode on input line 29.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 35.
 
-Missing character: There is no £ in font cmr7!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 35.
+
+Missing character: There is no ° in font cmr10!
+
+LaTeX Warning: Citation `halliday2013fundamentals' on page 1 undefined on input
+ line 40.
+
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 64.
+Package pdftex.def Info: hcmut.png  used on input line 46.
 (pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 46.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.64 \end{equation}
-                    [1]
+l.46 
+      [1]
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 117.
+Package pdftex.def Info: hcmut.png  used on input line 106.
 (pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.117 \subsubsection
-                    {NÄƒng lÆ°á»£ng} [2]
+l.106 
+       [2]
 
-LaTeX Warning: Command \h invalid in math mode on input line 122.
+LaTeX Warning: Citation `serway2008physics' on page 3 undefined on input line 1
+34.
 
-Missing character: There is no £ in font cmr7!
-
-LaTeX Warning: Command \h invalid in math mode on input line 125.
-
-Missing character: There is no £ in font cmr7!
-)
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 209.
+Package pdftex.def Info: hcmut.png  used on input line 159.
 (pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.209 \newpage
-               [3] (sections/simulation.tex
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 20.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 20.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 20.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 20.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 20.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 20.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 20.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 20.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 20.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 20.
-
-Missing character: There is no ° in font cmr10!
-Missing character: There is no ° in font cmr10!
-Missing character: There is no ° in font cmr10!
-Missing character: There is no ° in font cmr10!
-Missing character: There is no ° in font cmr10!
-
-LaTeX Warning: Command \h invalid in math mode on input line 24.
-
-Missing character: There is no £ in font cmr7!
+l.159 \end{equation}
+                     [3])
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 35.
+Package pdftex.def Info: hcmut.png  used on input line 214.
 (pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
-[4]
-(C:\Users\nguye\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 60.
-File: hcmut.png Graphic file (type png)
-<use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 92.
-(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+ [4] (sections/simulation.tex
 
-[5]
-File: hcmut.png Graphic file (type png)
-<use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 144.
-(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
- [6]
-(C:\Users\nguye\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-(C:\Users\nguye\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-<images/ss01.png, id=398, 1155.1155pt x 649.2255pt>
-File: images/ss01.png Graphic file (type png)
-<use images/ss01.png>
-Package pdftex.def Info: images/ss01.png  used on input line 185.
-(pdftex.def)             Requested size: 418.25368pt x 235.07817pt.
-File: hcmut.png Graphic file (type png)
-<use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 189.
-(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
-
-[7]
-<images/ss02.png, id=411, 1155.1155pt x 649.2255pt>
-File: images/ss02.png Graphic file (type png)
-<use images/ss02.png>
-Package pdftex.def Info: images/ss02.png  used on input line 192.
-(pdftex.def)             Requested size: 418.25368pt x 235.07817pt.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 14.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 193.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 14.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 193.
-
-Missing character: There is no ° in font cmr9!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 193.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 14.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 193.
-
-Missing character: There is no ° in font cmr9!
-<images/ss04.png, id=412, 1155.1155pt x 560.69475pt>
-File: images/ss04.png Graphic file (type png)
-<use images/ss04.png>
-Package pdftex.def Info: images/ss04.png  used on input line 199.
-(pdftex.def)             Requested size: 418.25368pt x 203.02205pt.
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 200.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 14.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 200.
-
-Missing character: There is no ° in font cmr9!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 200.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 14.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 200.
-
-Missing character: There is no ° in font cmr9!
-)
-File: hcmut.png Graphic file (type png)
-<use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 211.
-(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
- [8 <./images/ss01.png> <./images/ss02.png>]
-File: hcmut.png Graphic file (type png)
-<use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 211.
-(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
- [9 <./images/ss04.png>]
-(sections/result_analysis.tex
-<images/quy_dao_nem_xien.png, id=433, 1004.3121pt x 568.2831pt>
-File: images/quy_dao_nem_xien.png Graphic file (type png)
-<use images/quy_dao_nem_xien.png>
-Package pdftex.def Info: images/quy_dao_nem_xien.png  used on input line 28.
-(pdftex.def)             Requested size: 418.25368pt x 236.66553pt.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 14.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 14.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 14.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 14.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-Missing character: There is no ° in font cmr9!
-Missing character: There is no ° in font cmr9!
-Missing character: There is no ° in font cmr9!
-Missing character: There is no ° in font cmr9!
-Missing character: There is no ° in font cmr9!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 29.
-
-Missing character: There is no ° in font cmr9!
-Missing character: There is no ° in font cmr9!
-Missing character: There is no ° in font cmr9!
-Missing character: There is no ° in font cmr9!
-Missing character: There is no ° in font cmr9!
-File: hcmut.png Graphic file (type png)
-<use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 51.
-(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
-[10 <./images/quy_dao_nem_xien.png>]
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 56.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 56.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 14.
 
 Missing character: There is no ° in font cmr10!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 56.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 56.
-
+Missing character: There is no ° in font cmr10!
+Missing character: There is no ° in font cmr10!
+Missing character: There is no ° in font cmr10!
 Missing character: There is no ° in font cmr10!
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 57.
+LaTeX Warning: Citation `sympy_docs' on page 5 undefined on input line 25.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 57.
-
-Missing character: There is no ° in font cmr10!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 57.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 57.
-
-Missing character: There is no ° in font cmr10!
-<images/so_sanh_luc_can.png, id=443, 1004.3121pt x 568.7649pt>
-File: images/so_sanh_luc_can.png Graphic file (type png)
-<use images/so_sanh_luc_can.png>
-Package pdftex.def Info: images/so_sanh_luc_can.png  used on input line 65.
-(pdftex.def)             Requested size: 418.25368pt x 236.86618pt.
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 66.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 66.
-
-Missing character: There is no ° in font cmr9!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 66.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 66.
-
-Missing character: There is no ° in font cmr9!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 72.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 72.
-
-Missing character: There is no ° in font cmr10!
-File: hcmut.png Graphic file (type png)
-<use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 73.
-(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
-[11 <./images/so_sanh_luc_can.png>]
-<images/van_toc_theo_thoi_gian.png, id=451, 1148.6112pt x 497.6994pt>
-File: images/van_toc_theo_thoi_gian.png Graphic file (type png)
-<use images/van_toc_theo_thoi_gian.png>
-Package pdftex.def Info: images/van_toc_theo_thoi_gian.png  used on input line 
-82.
-(pdftex.def)             Requested size: 418.25368pt x 181.22969pt.
-<images/nang_luong_theo_thoi_gian.png, id=452, 1004.7939pt x 568.524pt>
-File: images/nang_luong_theo_thoi_gian.png Graphic file (type png)
-<use images/nang_luong_theo_thoi_gian.png>
-Package pdftex.def Info: images/nang_luong_theo_thoi_gian.png  used on input li
-ne 99.
-(pdftex.def)             Requested size: 418.25368pt x 236.65308pt.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 100.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 100.
-
-Missing character: There is no ° in font cmr9!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 100.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 100.
-
-Missing character: There is no ° in font cmr9!
-File: hcmut.png Graphic file (type png)
-<use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 103.
-(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
-[12 <./images/van_toc_theo_thoi_gian.png>]
-
-LaTeX Warning: Command \h invalid in math mode on input line 110.
-
-Missing character: There is no £ in font cmr7!
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 114.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 114.
-
-<images/anh_huong_he_so_can.png, id=460, 1004.3121pt x 568.524pt>
-File: images/anh_huong_he_so_can.png Graphic file (type png)
-<use images/anh_huong_he_so_can.png>
-Package pdftex.def Info: images/anh_huong_he_so_can.png  used on input line 118
-.
-(pdftex.def)             Requested size: 418.25368pt x 236.76585pt.
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 119.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 119.
-
-Missing character: There is no ° in font cmr9!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 119.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 119.
-
-Missing character: There is no ° in font cmr9!
-File: hcmut.png Graphic file (type png)
-<use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 122.
-(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
-[13 <./images/nang_luong_theo_thoi_gian.png>])
-File: hcmut.png Graphic file (type png)
-<use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 213.
-(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
- [14 <./images/anh_huong_he_so_can.png>] (sections/conclusion.tex
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 10.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 10.
-
-Missing character: There is no ° in font cmr10!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 10.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 10.
-
-Missing character: There is no ° in font cmr10!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 10.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 10.
-
-Missing character: There is no ° in font cmr10!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 10.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 10.
-
-Missing character: There is no ° in font cmr10!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 10.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 10.
-
-Missing character: There is no ° in font cmr10!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 26.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 26.
-
-Missing character: There is no ° in font cmr10!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 26.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 26.
-
-Missing character: There is no ° in font cmr10!
-
-LaTeX Warning: Command \h invalid in math mode on input line 40.
-
-Missing character: There is no £ in font cmr7!
-
-LaTeX Warning: Command \h invalid in math mode on input line 46.
-
-Missing character: There is no £ in font cmr7!
-
-Overfull \hbox (31.14272pt too wide) in paragraph at lines 46--47
-\T5/cmr/m/n/10 nghi»m gi£i t½ch ^^_ìn gi£n, c¦n sû döng ph÷ìng ph¡p Runge-Kutta
- (\T5/cmtt/m/n/10 scipy.integrate.solve_ivp\T5/cmr/m/n/10 ). 
+Overfull \hbox (19.27977pt too wide) in paragraph at lines 38--47
+ [][] 
  []
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 48.
 (pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
-[15])
+[5]
+(C:\Users\nguye\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 61.
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 215.
+Package pdftex.def Info: hcmut.png  used on input line 98.
 (pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
- [16]
 
-LaTeX Warning: Citation `serway2008physics' undefined on input line 217.
-
-(main.bbl) (sections/appendix.tex
-LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 3.
+[6]
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 62.
+Package pdftex.def Info: hcmut.png  used on input line 163.
 (pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
- [17])
+ [7]
+(C:\Users\nguye\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+(C:\Users\nguye\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+<images/ss01.png, id=437, 1155.1155pt x 649.2255pt>
+File: images/ss01.png Graphic file (type png)
+<use images/ss01.png>
+Package pdftex.def Info: images/ss01.png  used on input line 182.
+(pdftex.def)             Requested size: 418.25368pt x 235.07817pt.
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 225.
+Package pdftex.def Info: hcmut.png  used on input line 186.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+
+[8]
+<images/ss02.png, id=450, 1155.1155pt x 649.2255pt>
+File: images/ss02.png Graphic file (type png)
+<use images/ss02.png>
+Package pdftex.def Info: images/ss02.png  used on input line 189.
+(pdftex.def)             Requested size: 418.25368pt x 235.07817pt.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 190.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 190.
+
+Missing character: There is no ° in font cmr9!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 190.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 190.
+
+Missing character: There is no ° in font cmr9!
+<images/ss04.png, id=451, 1155.1155pt x 560.69475pt>
+File: images/ss04.png Graphic file (type png)
+<use images/ss04.png>
+Package pdftex.def Info: images/ss04.png  used on input line 196.
+(pdftex.def)             Requested size: 418.25368pt x 203.02205pt.
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 197.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 197.
+
+Missing character: There is no ° in font cmr9!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 197.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 197.
+
+Missing character: There is no ° in font cmr9!
+)
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 216.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+ [9 <./images/ss01.png> <./images/ss02.png>]
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 216.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+ [10 <./images/ss04.png>]
+(sections/result_analysis.tex
+<images/quy_dao_nem_xien.png, id=473, 1004.3121pt x 568.2831pt>
+File: images/quy_dao_nem_xien.png Graphic file (type png)
+<use images/quy_dao_nem_xien.png>
+Package pdftex.def Info: images/quy_dao_nem_xien.png  used on input line 31.
+(pdftex.def)             Requested size: 418.25368pt x 236.66553pt.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+Missing character: There is no ° in font cmr9!
+Missing character: There is no ° in font cmr9!
+Missing character: There is no ° in font cmr9!
+Missing character: There is no ° in font cmr9!
+Missing character: There is no ° in font cmr9!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 32.
+
+Missing character: There is no ° in font cmr9!
+Missing character: There is no ° in font cmr9!
+Missing character: There is no ° in font cmr9!
+Missing character: There is no ° in font cmr9!
+Missing character: There is no ° in font cmr9!
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 52.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+[11 <./images/quy_dao_nem_xien.png>]
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 58.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 58.
+
+Missing character: There is no ° in font cmr10!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 58.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 58.
+
+Missing character: There is no ° in font cmr10!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 60.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 60.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 60.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 60.
+
+Missing character: There is no ° in font cmr7!
+Missing character: There is no ° in font cmr7!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 60.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 60.
+
+Missing character: There is no ° in font cmr10!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 60.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 60.
+
+Missing character: There is no ° in font cmr10!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 68.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 68.
+
+Missing character: There is no ° in font cmr10!
+<images/so_sanh_luc_can.png, id=487, 1004.3121pt x 568.7649pt>
+File: images/so_sanh_luc_can.png Graphic file (type png)
+<use images/so_sanh_luc_can.png>
+Package pdftex.def Info: images/so_sanh_luc_can.png  used on input line 72.
+(pdftex.def)             Requested size: 418.25368pt x 236.86618pt.
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 73.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 73.
+
+Missing character: There is no ° in font cmr9!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 73.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 73.
+
+Missing character: There is no ° in font cmr9!
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 76.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+[12]
+<images/van_toc_theo_thoi_gian.png, id=498, 1148.6112pt x 497.6994pt>
+File: images/van_toc_theo_thoi_gian.png Graphic file (type png)
+<use images/van_toc_theo_thoi_gian.png>
+Package pdftex.def Info: images/van_toc_theo_thoi_gian.png  used on input line 
+93.
+(pdftex.def)             Requested size: 418.25368pt x 181.22969pt.
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 97.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+ [13 <./images/so_sanh_luc_can.png>]
+<images/nang_luong_theo_thoi_gian.png, id=508, 1004.7939pt x 568.524pt>
+File: images/nang_luong_theo_thoi_gian.png Graphic file (type png)
+<use images/nang_luong_theo_thoi_gian.png>
+Package pdftex.def Info: images/nang_luong_theo_thoi_gian.png  used on input li
+ne 113.
+(pdftex.def)             Requested size: 418.25368pt x 236.65308pt.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 114.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 114.
+
+Missing character: There is no ° in font cmr9!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 114.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 114.
+
+Missing character: There is no ° in font cmr9!
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 117.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+[14 <./images/van_toc_theo_thoi_gian.png>]
+<images/anh_huong_he_so_can.png, id=521, 1004.3121pt x 568.524pt>
+File: images/anh_huong_he_so_can.png Graphic file (type png)
+<use images/anh_huong_he_so_can.png>
+Package pdftex.def Info: images/anh_huong_he_so_can.png  used on input line 137
+.
+(pdftex.def)             Requested size: 418.25368pt x 236.76585pt.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 138.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 138.
+
+Missing character: There is no ° in font cmr9!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 138.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 138.
+
+Missing character: There is no ° in font cmr9!
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 141.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+[15 <./images/nang_luong_theo_thoi_gian.png>])
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 218.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+ [16 <./images/anh_huong_he_so_can.png>] (sections/conclusion.tex
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 22.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 22.
+
+Missing character: There is no ° in font cmr10!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 22.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 22.
+
+Missing character: There is no ° in font cmr10!
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 44.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+[17])
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 220.
 (pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
  [18]
+
+LaTeX Warning: Citation `serway2008physics' undefined on input line 222.
+
+
+LaTeX Warning: Citation `halliday2013fundamentals' undefined on input line 223.
+
+
+
+LaTeX Warning: Citation `sympy_docs' undefined on input line 224.
+
+
+LaTeX Warning: Citation `taylor2005classical' undefined on input line 225.
+
+
+LaTeX Warning: Citation `kleppner2014introduction' undefined on input line 226.
+
+
+(main.bbl) (sections/appendix.tex
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 71.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+ [19]
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 130.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+ [20])
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 234.
+(pdftex.def)             Requested size: 22.76079pt x 22.76079pt.
+ [21]
 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (main.aux)
@@ -1970,47 +1953,47 @@ L3 programming layer <2025-12-24>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C5A7E27AC868C555930831670FD04FB4;10077.
+(rerunfilecheck)             Checksum: AA12C9A8F2660180D4A208262D032D21;11007.
  ) 
 Here is how much of TeX's memory you used:
- 29529 strings out of 467871
- 549289 string characters out of 5418377
- 1426503 words of memory out of 5000000
- 57585 multiletter control sequences out of 15000+600000
- 652818 words of font info for 102 fonts, out of 8000000 for 9000
+ 29563 strings out of 467871
+ 549701 string characters out of 5418377
+ 1514868 words of memory out of 5000000
+ 57593 multiletter control sequences out of 15000+600000
+ 652167 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,25n,94p,501b,2146s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\nguye\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx
-1000.pk> <C:\Users\nguye\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\tcrm1000.pk><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmex10.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmmi10.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/nguye/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/nguye/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/nguye/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/nguy
-e/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Us
-ers/nguye/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pf
-b><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr6.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmr7.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmr9.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/nguye/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/nguye/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx10.pfb><C:/Users/nguye/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/nguye/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx9.pfb><C:/Users/nguye/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr10.pfb><C:/Users/nguye/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr5.pfb><C:/Users/nguye/AppData/Local
-/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr9.pfb><C:/Users/nguye/AppData/Local/P
-rograms/MiKTeX/fonts/type1/vntex/vnr/vnti10.pfb><C:/Users/nguye/AppData/Local/P
-rograms/MiKTeX/fonts/type1/vntex/vnr/vntt10.pfb><C:/Users/nguye/AppData/Local/P
-rograms/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb><C:/Users/nguye/AppData/Local/P
-rograms/MiKTeX/fonts/type1/vntex/vnr/vntt8.pfb>
-Output written on main.pdf (22 pages, 2392638 bytes).
+ 84i,25n,94p,714b,2150s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\nguye\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1000.pk><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmmi12.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/nguye/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/nguye/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/nguye/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/ng
+uye/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/
+Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.p
+fb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr6.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmr7.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr9.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nguye/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/nguye/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/nguye/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/nguye/
+AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx10.pfb><C:/Users/nguye/
+AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/nguye/
+AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx9.pfb><C:/Users/nguye/A
+ppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr10.pfb><C:/Users/nguye/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr5.pfb><C:/Users/nguye/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr9.pfb><C:/Users/nguye/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti10.pfb><C:/Users/nguye/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt10.pfb><C:/Users/nguye/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt8.pfb>
+Output written on main.pdf (25 pages, 2432187 bytes).
 PDF statistics:
- 759 PDF objects out of 1000 (max. 8388607)
- 250 named destinations out of 1000 (max. 500000)
- 410 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 846 PDF objects out of 1000 (max. 8388607)
+ 278 named destinations out of 1000 (max. 500000)
+ 442 words of extra memory for PDF output out of 10000 (max. 10000000)
 
