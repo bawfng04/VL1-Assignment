@@ -1,6 +1,13 @@
 """
 Ứng dụng tương tác: Quỹ đạo ném xiên trong trọng trường có lực cản môi trường
-Phương trình: m·a = m·g − h·v
+
+1. PHƯƠNG TRÌNH CƠ BẢN
+Định luật II Newton cho vật bay trong không khí là:
+    m * a = m * g - h * v
+
+Lực tổng cộng làm vật chuyển động (m*a) chịu tác động bởi 2 lực:
+- Lực kéo xuống của Trái Đất (m*g).
+- Lực cản của gió đẩy ngược lại chiều bay (-h*v). Vật bay càng nhanh (v lớn) thì gió cản càng mạnh.
 """
 
 import streamlit as st
@@ -97,20 +104,29 @@ st.markdown("""
 # ============================================================
 @st.cache_resource
 def solve_ode_symbolic():
-    """Giải hệ ODE bằng SymPy — chỉ chạy 1 lần."""
+    """Giải hệ phương trình vi phân bằng SymPy"""
     t_s = symbols('t', positive=True)
     m_s, g_s, h_s, v0_s, a_s = symbols('m g h v_0 alpha', positive=True)
     xf, yf = Function('x'), Function('y')
 
+    # ---- CHUYỂN ĐỔI TOÁN HỌC VÀO CODE ----
+    # Gia tốc a là đạo hàm bậc 2 của vị trí: x''(t) và y''(t)
+    # Vận tốc v là đạo hàm bậc 1 của vị trí: x'(t) và y'(t)
+    
+    # 1. Giải phương trình theo phương ngang (Ox)
+    # m*x''(t) + h*x'(t) = 0
     sol_x = dsolve(
         Eq(m_s * xf(t_s).diff(t_s, 2) + h_s * xf(t_s).diff(t_s), 0),
         xf(t_s),
-        ics={xf(0): 0, xf(t_s).diff(t_s).subs(t_s, 0): v0_s * cos(a_s)}
+        ics={xf(0): 0, xf(t_s).diff(t_s).subs(t_s, 0): v0_s * cos(a_s)} # Điều kiện: x(0)=0, vx(0)=v0*cos(a)
     )
+    
+    # 2. Giải phương trình theo phương đứng (Oy)
+    # m*y''(t) + h*y'(t) = -m*g
     sol_y = dsolve(
         Eq(m_s * yf(t_s).diff(t_s, 2) + h_s * yf(t_s).diff(t_s), -m_s * g_s),
         yf(t_s),
-        ics={yf(0): 0, yf(t_s).diff(t_s).subs(t_s, 0): v0_s * sin(a_s)}
+        ics={yf(0): 0, yf(t_s).diff(t_s).subs(t_s, 0): v0_s * sin(a_s)} # Điều kiện: y(0)=0, vy(0)=v0*sin(a)
     )
 
     x_expr = simplify(sol_x.rhs)
@@ -119,6 +135,7 @@ def solve_ode_symbolic():
     vy_expr = simplify(y_expr.diff(t_s))
 
     args = (t_s, m_s, g_s, h_s, v0_s, a_s)
+    
     return (
         lambdify(args, x_expr, 'numpy'),
         lambdify(args, y_expr, 'numpy'),
@@ -203,6 +220,7 @@ DASHES = ['solid', 'dash', 'dashdot', 'dot', 'longdash',
 # ============================================================
 # GIẢI SYMBOLIC
 # ============================================================
+# Giải phương trình vi phân bằng SymPy
 x_fn, y_fn, vx_fn, vy_fn, x_ltx, y_ltx, vx_ltx, vy_ltx = solve_ode_symbolic()
 
 

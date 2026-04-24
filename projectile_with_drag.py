@@ -4,8 +4,13 @@ BÀI TẬP LỚN: XÁC ĐỊNH QUỸ ĐẠO CHUYỂN ĐỘNG NÉM XIÊN
 TRONG TRỌNG TRƯỜNG CÓ LỰC CẢN MÔI TRƯỜNG
 =============================================================================
 
-Phương trình chuyển động:
+1. PHƯƠNG TRÌNH CƠ BẢN
+Định luật II Newton cho vật bay trong không khí là:
     m * a⃗ = m * g⃗ - h * v⃗
+
+Lực tổng cộng làm vật chuyển động (m*a) chịu tác động bởi 2 lực:
+- Lực kéo xuống của Trái Đất (m*g).
+- Lực cản của gió đẩy ngược lại chiều bay (-h*v). Vật bay càng nhanh (v lớn) thì gió cản càng mạnh.
 
 Trong đó:
     m  : khối lượng vật (kg)
@@ -14,10 +19,11 @@ Trong đó:
     v⃗  : vận tốc của vật (m/s)
     a⃗  : gia tốc của vật (m/s²)
 
-Điều kiện ban đầu:
-    x(0) = 0,  y(0) = 0
-    vx(0) = v0 * cos(α)
-    vy(0) = v0 * sin(α)
+2. ĐIỀU KIỆN BAN ĐẦU:
+Lúc vừa mới ném (t = 0):
+- Vật nằm ở tay người ném: x = 0, y = 0
+- Vận tốc bay theo chiều ngang: vx = v0 * cos(α)
+- Vận tốc bay thẳng đứng lên: vy = v0 * sin(α)
 
 =============================================================================
 """
@@ -77,49 +83,53 @@ print("\n" + "=" * 70)
 print("  PHẦN 2: GIẢI HỆ PHƯƠNG TRÌNH VI PHÂN BẰNG SYMPY")
 print("=" * 70)
 
-# ---- Phương trình vi phân cho x(t) ----
-# Từ phương trình vectơ: m*a⃗ = m*g⃗ - h*v⃗
-# Chiếu lên phương Ox (phương ngang, không có thành phần trọng lực):
+# ---- CHUYỂN ĐỔI TOÁN HỌC VÀO CODE (PHƯƠNG NGANG Ox) ----
+# Về mặt toán học:
+# - Gia tốc a là đạo hàm bậc 2 của vị trí: x''(t)
+# - Vận tốc v là đạo hàm bậc 1 của vị trí: x'(t)
+# Theo phương ngang (Ox) không có trọng lực, phương trình rút gọn thành:
 #   m * x''(t) = -h * x'(t)
-#   => x''(t) + (h/m) * x'(t) = 0
+# Chuyển vế sang: m * x''(t) + h * x'(t) = 0
 
 print("\n--- Phương trình vi phân theo phương Ox ---")
+# Trong Python, dùng hàm Eq (Equation) để viết phương trình trên.
+# diff(t, 2) nghĩa là đạo hàm bậc 2. diff(t) là đạo hàm bậc 1.
 ode_x = Eq(m_sym * x(t).diff(t, 2) + h_sym * x(t).diff(t), 0)
 print(f"  m·x''(t) + h·x'(t) = 0")
 pprint(ode_x)
 
-# Giải phương trình ODE cho x(t) với điều kiện ban đầu:
-#   x(0) = 0,  x'(0) = v0 * cos(alpha)
+# Gọi hàm dsolve() (Differential Solve) tìm ra công thức x(t)
+# Mệnh đề ics (Initial Conditions) nạp điều kiện lúc mới ném.
 sol_x = dsolve(
     ode_x,
     x(t),
     ics={
-        x(0): 0,
-        x(t).diff(t).subs(t, 0): v0_sym * cos(alpha_sym)
+        x(0): 0,  # Vị trí ban đầu
+        x(t).diff(t).subs(t, 0): v0_sym * cos(alpha_sym)  # Vận tốc ngang ban đầu
     }
 )
 
 print("\n  Nghiệm x(t):")
 pprint(sol_x)
 
-# ---- Phương trình vi phân cho y(t) ----
-# Chiếu lên phương Oy (phương thẳng đứng, trọng lực hướng xuống):
+# ---- CHUYỂN ĐỔI TOÁN HỌC VÀO CODE (PHƯƠNG ĐỨNG Oy) ----
+# Tương tự, theo phương đứng (Oy) có lực kéo của Trái Đất (-m*g):
 #   m * y''(t) = -m*g - h * y'(t)
-#   => m * y''(t) + h * y'(t) = -m*g
+# Chuyển vế sang: m * y''(t) + h * y'(t) = -m*g
 
 print("\n--- Phương trình vi phân theo phương Oy ---")
+# Khai báo phương trình Oy vào máy tính
 ode_y = Eq(m_sym * y(t).diff(t, 2) + h_sym * y(t).diff(t), -m_sym * g_sym)
 print(f"  m·y''(t) + h·y'(t) = -m·g")
 pprint(ode_y)
 
-# Giải phương trình ODE cho y(t) với điều kiện ban đầu:
-#   y(0) = 0,  y'(0) = v0 * sin(alpha)
+# Giải phương trình Oy
 sol_y = dsolve(
     ode_y,
     y(t),
     ics={
-        y(0): 0,
-        y(t).diff(t).subs(t, 0): v0_sym * sin(alpha_sym)
+        y(0): 0,  # Vị trí ban đầu
+        y(t).diff(t).subs(t, 0): v0_sym * sin(alpha_sym)  # Vận tốc đứng ban đầu
     }
 )
 
@@ -154,18 +164,16 @@ pprint(vy_expr)
 
 
 # =============================================================================
-# PHẦN 4: TÍNH TOÁN SỐ VÀ VẼ ĐỒ THỊ QUỸ ĐẠO
+# PHẦN 4: TÍNH TOÁN SỐ V VÀ VẼ ĐỒ THỊ QUỸ ĐẠO
 # =============================================================================
 print("\n" + "=" * 70)
 print("  PHẦN 4: TÍNH TOÁN SỐ VÀ VẼ ĐỒ THỊ")
 print("=" * 70)
 
-# Chuyển biểu thức symbolic sang hàm số (lambdify)
-# Thay thế các tham số symbolic bằng giá trị số
 x_func = lambdify(
-    (t, m_sym, g_sym, h_sym, v0_sym, alpha_sym),
-    x_expr,
-    modules='numpy'
+    (t, m_sym, g_sym, h_sym, v0_sym, alpha_sym), # Danh sách đầu vào
+    x_expr,                                      # Công thức cần tính
+    modules='numpy'                              # Dùng thư viện số học NumPy
 )
 y_func = lambdify(
     (t, m_sym, g_sym, h_sym, v0_sym, alpha_sym),
