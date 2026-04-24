@@ -19,9 +19,7 @@ from sympy import (
     lambdify, latex
 )
 
-# ============================================================
-# CẤU HÌNH TRANG
-# ============================================================
+
 st.set_page_config(
     page_title="Quỹ Đạo Ném Xiên | BTL Vật Lý 1",
     page_icon="⚛️",
@@ -29,9 +27,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ============================================================
-# CSS
-# ============================================================
+# phần này tạo UI nên khỏi đọc cũng được
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -94,17 +90,16 @@ st.markdown("""
     .data-table tr:nth-child(even) td { background: #f8fafc; }
     .data-table tr:hover td { background: #eff6ff; }
 
-    #MainMenu, footer, header { visibility: hidden; }
+    #MainMenu, footer { visibility: hidden; }
 </style>
 """, unsafe_allow_html=True)
 
 
 # ============================================================
-# SYMBOLIC ODE SOLVER (cached)
+# giải phương trình vi phân bằng SymPy
 # ============================================================
 @st.cache_resource
 def solve_ode_symbolic():
-    """Giải hệ phương trình vi phân bằng SymPy"""
     t_s = symbols('t', positive=True)
     m_s, g_s, h_s, v0_s, a_s = symbols('m g h v_0 alpha', positive=True)
     xf, yf = Function('x'), Function('y')
@@ -198,9 +193,7 @@ def compute_no_drag(v0, alpha_deg, g, t_max):
                 max_height=(v0*np.sin(a))**2/(2*g), t_land=tl)
 
 
-# ============================================================
-# PLOTLY LAYOUT
-# ============================================================
+# phần này tạo plot, bỏ qua cũng đc
 LAYOUT = dict(
     template="plotly_white",
     font=dict(family="Inter, sans-serif", size=13, color="#1e293b"),
@@ -217,16 +210,12 @@ DASHES = ['solid', 'dash', 'dashdot', 'dot', 'longdash',
           'longdashdot', 'solid', 'dash']
 
 
-# ============================================================
-# GIẢI SYMBOLIC
-# ============================================================
+
 # Giải phương trình vi phân bằng SymPy
 x_fn, y_fn, vx_fn, vy_fn, x_ltx, y_ltx, vx_ltx, vy_ltx = solve_ode_symbolic()
 
 
-# ============================================================
-# SIDEBAR — NHẬP THAM SỐ
-# ============================================================
+# UI nhập thông số
 with st.sidebar:
     st.markdown("### Thông số vật lý")
     m  = st.slider("Khối lượng m (kg)",              0.1, 10.0, 1.0, 0.1)
@@ -270,9 +259,6 @@ with st.sidebar:
     st.caption("Bài tập lớn Vật Lý 1 — Python + SymPy + Streamlit")
 
 
-# ============================================================
-# TIÊU ĐỀ
-# ============================================================
 st.markdown(
     '<div class="page-title">'
     'Quỹ đạo chuyển động ném xiên trong trọng trường có lực cản môi trường'
@@ -281,7 +267,6 @@ st.markdown(
 )
 st.latex(r"m\vec{a} = m\vec{g} - h\vec{v}")
 
-# Thẻ tham số
 chips = (
     f'<span class="param-chip"><b>m</b> = {m} kg</span>'
     f'<span class="param-chip"><b>g</b> = {g} m/s²</span>'
@@ -302,19 +287,11 @@ trajs = {
     for a in selected
 }
 
-
-# ============================================================
-# TABS
-# ============================================================
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "Quỹ đạo", "So sánh lực cản", "Vận tốc",
     "Năng lượng", "Khảo sát hệ số h", "Lý thuyết"
 ])
 
-
-# ================================================================
-# TAB 1: QUỸ ĐẠO
-# ================================================================
 with tab1:
     st.markdown(
         '<div class="section-title">Quỹ đạo chất điểm y(x)</div>',
@@ -363,7 +340,7 @@ with tab1:
         xaxis=dict(rangemode='tozero', gridcolor='#f1f5f9'),
         yaxis=dict(rangemode='tozero', gridcolor='#f1f5f9'),
     )
-    st.plotly_chart(fig1, use_container_width=True)
+    st.plotly_chart(fig1, width="stretch")
 
     # Bảng số liệu
     st.markdown(
@@ -440,7 +417,7 @@ with tab2:
         xaxis=dict(rangemode='tozero', gridcolor='#f1f5f9'),
         yaxis=dict(rangemode='tozero', gridcolor='#f1f5f9'),
     )
-    st.plotly_chart(fig2, use_container_width=True)
+    st.plotly_chart(fig2, width="stretch")
 
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("R (không cản)", f"{tn['range']:.1f} m")
@@ -490,7 +467,7 @@ with tab3:
         **LAYOUT, height=440,
         title=dict(text="Biến thiên vận tốc theo thời gian", font=dict(size=15))
     )
-    st.plotly_chart(fig3, use_container_width=True)
+    st.plotly_chart(fig3, width="stretch")
 
 
 # ================================================================
@@ -544,7 +521,7 @@ with tab4:
         xaxis=dict(gridcolor='#f1f5f9'),
         yaxis=dict(gridcolor='#f1f5f9'),
     )
-    st.plotly_chart(fig4, use_container_width=True)
+    st.plotly_chart(fig4, width="stretch")
 
     p1, p2, p3 = st.columns(3)
     p1.metric("Năng lượng ban đầu E₀", f"{E0:.1f} J")
@@ -600,7 +577,7 @@ with tab5:
         xaxis=dict(rangemode='tozero', gridcolor='#f1f5f9'),
         yaxis=dict(rangemode='tozero', gridcolor='#f1f5f9'),
     )
-    st.plotly_chart(fig5, use_container_width=True)
+    st.plotly_chart(fig5, width="stretch")
 
 
 # ================================================================

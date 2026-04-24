@@ -73,7 +73,7 @@ m\vec{a} = m\vec{g} - h\vec{v}
 \end{equation}
 
 \subsubsection{Hệ phương trình vi phân theo hai trục}
-Chiếu phương trình (\ref{eq:newton}) lên hệ trục tọa độ $Oxy$:
+Theo mô hình động lực học cổ điển \cite{taylor2005classical}, bằng cách chiếu phương trình (\ref{eq:newton}) lên hệ trục tọa độ $Oxy$, ta được:
 
 \textbf{Theo trục Ox (nằm ngang):} Trọng lực không có tác dụng theo phương ngang nên:
 \begin{equation}
@@ -233,7 +233,7 @@ E_0 = E(t) + |W_c(t)|
 Với $E_0 = \frac{1}{2}mv_0^2$ là cơ năng ban đầu của hệ. Hệ thức bảo toàn năng lượng tổng quát này sẽ được sử dụng làm tiêu chuẩn để kiểm chứng độ chính xác của các thuật toán mô phỏng số.
 
 \subsubsection{Trường hợp không có lực cản (khảo sát giới hạn $h \to 0$)}
-Để kiểm chứng tính nhất quán của nghiệm, ta xét giới hạn khi hệ số cản $h$ tiến về 0. Trong điều kiện này, các phương trình chuyển động phải hội tụ về dạng của mô hình lý tưởng. 
+Để kiểm chứng tính nhất quán của nghiệm, ta xét giới hạn khi hệ số cản $h$ tiến về 0. Theo phương pháp xấp xỉ trong cơ học giải tích \cite{taylor2005classical}, trong điều kiện này, các phương trình chuyển động phải hội tụ về dạng của mô hình lý tưởng. 
 
 Sử dụng khai triển Taylor cho hàm số mũ. Đối với tọa độ $x$, ta lấy khai triển đến bậc 1: $e^{-ht/m} \approx 1 - \frac{h}{m}t$. Thay vào phương trình (\ref{eq:x}) ta được:
 \begin{equation*}

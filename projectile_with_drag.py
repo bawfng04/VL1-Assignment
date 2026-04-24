@@ -6,7 +6,7 @@ TRONG TRỌNG TRƯỜNG CÓ LỰC CẢN MÔI TRƯỜNG
 
 1. PHƯƠNG TRÌNH CƠ BẢN
 Định luật II Newton cho vật bay trong không khí là:
-    m * a⃗ = m * g⃗ - h * v⃗
+    m * a = m * g - h * v
 
 Lực tổng cộng làm vật chuyển động (m*a) chịu tác động bởi 2 lực:
 - Lực kéo xuống của Trái Đất (m*g).
@@ -16,8 +16,8 @@ Trong đó:
     m  : khối lượng vật (kg)
     g  : gia tốc trọng trường (m/s²)
     h  : hệ số cản môi trường (kg/s)
-    v⃗  : vận tốc của vật (m/s)
-    a⃗  : gia tốc của vật (m/s²)
+    v  : vận tốc của vật (m/s)
+    a  : gia tốc của vật (m/s²)
 
 2. ĐIỀU KIỆN BAN ĐẦU:
 Lúc vừa mới ném (t = 0):
@@ -35,29 +35,20 @@ from sympy import (
     lambdify, pi, Rational, latex, pprint, init_printing
 )
 
-# Khởi tạo chế độ hiển thị symbolic đẹp
 init_printing(use_unicode=True)
 
 
-# =============================================================================
-# PHẦN 1: KHAI BÁO CÁC BIẾN VÀ THAM SỐ
-# =============================================================================
+# khai báo biến + tham số
 print("=" * 70)
 print("  CHƯƠNG TRÌNH TÍNH QUỸ ĐẠO NÉM XIÊN CÓ LỰC CẢN MÔI TRƯỜNG")
 print("=" * 70)
-
-# Khai báo biến symbolic
 t = symbols('t', positive=True)
 m_sym, g_sym, h_sym, v0_sym, alpha_sym = symbols(
     'm g h v_0 alpha', positive=True
 )
-
-# Khai báo hàm symbolic
 x = Function('x')
 y = Function('y')
 
-# --- Nhập các thông số vật lý ---
-# Giá trị mặc định (có thể thay đổi)
 m_val = 1.0          # Khối lượng vật (kg)
 g_val = 9.81         # Gia tốc trọng trường (m/s²)
 h_val = 0.5          # Hệ số cản môi trường (kg/s)
@@ -77,7 +68,7 @@ print(f"  Các góc ném         α  = {angles_deg}°")
 
 
 # =============================================================================
-# PHẦN 2: THIẾT LẬP VÀ GIẢI HỆ PHƯƠNG TRÌNH VI PHÂN (SYMBOLIC)
+# PHẦN 2: THIẾT LẬP VÀ GIẢI HỆ PHƯƠNG TRÌNH VI PHÂN
 # =============================================================================
 print("\n" + "=" * 70)
 print("  PHẦN 2: GIẢI HỆ PHƯƠNG TRÌNH VI PHÂN BẰNG SYMPY")
@@ -99,7 +90,6 @@ print(f"  m·x''(t) + h·x'(t) = 0")
 pprint(ode_x)
 
 # Gọi hàm dsolve() (Differential Solve) tìm ra công thức x(t)
-# Mệnh đề ics (Initial Conditions) nạp điều kiện lúc mới ném.
 sol_x = dsolve(
     ode_x,
     x(t),
@@ -190,11 +180,7 @@ vy_func = lambdify(
     vy_expr,
     modules='numpy'
 )
-
-# Mảng thời gian
 t_arr = np.linspace(0, t_flight, 2000)
-
-# Định dạng màu sắc và nét vẽ cho từng góc
 styles = {
     15: {'color': '#E74C3C', 'linestyle': '-',  'marker': '',  'label': r'$\alpha = 15°$'},
     30: {'color': '#3498DB', 'linestyle': '--', 'marker': '',  'label': r'$\alpha = 30°$'},
@@ -203,7 +189,7 @@ styles = {
     75: {'color': '#9B59B6', 'linestyle': '-',  'marker': '',  'label': r'$\alpha = 75°$'},
 }
 
-# ---- Tạo Figure chính: Quỹ đạo y(x) ----
+# vẽ đồ thị quỹ đạo
 fig1, ax1 = plt.subplots(1, 1, figsize=(14, 8))
 
 print("\n  Tính toán quỹ đạo cho các góc ném:")
@@ -222,7 +208,7 @@ for alpha_deg in angles_deg:
     landing_indices = np.where((y_vals[1:] <= 0) & (y_vals[:-1] > 0))[0]
     if len(landing_indices) > 0:
         idx_land = landing_indices[0] + 1
-        # Nội suy tuyến tính để tìm chính xác thời điểm chạm đất
+        # tìm ra thời điểm chạm đất
         t_land = t_arr[idx_land - 1] + (0 - y_vals[idx_land - 1]) / \
                  (y_vals[idx_land] - y_vals[idx_land - 1]) * \
                  (t_arr[idx_land] - t_arr[idx_land - 1])
@@ -230,12 +216,12 @@ for alpha_deg in angles_deg:
         idx_land = len(t_arr) - 1
         t_land = t_flight
 
-    # Cắt dữ liệu đến khi chạm đất
+    # cắt dữ liệu đến khi chạm đất
     mask = t_arr <= t_land
     x_plot = x_vals[mask]
     y_plot = y_vals[mask]
 
-    # Thêm điểm chạm đất chính xác
+    # thêm điểm chạm đất
     x_land = x_func(t_land, m_val, g_val, h_val, v0_val, alpha_rad)
     y_land = 0.0
     x_plot = np.append(x_plot, x_land)
@@ -257,17 +243,17 @@ for alpha_deg in angles_deg:
         label=style['label']
     )
 
-    # Đánh dấu điểm rơi
+    # đánh dấu điểm rơi
     ax1.plot(x_land, 0, 'v', color=style['color'], markersize=10, zorder=5)
 
-    # Đánh dấu điểm cao nhất
+    # đánh dấu điểm cao nhất
     idx_max = np.argmax(y_plot)
     ax1.plot(
         x_plot[idx_max], y_plot[idx_max], '*',
         color=style['color'], markersize=12, zorder=5
     )
 
-# Định dạng đồ thị chính
+# định dạng đồ thị chính
 ax1.set_xlabel('Khoảng cách ngang x (m)', fontsize=14, fontweight='bold')
 ax1.set_ylabel('Độ cao y (m)', fontsize=14, fontweight='bold')
 ax1.set_title(
@@ -298,6 +284,7 @@ print("=" * 70)
 fig2, ax2 = plt.subplots(1, 1, figsize=(14, 8))
 
 # Quỹ đạo không có lực cản (h = 0): nghiệm giải tích cổ điển
+# giống trong tập ghi
 # x(t) = v0 * cos(α) * t
 # y(t) = v0 * sin(α) * t - 0.5 * g * t²
 alpha_compare = 45  # Góc so sánh (độ)
