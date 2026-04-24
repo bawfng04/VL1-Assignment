@@ -369,7 +369,7 @@ print("\n" + "=" * 70)
 print("  PHẦN 6: ĐỒ THỊ VẬN TỐC THEO THỜI GIAN")
 print("=" * 70)
 
-fig3, (ax3a, ax3b) = plt.subplots(1, 2, figsize=(16, 7))
+fig3, (ax3a, ax3b, ax3c) = plt.subplots(1, 3, figsize=(21, 6))
 
 for alpha_deg in angles_deg:
     alpha_rad = np.deg2rad(alpha_deg)
@@ -392,12 +392,15 @@ for alpha_deg in angles_deg:
     t_plot = t_arr[mask_v]
     vx_plot = vx_vals[mask_v]
     vy_plot = vy_vals[mask_v]
+    v_total_plot = np.sqrt(vx_plot**2 + vy_plot**2)
 
     style = styles[alpha_deg]
 
     ax3a.plot(t_plot, vx_plot, color=style['color'],
               linestyle=style['linestyle'], linewidth=2, label=style['label'])
     ax3b.plot(t_plot, vy_plot, color=style['color'],
+              linestyle=style['linestyle'], linewidth=2, label=style['label'])
+    ax3c.plot(t_plot, v_total_plot, color=style['color'],
               linestyle=style['linestyle'], linewidth=2, label=style['label'])
 
 ax3a.set_xlabel('Thời gian t (s)', fontsize=13, fontweight='bold')
@@ -413,6 +416,13 @@ ax3b.set_title('Vận tốc theo phương đứng vᵧ(t)', fontsize=14, fontwei
 ax3b.legend(fontsize=11, framealpha=0.9)
 ax3b.grid(True, alpha=0.3, linestyle='--')
 ax3b.tick_params(axis='both', labelsize=11)
+
+ax3c.set_xlabel('Thời gian t (s)', fontsize=13, fontweight='bold')
+ax3c.set_ylabel('Tốc độ |v| (m/s)', fontsize=13, fontweight='bold')
+ax3c.set_title('Tốc độ tổng cộng |v|(t)', fontsize=14, fontweight='bold')
+ax3c.legend(fontsize=11, framealpha=0.9)
+ax3c.grid(True, alpha=0.3, linestyle='--')
+ax3c.tick_params(axis='both', labelsize=11)
 
 plt.tight_layout()
 plt.savefig('van_toc_theo_thoi_gian.png', dpi=300, bbox_inches='tight')

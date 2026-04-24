@@ -34,16 +34,16 @@
 \contentsline {subsection}{\numberline {3.1}Thông số dùng để mô phỏng}{14}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Quỹ đạo ở các góc ném khác nhau}{14}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}So sánh khi có lực cản và không có lực cản}{15}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Sự biến thiên của vận tốc}{17}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Sự biến thiên năng lượng}{18}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Ảnh hưởng của hệ số cản $h$}{19}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Kết luận và hướng phát triển}{20}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Tổng kết kết quả}{20}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Các kết luận vật lý}{20}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Kiểm chứng độ tin cậy của mô hình}{20}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Hướng phát triển mở rộng}{21}{subsection.4.4}%
-\contentsline {section}{\numberline {A}Phụ lục}{23}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Danh sách thành viên}{23}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Mã nguồn chương trình (trích đoạn)}{23}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {A.2.1}File \texttt {projectile\_with\_drag.py} -- Chương trình tĩnh}{23}{subsubsection.A.2.1}%
-\contentsline {subsubsection}{\numberline {A.2.2}File \texttt {app.py} -- Ứng dụng Streamlit}{24}{subsubsection.A.2.2}%
+\contentsline {subsection}{\numberline {3.4}Sự biến thiên của vận tốc}{16}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Sự biến thiên năng lượng}{17}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Ảnh hưởng của hệ số cản $h$}{18}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Kết luận và hướng phát triển}{19}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Tổng kết kết quả}{19}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Các kết luận vật lý}{19}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Kiểm chứng độ tin cậy của mô hình}{19}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Hướng phát triển mở rộng}{20}{subsection.4.4}%
+\contentsline {section}{\numberline {A}Phụ lục}{22}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Danh sách thành viên}{22}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Mã nguồn chương trình (trích đoạn)}{22}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {A.2.1}File \texttt {projectile\_with\_drag.py} -- Chương trình tĩnh}{22}{subsubsection.A.2.1}%
+\contentsline {subsubsection}{\numberline {A.2.2}File \texttt {app.py} -- Ứng dụng Streamlit}{23}{subsubsection.A.2.2}%
