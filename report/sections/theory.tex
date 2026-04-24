@@ -19,17 +19,39 @@ y(t) = v_0 \sin\alpha \cdot t - \dfrac{1}{2}gt^2
 \label{eq:ideal}
 \end{equation}
 
-Khử tham số thời gian $t$ từ hệ phương trình, ta thu được phương trình quỹ đạo có dạng một đường parabol:
+Khử tham số thời gian $t$ từ hệ phương trình, ta thu được phương trình quỹ đạo có dạng một đường parabol. Cụ thể, từ phương trình của $x(t)$, ta rút $t$:
+\begin{equation*}
+t = \frac{x}{v_0 \cos\alpha}
+\end{equation*}
+Thay biểu thức của $t$ vào phương trình của $y(t)$:
+\begin{align*}
+y &= v_0 \sin\alpha \left( \frac{x}{v_0 \cos\alpha} \right) - \frac{1}{2}g \left( \frac{x}{v_0 \cos\alpha} \right)^2 \\
+&= x \frac{\sin\alpha}{\cos\alpha} - \frac{g}{2v_0^2\cos^2\alpha}x^2
+\end{align*}
+Từ đó, ta thu được phương trình quỹ đạo:
 \begin{equation}
 y = x\tan\alpha - \frac{g}{2v_0^2\cos^2\alpha}\,x^2
 \label{eq:parabola}
 \end{equation}
 
-Một số đại lượng đặc trưng trong trường hợp này:
-\begin{itemize}[nosep]
-    \item \textbf{Tầm xa cực đại:} $R_0 = \dfrac{v_0^2\sin 2\alpha}{g}$. Tầm xa đạt giá trị lớn nhất $R_{max} = v_0^2/g$ khi góc ném $\alpha = 45°$.
-    \item \textbf{Độ cao cực đại:} $H_0 = \dfrac{v_0^2\sin^2\alpha}{2g}$.
-    \item \textbf{Thời gian bay:} $T_0 = \dfrac{2v_0\sin\alpha}{g}$.
+Từ hệ phương trình (\ref{eq:ideal}) và phương trình quỹ đạo (\ref{eq:parabola}), ta chứng minh được các đại lượng đặc trưng của chuyển động lý tưởng:
+
+\begin{itemize}
+    \item \textbf{Thời gian bay ($T_0$):} Vật chạm đất khi $y(T_0) = 0$ (với $T_0 > 0$).
+    \begin{equation*}
+    v_0 \sin\alpha \cdot T_0 - \frac{1}{2}gT_0^2 = 0 \implies T_0 = \frac{2v_0\sin\alpha}{g}
+    \end{equation*}
+    
+    \item \textbf{Tầm xa ($R_0$):} Là tọa độ $x$ tại thời điểm vật chạm đất $t = T_0$.
+    \begin{equation*}
+    R_0 = x(T_0) = v_0 \cos\alpha \left( \frac{2v_0\sin\alpha}{g} \right) = \frac{v_0^2 (2\sin\alpha\cos\alpha)}{g} = \frac{v_0^2\sin 2\alpha}{g}
+    \end{equation*}
+    Tầm xa đạt giá trị cực đại $R_{max} = v_0^2/g$ khi $\sin 2\alpha = 1$, tức là góc ném $\alpha = 45^\circ$.
+    
+    \item \textbf{Độ cao cực đại ($H_0$):} Đạt được tại thời điểm $t = T_0 / 2 = \frac{v_0\sin\alpha}{g}$ (do tính đối xứng của parabol).
+    \begin{equation*}
+    H_0 = y\left(\frac{T_0}{2}\right) = v_0 \sin\alpha \left( \frac{v_0\sin\alpha}{g} \right) - \frac{1}{2}g \left( \frac{v_0\sin\alpha}{g} \right)^2 = \frac{v_0^2\sin^2\alpha}{2g}
+    \end{equation*}
 \end{itemize}
 
 Quỹ đạo ở đây là một đường parabol hoàn toàn đối xứng. Tuy nhiên, mô hình lý tưởng này chỉ đúng khi vật di chuyển chậm hoặc trong môi trường chân không. Trong thực tế, khi ném một vật trong không khí, lực cản sẽ làm thay đổi đáng kể quỹ đạo của nó.
@@ -83,7 +105,15 @@ v_y(0) = v_{0y} = v_0 \sin\alpha
 Nhằm đơn giản hóa biểu thức, đặt $k = h/m$ (đơn vị: 1/s). Đây là hệ số đặc trưng cho mức độ suy giảm vận tốc do tác dụng của lực cản.
 
 \subsubsection{Chuyển động theo phương Ox}
-Viết lại phương trình (\ref{eq:ode_x}): $\ddot{x} + k\dot{x} = 0$. Đặt $u = \dot{x}$ (vận tốc ngang), phương trình trở thành $\dot{u} + ku = 0$. Đây là phương trình vi phân bậc nhất cơ bản. Nghiệm của nó có dạng: $u(t) = C \cdot e^{-kt}$. Thay điều kiện ban đầu $u(0) = v_0\cos\alpha$ vào, ta tìm được hằng số $C = v_0\cos\alpha$.
+Viết lại phương trình (\ref{eq:ode_x}): $\ddot{x} + k\dot{x} = 0$. Đặt $v_x = \dot{x}$ là vận tốc ngang, phương trình trở thành:
+\begin{equation*}
+\frac{dv_x}{dt} + kv_x = 0 \implies \frac{dv_x}{v_x} = -k dt
+\end{equation*}
+Lấy tích phân hai vế:
+\begin{equation*}
+\int \frac{dv_x}{v_x} = \int -k dt \implies \ln|v_x| = -kt + C_1 \implies v_x(t) = C \cdot e^{-kt}
+\end{equation*}
+Tại $t = 0$, ta có điều kiện ban đầu $v_x(0) = v_0\cos\alpha$. Suy ra $C = v_0\cos\alpha$.
 
 \textbf{Vận tốc theo phương ngang:}
 \begin{equation}
@@ -91,7 +121,15 @@ v_x(t) = v_0 \cos\alpha \cdot e^{-kt}
 \label{eq:vx}
 \end{equation}
 
-Lấy tích phân vận tốc theo thời gian $t$ (với $x(0) = 0$), ta được:
+Mặt khác, $v_x(t) = \frac{dx}{dt}$, do đó ta tiếp tục lấy tích phân hai vế để tìm tọa độ $x$:
+\begin{equation*}
+\int dx = \int v_0 \cos\alpha \cdot e^{-kt} dt \implies x(t) = -\frac{v_0 \cos\alpha}{k} e^{-kt} + C_2
+\end{equation*}
+Tại $t = 0$, $x(0) = 0$, ta có:
+\begin{equation*}
+0 = -\frac{v_0 \cos\alpha}{k} + C_2 \implies C_2 = \frac{v_0 \cos\alpha}{k}
+\end{equation*}
+Thay $C_2$ vào hàm $x(t)$ và trả lại $k = h/m$, ta được:
 
 \textbf{Tọa độ x:}
 \begin{equation}
@@ -102,7 +140,23 @@ x(t) = \frac{m v_0 \cos\alpha}{h}\left(1 - e^{-\frac{h}{m}t}\right)
 \textit{Nhận xét:} Vận tốc ngang của vật suy giảm theo hàm mũ và tiệm cận về 0. Do đó, tọa độ $x$ không tăng vô hạn mà bị giới hạn ở một khoảng cách tối đa $x_\infty = mv_0\cos\alpha/h$ khi thời gian $t \to \infty$. Đặc điểm này phản ánh bản chất tiêu tán năng lượng của lực cản, hoàn toàn khác biệt so với chuyển động ngang vĩnh cửu trong mô hình lý tưởng.
 
 \subsubsection{Chuyển động theo phương Oy}
-Viết lại phương trình (\ref{eq:ode_y}): $\ddot{y} + k\dot{y} = -g$. Đặt $w = \dot{y}$ (vận tốc đứng), ta có: $\dot{w} + kw = -g$. Đây là phương trình vi phân bậc nhất không thuần nhất. Nghiệm của phương trình này bao gồm nghiệm tổng quát và nghiệm riêng. Giải phương trình này với điều kiện ban đầu $w(0) = v_0\sin\alpha$, ta được:
+Viết lại phương trình (\ref{eq:ode_y}): $\ddot{y} + k\dot{y} = -g$. Đặt $v_y = \dot{y}$ là vận tốc đứng, ta có phương trình vi phân bậc nhất tuyến tính không thuần nhất:
+\begin{equation*}
+\frac{dv_y}{dt} + kv_y = -g
+\end{equation*}
+Để giải phương trình này, ta nhân cả hai vế với thừa số tích phân $e^{kt}$:
+\begin{equation*}
+e^{kt} \frac{dv_y}{dt} + k e^{kt} v_y = -g e^{kt} \implies \frac{d}{dt}\left( v_y e^{kt} \right) = -g e^{kt}
+\end{equation*}
+Lấy tích phân hai vế theo $t$:
+\begin{equation*}
+v_y e^{kt} = \int -g e^{kt} dt = -\frac{g}{k} e^{kt} + C_3 \implies v_y(t) = C_3 e^{-kt} - \frac{g}{k}
+\end{equation*}
+Sử dụng điều kiện ban đầu tại $t = 0$, ta có $v_y(0) = v_0\sin\alpha$:
+\begin{equation*}
+v_0\sin\alpha = C_3 - \frac{g}{k} \implies C_3 = v_0\sin\alpha + \frac{g}{k}
+\end{equation*}
+Thay $C_3$ và $k = h/m$ trở lại hàm $v_y$, ta được:
 
 \textbf{Vận tốc theo phương đứng:}
 \begin{equation}
@@ -110,7 +164,18 @@ v_y(t) = \left(v_0\sin\alpha + \frac{mg}{h}\right)e^{-\frac{h}{m}t} - \frac{mg}{
 \label{eq:vy}
 \end{equation}
 
-Tiếp tục lấy tích phân theo thời gian $t$ (với $y(0) = 0$):
+Tiếp theo, tọa độ $y(t)$ thu được bằng cách lấy tích phân vận tốc $v_y(t)$:
+\begin{equation*}
+y(t) = \int v_y(t) dt = \int \left[ \left(v_0\sin\alpha + \frac{g}{k}\right)e^{-kt} - \frac{g}{k} \right] dt
+\end{equation*}
+\begin{equation*}
+y(t) = -\frac{1}{k}\left(v_0\sin\alpha + \frac{g}{k}\right)e^{-kt} - \frac{g}{k}t + C_4
+\end{equation*}
+Tại thời điểm $t = 0$, vật xuất phát tại gốc tọa độ $y(0) = 0$:
+\begin{equation*}
+0 = -\frac{1}{k}\left(v_0\sin\alpha + \frac{g}{k}\right) + C_4 \implies C_4 = \frac{1}{k}\left(v_0\sin\alpha + \frac{g}{k}\right)
+\end{equation*}
+Gom các biểu thức chứa $C_4$ lại và thế $k = h/m$, ta thu được nghiệm cuối cùng:
 
 \textbf{Tọa độ y:}
 \begin{equation}
@@ -131,7 +196,18 @@ v_\infty = \lim_{t \to \infty} v_y(t) = -\frac{mg}{h}
 Tại mức vận tốc này, lực cản không khí hướng lên đã cân bằng hoàn toàn với trọng lực hướng xuống ($h|v_\infty| = mg$), dẫn đến gia tốc triệt tiêu và vật chuyển động thẳng đều. Hiện tượng tiệm cận vận tốc này rất phổ biến trong động lực học lưu chất, điển hình như sự rơi của hạt mưa trong khí quyển \cite{serway2008physics}.
 
 \subsubsection{Thời gian vật lên tới đỉnh}
-Vật đạt độ cao lớn nhất khi vận tốc thẳng đứng giảm về 0 ($v_y = 0$). Từ phương trình (\ref{eq:vy}), ta có thể tính được thời điểm này:
+Vật đạt độ cao lớn nhất khi vận tốc thẳng đứng giảm về 0 ($v_y(t) = 0$). Từ phương trình vận tốc (\ref{eq:vy}), ta cho $v_y(t) = 0$:
+\begin{equation*}
+\left(v_0\sin\alpha + \frac{mg}{h}\right)e^{-\frac{h}{m}t} - \frac{mg}{h} = 0
+\end{equation*}
+\begin{equation*}
+\implies e^{-\frac{h}{m}t} = \frac{\frac{mg}{h}}{v_0\sin\alpha + \frac{mg}{h}} = \frac{mg}{hv_0\sin\alpha + mg}
+\end{equation*}
+Nghịch đảo cả hai vế:
+\begin{equation*}
+e^{\frac{h}{m}t} = \frac{hv_0\sin\alpha + mg}{mg} = 1 + \frac{hv_0\sin\alpha}{mg}
+\end{equation*}
+Lấy logarithm tự nhiên (ln) hai vế, ta tính được thời điểm vật đạt đỉnh:
 \begin{equation}
 t_{H} = \frac{m}{h}\ln\left(1 + \frac{h v_0\sin\alpha}{mg}\right)
 \label{eq:tmax}
@@ -159,6 +235,21 @@ Với $E_0 = \frac{1}{2}mv_0^2$ là cơ năng ban đầu của hệ. Hệ thức
 \subsubsection{Trường hợp không có lực cản (khảo sát giới hạn $h \to 0$)}
 Để kiểm chứng tính nhất quán của nghiệm, ta xét giới hạn khi hệ số cản $h$ tiến về 0. Trong điều kiện này, các phương trình chuyển động phải hội tụ về dạng của mô hình lý tưởng. 
 
-Sử dụng khai triển Taylor cho hàm số mũ: $e^{-ht/m} \approx 1 - \frac{h}{m}t$, thay vào phương trình (\ref{eq:x}) ta được:
-$$x \approx \frac{mv_0\cos\alpha}{h}\cdot\left(1 - \left(1 - \frac{h}{m}t\right)\right) = v_0\cos\alpha\cdot t$$
-Kết quả này hoàn toàn trùng khớp với phương trình chuyển động ngang (\ref{eq:ideal}). Thông qua phép xấp xỉ tương tự đối với tọa độ $y(t)$ và vận tốc, hệ phương trình nghiệm hoàn toàn hội tụ về mô hình ném xiên lý tưởng, khẳng định tính hợp lý và chặt chẽ của lời giải.
+Sử dụng khai triển Taylor cho hàm số mũ. Đối với tọa độ $x$, ta lấy khai triển đến bậc 1: $e^{-ht/m} \approx 1 - \frac{h}{m}t$. Thay vào phương trình (\ref{eq:x}) ta được:
+\begin{equation*}
+x \approx \frac{mv_0\cos\alpha}{h} \left[ 1 - \left(1 - \frac{h}{m}t\right) \right] = \frac{mv_0\cos\alpha}{h} \left( \frac{h}{m}t \right) = v_0\cos\alpha\cdot t
+\end{equation*}
+Kết quả này hoàn toàn trùng khớp với phương trình $x(t)$ của mô hình lý tưởng.
+
+Đối với tọa độ $y$, do có sự bù trừ giữa các đại lượng, ta cần sử dụng khai triển Taylor đến bậc 2: $e^{-ht/m} \approx 1 - \frac{h}{m}t + \frac{1}{2}\left(\frac{h}{m}t\right)^2$. Đặt $k = h/m$, thay vào phương trình (\ref{eq:y}):
+\begin{align*}
+y(t) &= \left(\frac{v_0\sin\alpha}{k} + \frac{g}{k^2}\right) \left[ 1 - \left(1 - kt + \frac{1}{2}k^2 t^2\right) \right] - \frac{g}{k}t \\
+&= \left(\frac{v_0\sin\alpha}{k} + \frac{g}{k^2}\right) \left( kt - \frac{1}{2}k^2 t^2 \right) - \frac{g}{k}t \\
+&= v_0\sin\alpha \cdot t - \frac{1}{2}v_0\sin\alpha \cdot k t^2 + \frac{g}{k}t - \frac{1}{2}gt^2 - \frac{g}{k}t \\
+&= v_0\sin\alpha \cdot t - \frac{1}{2}gt^2 - \frac{1}{2}v_0\sin\alpha \cdot \frac{h}{m} t^2
+\end{align*}
+Khi hệ số cản $h \to 0$, số hạng chứa $h$ sẽ tiến về 0, ta thu được:
+\begin{equation*}
+\lim_{h \to 0} y(t) = v_0\sin\alpha \cdot t - \frac{1}{2}gt^2
+\end{equation*}
+Như vậy, hệ phương trình nghiệm trong môi trường có lực cản đã hoàn toàn hội tụ về mô hình ném xiên lý tưởng khi $h \to 0$. Điều kiện tiên quyết này chứng minh tính hợp lý và độ chặt chẽ tuyệt đối của lời giải giải tích.
