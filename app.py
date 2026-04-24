@@ -595,10 +595,10 @@ with tab6:
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("**Phương Ox (ngang):**")
-        st.latex(r"m\ddot{x} + h\dot{x} = 0")
+        st.latex(r"m\frac{d^2x}{dt^2} + h\frac{dx}{dt} = 0")
     with col2:
         st.markdown("**Phương Oy (đứng):**")
-        st.latex(r"m\ddot{y} + h\dot{y} = -mg")
+        st.latex(r"m\frac{d^2y}{dt^2} + h\frac{dy}{dt} = -mg")
 
     st.markdown("**Điều kiện ban đầu:**")
     st.latex(

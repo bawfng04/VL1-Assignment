@@ -77,13 +77,13 @@ Theo mô hình động lực học cổ điển \cite{taylor2005classical}, bằ
 
 \textbf{Theo trục Ox (nằm ngang):} Trọng lực không có tác dụng theo phương ngang nên:
 \begin{equation}
-m\ddot{x} + h\dot{x} = 0
+m\frac{d^2x}{dt^2} + h\frac{dx}{dt} = 0
 \label{eq:ode_x}
 \end{equation}
 
 \textbf{Theo trục Oy (thẳng đứng):} Có thêm trọng lực hướng xuống ($-mg$):
 \begin{equation}
-m\ddot{y} + h\dot{y} = -mg
+m\frac{d^2y}{dt^2} + h\frac{dy}{dt} = -mg
 \label{eq:ode_y}
 \end{equation}
 
@@ -105,7 +105,7 @@ v_y(0) = v_{0y} = v_0 \sin\alpha
 Nhằm đơn giản hóa biểu thức, đặt $k = h/m$ (đơn vị: 1/s). Đây là hệ số đặc trưng cho mức độ suy giảm vận tốc do tác dụng của lực cản.
 
 \subsubsection{Chuyển động theo phương Ox}
-Viết lại phương trình (\ref{eq:ode_x}): $\ddot{x} + k\dot{x} = 0$. Đặt $v_x = \dot{x}$ là vận tốc ngang, phương trình trở thành:
+Viết lại phương trình (\ref{eq:ode_x}): $\frac{d^2x}{dt^2} + k\frac{dx}{dt} = 0$. Đặt $v_x = \frac{dx}{dt}$ là vận tốc ngang, phương trình trở thành:
 \begin{equation*}
 \frac{dv_x}{dt} + kv_x = 0 \implies \frac{dv_x}{v_x} = -k dt
 \end{equation*}
@@ -140,7 +140,7 @@ x(t) = \frac{m v_0 \cos\alpha}{h}\left(1 - e^{-\frac{h}{m}t}\right)
 \textit{Nhận xét:} Vận tốc ngang của vật suy giảm theo hàm mũ và tiệm cận về 0. Do đó, tọa độ $x$ không tăng vô hạn mà bị giới hạn ở một khoảng cách tối đa $x_\infty = mv_0\cos\alpha/h$ khi thời gian $t \to \infty$. Đặc điểm này phản ánh bản chất tiêu tán năng lượng của lực cản, hoàn toàn khác biệt so với chuyển động ngang vĩnh cửu trong mô hình lý tưởng.
 
 \subsubsection{Chuyển động theo phương Oy}
-Viết lại phương trình (\ref{eq:ode_y}): $\ddot{y} + k\dot{y} = -g$. Đặt $v_y = \dot{y}$ là vận tốc đứng, ta có phương trình vi phân bậc nhất tuyến tính không thuần nhất:
+Viết lại phương trình (\ref{eq:ode_y}): $\frac{d^2y}{dt^2} + k\frac{dy}{dt} = -g$. Đặt $v_y = \frac{dy}{dt}$ là vận tốc đứng, ta có phương trình vi phân bậc nhất tuyến tính không thuần nhất:
 \begin{equation*}
 \frac{dv_y}{dt} + kv_y = -g
 \end{equation*}
